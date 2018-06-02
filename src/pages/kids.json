@@ -1,0 +1,27 @@
+{
+	"stage": {
+		"slides": [
+			{
+				"image": "/assets/youngsters.jpg",
+				"text": "Youngsters",
+				"style": {
+					"objectPosition": "70% 0%"
+				}
+			}
+		]
+	},
+	"content": {
+		"service": [
+			{
+				"label": "Toddlers",
+				"details": "two & younger",
+				"price": "€ 17,00"
+			},
+			{
+				"label": "Kids",
+				"details": "ten & younger",
+				"price": "€ 27,00"
+			}
+		]
+	}
+}

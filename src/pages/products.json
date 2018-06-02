@@ -1,0 +1,22 @@
+{
+	"stage": {
+		"slides": [
+			{
+				"image": "/assets/care.jpg",
+				"text": "Care",
+				"style": {
+					"objectPosition": "40% 50%"
+				}
+			}
+		]
+	},
+	"content": {
+		"service": [
+			{
+				"label": "Personal Haircare",
+				"details": "mixed especially for your needs",
+				"price": "ask on your next visit"
+			}
+		]
+	}
+}

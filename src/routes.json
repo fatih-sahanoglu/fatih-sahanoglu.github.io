@@ -1,0 +1,42 @@
+{
+	"home": {
+		"label": "Home",
+		"path": ""
+	},
+	"about": {
+		"label": "About",
+		"path": "about"
+	},
+	"men": {
+		"label": "Gentlemen",
+		"path": "gentlemen"
+	},
+	"women": {
+		"label": "Ladies",
+		"path": "ladies"
+	},
+	"kids": {
+		"label": "Youngsters",
+		"path": "youngsters"
+	},
+	"beauty": {
+		"label": "Beauty",
+		"path": "beauty"
+	},
+	"products": {
+		"label": "Care",
+		"path": "care"
+	},
+	"seminars": {
+		"label": "Seminars",
+		"path": "seminars"
+	},
+	"impressum": {
+		"label": "Impressum",
+		"path": "impressum"
+	},
+	"404": {
+		"label": "Page not found",
+		"path": "404"
+	}
+}

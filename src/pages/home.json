@@ -1,0 +1,13 @@
+{
+	"stage": {
+		"slides": [
+			{
+				"image": "/assets/home.jpg",
+				"text": "Home",
+				"style": {
+					"objectPosition": "30% 0%"
+				}
+			}
+		]
+	}
+}
