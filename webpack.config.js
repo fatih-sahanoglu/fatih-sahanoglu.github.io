@@ -5,7 +5,7 @@ const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const {NODE_ENV} = process.env;
 const prod = NODE_ENV === "production";
 const ROOT = __dirname;
-const OUT_DIR = path.resolve(ROOT, "docs");
+const OUT_DIR = path.resolve(ROOT, "");
 
 const routes = Object.entries(require("./src/routes.json")).map(
 	([, v]) => v.path

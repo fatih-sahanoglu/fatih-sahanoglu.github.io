@@ -8,9 +8,7 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "webpack-dev-server --hot",
-		"build": "yarn clean && yarn copy && webpack",
-		"clean": "rimraf docs",
-		"copy": "copy assets/* docs",
+		"build": "webpack",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
 		"format:json": "prettier *.json .*rc 'src/**/*.json' --parser json --write",
 		"format:js": "prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
