@@ -34837,9 +34837,12 @@ function (_React$Component) {
         return _react.default.createElement(_reactRouterDom.Route, {
           key: route.key,
           path: "/".concat(route.path),
-          component: content[route.key] || NotFound,
-          exact: route.key === "home"
+          component: content[route.key] || NotFound
         });
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/",
+        component: _home.default,
+        exact: true
       })));
     }
   }]);

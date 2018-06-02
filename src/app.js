@@ -281,9 +281,13 @@ class App extends React.Component {
 							key={route.key}
 							path={`/${route.path}`}
 							component={content[route.key] || NotFound}
-							exact={route.key === "home"}
 						/>
 					))}
+					<Route
+						path="/"
+						component={Home}
+						exact={true}
+					/>
 				</React.Fragment>
 			</Router>
 		);
