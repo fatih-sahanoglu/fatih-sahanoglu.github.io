@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-const shade = "rgba(0, 0, 0, 0.4)";
+const shade = "rgba(255, 255, 255, 0.2)";
 
 export const StyledTable = styled.article`
 	width: 100%;

@@ -30,6 +30,20 @@ const jump = keyframes`
     }
 `;
 
+
+export const Shade = styled.div`
+	position: sticky;
+	z-index: 2;
+	top: 0;
+	margin: -4rem calc((50vw - 29rem) * -1) 0;
+	right: 0;
+	height: 3rem;
+	background: inherit;
+	@media (max-width: 60rem) {
+		display: none;
+	}
+`
+
 const ScrollArrow = styled(Link)`
 	position: absolute;
 	display: flex;

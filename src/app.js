@@ -22,9 +22,9 @@ const hiddenPages = [
 const routes = Object.entries(routing).filter(([k]) => !hiddenPages.includes(k)).map(([key, v]) => ({key, ...v}));
 
 const colors = {
-	focus: "#abe",
-	background: "#fff",
-	color: "#111"
+	focus: "#3af",
+	background: "#333",
+	color: "#fff"
 }
 
 injectGlobal`
@@ -34,6 +34,8 @@ injectGlobal`
 	body {
 		margin: 0;
 		font-family: 'Source Sans Pro', sans-serif;
+		background: ${colors.background};
+		color: ${colors.color};
 	}
 	#app {
 		min-height: 100vh;
@@ -93,8 +95,8 @@ const Header = styled.header`
 		left: -20rem;
 		overflow: auto;
 		transform: translate3d(${props => (props.isOpen ? "100%" : 0)}, 0, 0);
-		background: #fff;
-		color: #000;
+		background: #222;
+		color: #fff;
 		transition: transform 0.3s ease-in-out;
 	}
 `;
@@ -136,6 +138,19 @@ const StyledLink = styled(NavLink)`
 
 	&:focus {
 		outline: 0;
+		@media (max-width: 60rem) {
+			background: rgba(0, 0, 0, 0.5);
+		}
+	}
+	&:hover {
+		@media (max-width: 60rem) {
+			background: rgba(0, 0, 0, 0.3);
+		}
+	}
+	&.selected {
+		@media (max-width: 60rem) {
+			background: rgba(0, 0, 0, 0.2);
+		}
 	}
 
 	&:hover::before {
@@ -147,6 +162,9 @@ const StyledLink = styled(NavLink)`
 		height: 2px;
 		background: currentColor;
 		opacity: 0.25;
+		@media (max-width: 60rem) {
+			display: none;
+		}
 	}
 	
 	&:focus::before {
@@ -158,8 +176,11 @@ const StyledLink = styled(NavLink)`
 		height: 2px;
 		background: ${colors.focus};
 		opacity: 0.75;
+		@media (max-width: 60rem) {
+			display: none;
+		}
 	}
-	
+
 	&.selected::before {
 		content: "";
 		position: absolute;
@@ -168,6 +189,9 @@ const StyledLink = styled(NavLink)`
 		right: 0;
 		height: 2px;
 		background: currentColor;
+		@media (max-width: 60rem) {
+			display: none;
+		}
 	}
 `;
 
@@ -183,8 +207,8 @@ const Button = styled.button`
 	border: 0;
 	display: none;
 	color: #fff;
-	background: none;
-	mix-blend-mode: difference;
+	background: #000;
+	opacity: 0.7;
 	transform: translate3d(${props => (props.isOpen ? "20rem" : 0)}, 0, 0);
 	transition: transform 0.3s ease-in-out;
 
@@ -235,6 +259,13 @@ class App extends React.Component {
 		};
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.handleLink = this.handleLink.bind(this);
+		this.handleResize = this.handleResize.bind(this);
+	}
+
+	componentDidMount() {
+		window.addEventListener("resize", this.handleResize, {
+			passive: true
+		});
 	}
 
 	toggleMenu(e) {
@@ -244,10 +275,21 @@ class App extends React.Component {
 		}));
 	}
 
+	handleResize() {
+		if (!this.state.selected) {
+			return
+		}
+		const {offsetLeft, offsetWidth} = this.state.selected
+		this.setState({
+			markerPosition: offsetLeft,
+			markerWidth: offsetWidth
+		})
+	}
 	handleLink(e) {
 		const {offsetLeft, offsetWidth} = e.target
 		this.setState({
 			menuOpen: false,
+			selected: e.target,
 			markerPosition: offsetLeft,
 			markerWidth: offsetWidth
 		});

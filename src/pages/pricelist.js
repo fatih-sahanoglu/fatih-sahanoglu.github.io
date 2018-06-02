@@ -1,7 +1,7 @@
 import React from "react";
 import {Transition} from "react-spring";
 import Content from "../components/content";
-import Stage, {StageImage, ScrollHelper} from "../components/stage";
+import Stage, {StageImage, ScrollHelper, Shade} from "../components/stage";
 import {ScrollToTop} from "../components/scroll";
 import {
 	Table,
@@ -35,6 +35,7 @@ const Page = props => {
 				/>
 			</Stage>
 			<Content>
+				<Shade/>
 				<ScrollToTop />
 				<Table headers={["Service", "Price"]}>
 					{props.content.service.map((item, index) => {

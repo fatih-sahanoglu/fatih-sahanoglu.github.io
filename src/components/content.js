@@ -7,6 +7,7 @@ const Content = styled.main.attrs({
 	max-width: 60rem;
 	margin: 1rem auto 0;
 	min-height: calc(100vh - 4rem);
+	background: inherit;
 	@media (max-width: 50rem) {
 		padding-left: 3rem;
 		min-height: calc(100vh - 1rem);

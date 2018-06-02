@@ -34652,7 +34652,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t:root {\n\t\t--header-height: 3rem;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tfont-family: 'Source Sans Pro', sans-serif;\n\t}\n\t#app {\n\t\tmin-height: 100vh;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\t*,\n\t*::before,\n\t*::after {\n\t\tbox-sizing: border-box;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\t:root {\n\t\t--header-height: 3rem;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tfont-family: 'Source Sans Pro', sans-serif;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\t#app {\n\t\tmin-height: 100vh;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\t*,\n\t*::before,\n\t*::after {\n\t\tbox-sizing: border-box;\n\t}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -34691,11 +34691,11 @@ var routes = Object.entries(_routes.default).filter(function (_ref) {
   }, v);
 });
 var colors = {
-  focus: "#abe",
-  background: "#fff",
-  color: "#111"
+  focus: "#3af",
+  background: "#333",
+  color: "#fff"
 };
-(0, _styledComponents.injectGlobal)(_templateObject(), colors.background, colors.color);
+(0, _styledComponents.injectGlobal)(_templateObject(), colors.background, colors.color, colors.background, colors.color);
 
 var About = function About() {
   return _react.default.createElement(_content.default, null, "About");
@@ -34723,7 +34723,7 @@ var zIndex = {
 
 var Header = _styledComponents.default.header.withConfig({
   displayName: "app__Header"
-})(["position:fixed;display:flex;align-items:flex-start;align-content:flex-start;z-index:", ";top:0;left:0;right:0;height:3rem;overflow:visible;color:#fff;@media (max-width:60rem){height:auto;width:20rem;right:auto;bottom:0;left:-20rem;overflow:auto;transform:translate3d(", ",0,0);background:#fff;color:#000;transition:transform 0.3s ease-in-out;}"], zIndex.header, function (props) {
+})(["position:fixed;display:flex;align-items:flex-start;align-content:flex-start;z-index:", ";top:0;left:0;right:0;height:3rem;overflow:visible;color:#fff;@media (max-width:60rem){height:auto;width:20rem;right:auto;bottom:0;left:-20rem;overflow:auto;transform:translate3d(", ",0,0);background:#222;color:#fff;transition:transform 0.3s ease-in-out;}"], zIndex.header, function (props) {
   return props.isOpen ? "100%" : 0;
 });
 
@@ -34737,11 +34737,11 @@ var Menu = _styledComponents.default.nav.withConfig({
 
 var StyledLink = (0, _styledComponents.default)(_reactRouterDom.NavLink).withConfig({
   displayName: "app__StyledLink"
-})(["position:relative;display:inline-flex;flex:1 1 3em;padding:0.5em 1em;line-height:2em;color:currentColor;text-decoration:none;&:focus{outline:0;}&:hover::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:currentColor;opacity:0.25;}&:focus::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:", ";opacity:0.75;}&.selected::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:currentColor;}"], colors.focus);
+})(["position:relative;display:inline-flex;flex:1 1 3em;padding:0.5em 1em;line-height:2em;color:currentColor;text-decoration:none;&:focus{outline:0;@media (max-width:60rem){background:rgba(0,0,0,0.5);}}&:hover{@media (max-width:60rem){background:rgba(0,0,0,0.3);}}&.selected{@media (max-width:60rem){background:rgba(0,0,0,0.2);}}&:hover::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:currentColor;opacity:0.25;@media (max-width:60rem){display:none;}}&:focus::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:", ";opacity:0.75;@media (max-width:60rem){display:none;}}&.selected::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:currentColor;@media (max-width:60rem){display:none;}}"], colors.focus);
 
 var Button = _styledComponents.default.button.withConfig({
   displayName: "app__Button"
-})(["position:fixed;z-index:", ";top:0;left:0;margin:0.25rem;height:2.5rem;width:2.5rem;padding:0.5rem;border:0;display:none;color:#fff;background:none;mix-blend-mode:difference;transform:translate3d(", ",0,0);transition:transform 0.3s ease-in-out;@media (max-width:60rem){display:flex;}"], zIndex.header, function (props) {
+})(["position:fixed;z-index:", ";top:0;left:0;margin:0.25rem;height:2.5rem;width:2.5rem;padding:0.5rem;border:0;display:none;color:#fff;background:#000;opacity:0.7;transform:translate3d(", ",0,0);transition:transform 0.3s ease-in-out;@media (max-width:60rem){display:flex;}"], zIndex.header, function (props) {
   return props.isOpen ? "20rem" : 0;
 });
 
@@ -34788,10 +34788,18 @@ function (_React$Component) {
     };
     _this.toggleMenu = _this.toggleMenu.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleLink = _this.handleLink.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleResize = _this.handleResize.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      window.addEventListener("resize", this.handleResize, {
+        passive: true
+      });
+    }
+  }, {
     key: "toggleMenu",
     value: function toggleMenu(e) {
       e.preventDefault();
@@ -34802,6 +34810,21 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "handleResize",
+    value: function handleResize() {
+      if (!this.state.selected) {
+        return;
+      }
+
+      var _this$state$selected = this.state.selected,
+          offsetLeft = _this$state$selected.offsetLeft,
+          offsetWidth = _this$state$selected.offsetWidth;
+      this.setState({
+        markerPosition: offsetLeft,
+        markerWidth: offsetWidth
+      });
+    }
+  }, {
     key: "handleLink",
     value: function handleLink(e) {
       var _e$target = e.target,
@@ -34809,6 +34832,7 @@ function (_React$Component) {
           offsetWidth = _e$target.offsetWidth;
       this.setState({
         menuOpen: false,
+        selected: e.target,
         markerPosition: offsetLeft,
         markerWidth: offsetWidth
       });
@@ -34879,7 +34903,7 @@ var Content = _styledComponents.default.main.attrs({
   id: "Content"
 }).withConfig({
   displayName: "content__Content"
-})(["padding:3rem 1em 1rem;max-width:60rem;margin:1rem auto 0;min-height:calc(100vh - 4rem);@media (max-width:50rem){padding-left:3rem;min-height:calc(100vh - 1rem);}"]);
+})(["padding:3rem 1em 1rem;max-width:60rem;margin:1rem auto 0;min-height:calc(100vh - 4rem);background:inherit;@media (max-width:50rem){padding-left:3rem;min-height:calc(100vh - 1rem);}"]);
 
 var _default = Content;
 exports.default = _default;
@@ -34970,7 +34994,7 @@ exports.ScrollToTop = ScrollToTop;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.StageImage = exports.ScrollHelper = void 0;
+exports.default = exports.StageImage = exports.ScrollHelper = exports.Shade = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -35002,6 +35026,12 @@ var StyledArrow = (0, _styledComponents.default)(Arrow).withConfig({
   displayName: "stage__StyledArrow"
 })(["height:100%;width:100%;"]);
 var jump = (0, _styledComponents.keyframes)(["from{transform:translate3d(0,-10%,0);}to{transform:translate3d(0,10%,0);}"]);
+
+var Shade = _styledComponents.default.div.withConfig({
+  displayName: "stage__Shade"
+})(["position:sticky;z-index:2;top:0;margin:-4rem calc((50vw - 29rem) * -1) 0;right:0;height:3rem;background:inherit;@media (max-width:60rem){display:none;}"]);
+
+exports.Shade = Shade;
 var ScrollArrow = (0, _styledComponents.default)(_reactScroll.Link).withConfig({
   displayName: "stage__ScrollArrow"
 })(["position:absolute;display:flex;z-index:2;bottom:2rem;left:50%;height:0.5em;width:1em;margin:0 -0.5em 1rem;color:#fff;text-decoration:none;animation:", " 1s ease-in-out infinite alternate;font-size:10rem;mix-blend-mode:difference;@media (max-width:50rem){font-size:5rem;}"], jump);
@@ -35088,7 +35118,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var shade = "rgba(0, 0, 0, 0.4)";
+var shade = "rgba(255, 255, 255, 0.2)";
 
 var StyledTable = _styledComponents.default.article.withConfig({
   displayName: "table__StyledTable"
@@ -35280,10 +35310,12 @@ var _content = _interopRequireDefault(__webpack_require__(/*! ../components/cont
 
 var _scroll = __webpack_require__(/*! ../components/scroll */ "./src/components/scroll.js");
 
+var _stage = __webpack_require__(/*! ../components/stage */ "./src/components/stage.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Page = function Page() {
-  return _react.default.createElement(_content.default, null, _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement("h1", null, "Impressum"), _react.default.createElement("p", null, "Angaben gem\xE4\xDF \xA7 5 TMG:\u2028", _react.default.createElement("br", null), "Fatih Sahanoglu", _react.default.createElement("br", null), "Friseur/Stylist/Fotograf", _react.default.createElement("br", null), "Schaarschmidtstr. 32\u2028", _react.default.createElement("br", null), "80995 M\xFCnchen"), _react.default.createElement("h3", null, "Kontakt:"), _react.default.createElement("p", null, "Telefon: +49 176 20 977 087\u2028", _react.default.createElement("br", null), "Email: fatih@fatih-sahanoglu.com"), _react.default.createElement("p", null, "Umsatzsteuer-Identifikationsnummer gem\xE4\xDF \xA727 a Umsatzsteuergesetz:\u2028", _react.default.createElement("br", null), "146/181/81295"), _react.default.createElement("h3", null, "Haftungsausschluss:"), _react.default.createElement("p", null, "Haftung f\xFCr Inhalte\u2028", _react.default.createElement("br", null), "Die Inhalte unserer Seiten wurden mit gr\xF6\xDFter Sorgfalt erstellt. F\xFCr die Richtigkeit, Vollst\xE4ndigkeit und Aktualit\xE4t der Inhalte k\xF6nnen wir jedoch keine Gew\xE4hr \xFCbernehmen. Als Diensteanbieter sind wir gem\xE4\xDF \xA7 7 Abs.1 TMG f\xFCr eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach \xA7\xA7 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, \xFCbermittelte oder gespeicherte fremde Informationen zu \xFCberwachen oder nach Umst\xE4nden zu forschen, die auf eine rechtswidrige T\xE4tigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unber\xFChrt. Eine diesbez\xFCgliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung m\xF6glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."), _react.default.createElement("h3", null, "Haftung f\xFCr Links"), _react.default.createElement("p", null, "Unser Angebot enth\xE4lt Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb k\xF6nnen wir f\xFCr diese fremden Inhalte auch keine Gew\xE4hr \xFCbernehmen. F\xFCr die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m\xF6gliche Rechtsverst\xF6\xDFe \xFCberpr\xFCft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."), _react.default.createElement("h3", null, "Urheberrecht"), _react.default.createElement("p", null, "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielf\xE4ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au\xDFerhalb der Grenzen des Urheberrechtes bed\xFCrfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur f\xFCr den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."), _react.default.createElement("h3", null, "Datenschutz"), _react.default.createElement("p", null, "Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten m\xF6glich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit m\xF6glich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdr\xFCckliche Zustimmung nicht an Dritte weitergegeben.\u2028", _react.default.createElement("br", null), "Wir weisen darauf hin, dass die Daten\xFCbertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitsl\xFCcken aufweisen kann. Ein l\xFCckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht m\xF6glich.\u2028", _react.default.createElement("br", null), "Der Nutzung von im Rahmen der Impressumspflicht ver\xF6ffentlichten Kontaktdaten durch Dritte zur \xDCbersendung von nicht ausdr\xFCcklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdr\xFCcklich widersprochen. Die Betreiber der Seiten behalten sich ausdr\xFCcklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor."));
+  return _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement("h1", null, "Impressum"), _react.default.createElement("p", null, "Angaben gem\xE4\xDF \xA7 5 TMG:\u2028", _react.default.createElement("br", null), "Fatih Sahanoglu", _react.default.createElement("br", null), "Friseur/Stylist/Fotograf", _react.default.createElement("br", null), "Schaarschmidtstr. 32\u2028", _react.default.createElement("br", null), "80995 M\xFCnchen"), _react.default.createElement("h3", null, "Kontakt:"), _react.default.createElement("p", null, "Telefon: +49 176 20 977 087\u2028", _react.default.createElement("br", null), "Email: fatih@fatih-sahanoglu.com"), _react.default.createElement("p", null, "Umsatzsteuer-Identifikationsnummer gem\xE4\xDF \xA727 a Umsatzsteuergesetz:\u2028", _react.default.createElement("br", null), "146/181/81295"), _react.default.createElement("h3", null, "Haftungsausschluss:"), _react.default.createElement("p", null, "Haftung f\xFCr Inhalte\u2028", _react.default.createElement("br", null), "Die Inhalte unserer Seiten wurden mit gr\xF6\xDFter Sorgfalt erstellt. F\xFCr die Richtigkeit, Vollst\xE4ndigkeit und Aktualit\xE4t der Inhalte k\xF6nnen wir jedoch keine Gew\xE4hr \xFCbernehmen. Als Diensteanbieter sind wir gem\xE4\xDF \xA7 7 Abs.1 TMG f\xFCr eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach \xA7\xA7 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, \xFCbermittelte oder gespeicherte fremde Informationen zu \xFCberwachen oder nach Umst\xE4nden zu forschen, die auf eine rechtswidrige T\xE4tigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unber\xFChrt. Eine diesbez\xFCgliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung m\xF6glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."), _react.default.createElement("h3", null, "Haftung f\xFCr Links"), _react.default.createElement("p", null, "Unser Angebot enth\xE4lt Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb k\xF6nnen wir f\xFCr diese fremden Inhalte auch keine Gew\xE4hr \xFCbernehmen. F\xFCr die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m\xF6gliche Rechtsverst\xF6\xDFe \xFCberpr\xFCft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."), _react.default.createElement("h3", null, "Urheberrecht"), _react.default.createElement("p", null, "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielf\xE4ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au\xDFerhalb der Grenzen des Urheberrechtes bed\xFCrfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur f\xFCr den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."), _react.default.createElement("h3", null, "Datenschutz"), _react.default.createElement("p", null, "Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten m\xF6glich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit m\xF6glich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdr\xFCckliche Zustimmung nicht an Dritte weitergegeben.\u2028", _react.default.createElement("br", null), "Wir weisen darauf hin, dass die Daten\xFCbertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitsl\xFCcken aufweisen kann. Ein l\xFCckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht m\xF6glich.\u2028", _react.default.createElement("br", null), "Der Nutzung von im Rahmen der Impressumspflicht ver\xF6ffentlichten Kontaktdaten durch Dritte zur \xDCbersendung von nicht ausdr\xFCcklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdr\xFCcklich widersprochen. Die Betreiber der Seiten behalten sich ausdr\xFCcklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor."));
 };
 
 var _default = Page;
@@ -35423,7 +35455,7 @@ var Page = function Page(props) {
     href: "#Content",
     smooth: true,
     duration: window.innerHeight / 2
-  })), _react.default.createElement(_content.default, null, _react.default.createElement(_scroll.ScrollToTop, null), props.children));
+  })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), props.children));
 };
 
 var _default = Page;
@@ -35475,7 +35507,7 @@ var Page = function Page(props) {
     href: "#Content",
     smooth: true,
     duration: window.innerHeight / 2
-  })), _react.default.createElement(_content.default, null, _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement(_table.Table, {
+  })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement(_table.Table, {
     headers: ["Service", "Price"]
   }, props.content.service.map(function (item, index) {
     return _react.default.createElement(_table.Row, {
