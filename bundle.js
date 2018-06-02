@@ -34994,7 +34994,7 @@ exports.ScrollToTop = ScrollToTop;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.StageImage = exports.ScrollHelper = exports.Shade = void 0;
+exports.default = exports.StageImage = exports.ScrollHelper = exports.Shade = exports.Slideshow = exports.Right = exports.Left = exports.NavArrow = exports.Arrows = exports.Wrapper = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -35008,11 +35008,176 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n\tright: 0;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n\tleft: 0;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-var Stage = _styledComponents.default.aside.withConfig({
+var Stage = _styledComponents.default.div.withConfig({
   displayName: "stage__Stage"
-})(["height:100vh;width:100vw;position:relative;"]);
+})(["height:calc(100vh - 3rem);width:100vw;position:relative;&::after{pointer-events:none;content:\"\";position:absolute;bottom:0;left:0;right:0;height:6rem;z-index:2;background-image:linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0));}"]);
+
+var Wrapper = _styledComponents.default.div.withConfig({
+  displayName: "stage__Wrapper"
+})(["position:relative;"]);
+
+exports.Wrapper = Wrapper;
+
+var Arrows = _styledComponents.default.div.withConfig({
+  displayName: "stage__Arrows"
+})(["visibility:hidden;"]);
+
+exports.Arrows = Arrows;
+
+var NavArrow = _styledComponents.default.a.attrs({
+  href: "#"
+}).withConfig({
+  displayName: "stage__NavArrow"
+})(["visibility:visible;position:absolute;z-index:2;top:50%;height:3em;margin:0.5rem;width:1.5em;margin-top:-1.5em;font-size:2rem;color:currentColor;"]);
+
+exports.NavArrow = NavArrow;
+
+var LeftArrow = function LeftArrow(props) {
+  return _react.default.createElement("svg", _extends({}, props, {
+    viewBox: "0 0 50 100"
+  }), _react.default.createElement(_svg.Stroke, {
+    d: "M45,10 L5,50 45,90"
+  }));
+};
+
+var RightArrow = function RightArrow(props) {
+  return _react.default.createElement("svg", _extends({}, props, {
+    viewBox: "0 0 50 100"
+  }), _react.default.createElement(_svg.Stroke, {
+    d: "M5,10 L45,50 5,90"
+  }));
+};
+
+var StyledLeftArrow = (0, _styledComponents.default)(LeftArrow).withConfig({
+  displayName: "stage__StyledLeftArrow"
+})(["height:100%;width:100%;"]);
+var StyledRightArrow = (0, _styledComponents.default)(RightArrow).withConfig({
+  displayName: "stage__StyledRightArrow"
+})(["height:100%;width:100%;"]);
+var Left = NavArrow.extend(_templateObject());
+exports.Left = Left;
+var Right = NavArrow.extend(_templateObject2());
+exports.Right = Right;
+
+var Slideshow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Slideshow, _React$Component);
+
+  function Slideshow(props) {
+    var _this;
+
+    _classCallCheck(this, Slideshow);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Slideshow).call(this, props));
+    _this.state = {
+      activeSlide: 0
+    };
+    _this.toPrev = _this.toPrev.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.toNext = _this.toNext.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(Slideshow, [{
+    key: "toPrev",
+    value: function toPrev(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      this.setState(function (prevState) {
+        return {
+          activeSlide: (prevState.activeSlide - 1 + _this2.slides.length) % _this2.slides.length
+        };
+      });
+    }
+  }, {
+    key: "toNext",
+    value: function toNext(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+      this.setState(function (prevState) {
+        return {
+          activeSlide: (prevState.activeSlide + 1) % _this3.slides.length
+        };
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(Wrapper, null, _react.default.createElement(Stage, null, this.slides), _react.default.createElement(Arrows, null, _react.default.createElement(Left, {
+        onClick: this.toPrev
+      }, _react.default.createElement(StyledLeftArrow, null)), _react.default.createElement(Right, {
+        onClick: this.toNext
+      }, _react.default.createElement(StyledRightArrow, null))), _react.default.createElement(ScrollHelper, {
+        to: "Content",
+        href: "#Content",
+        smooth: true,
+        duration: window.innerHeight / 2
+      }));
+    }
+  }, {
+    key: "slides",
+    get: function get() {
+      var activeSlide = this.state.activeSlide;
+      return _react.default.Children.toArray(this.props.children).map(function (slide, i) {
+        var transform = "translate3d(".concat(i < activeSlide ? -100 : i > activeSlide ? 100 : 0, "%, 0, 0)");
+        var style = {
+          transform: transform
+        };
+        return _react.default.cloneElement(slide, {
+          style: style
+        });
+      });
+    }
+  }]);
+
+  return Slideshow;
+}(_react.default.Component);
+
+exports.Slideshow = Slideshow;
 
 var Arrow = function Arrow(props) {
   return _react.default.createElement("svg", _extends({}, props, {
@@ -35025,7 +35190,7 @@ var Arrow = function Arrow(props) {
 var StyledArrow = (0, _styledComponents.default)(Arrow).withConfig({
   displayName: "stage__StyledArrow"
 })(["height:100%;width:100%;"]);
-var jump = (0, _styledComponents.keyframes)(["from{transform:translate3d(0,-10%,0);}to{transform:translate3d(0,10%,0);}"]);
+var jump = (0, _styledComponents.keyframes)(["from{transform:translate3d(0,-0.5rem,0);}to{transform:translate3d(0,0.5rem,0);}"]);
 
 var Shade = _styledComponents.default.div.withConfig({
   displayName: "stage__Shade"
@@ -35034,7 +35199,7 @@ var Shade = _styledComponents.default.div.withConfig({
 exports.Shade = Shade;
 var ScrollArrow = (0, _styledComponents.default)(_reactScroll.Link).withConfig({
   displayName: "stage__ScrollArrow"
-})(["position:absolute;display:flex;z-index:2;bottom:2rem;left:50%;height:0.5em;width:1em;margin:0 -0.5em 1rem;color:#fff;text-decoration:none;animation:", " 1s ease-in-out infinite alternate;font-size:10rem;mix-blend-mode:difference;@media (max-width:50rem){font-size:5rem;}"], jump);
+})(["position:absolute;display:flex;z-index:2;bottom:2rem;left:50%;height:0.5em;width:1em;margin:0 -0.5em 1rem;color:#fff;text-decoration:none;animation:", " 1s ease-in-out infinite alternate;font-size:10rem;mix-blend-mode:screen;@media (max-width:50rem){font-size:5rem;}"], jump);
 
 var ScrollHelper = function ScrollHelper(props) {
   return _react.default.createElement(ScrollArrow, props, _react.default.createElement(StyledArrow, null));
@@ -35044,7 +35209,7 @@ exports.ScrollHelper = ScrollHelper;
 
 var StageImage = _styledComponents.default.img.withConfig({
   displayName: "stage__StageImage"
-})(["height:100%;width:100%;object-fit:cover;object-position:20% 20%;"]);
+})(["position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;object-fit:cover;object-position:20% 20%;transition:transform 0.3s ease-in-out;"]);
 
 exports.StageImage = StageImage;
 var _default = Stage;
@@ -35409,7 +35574,7 @@ exports.default = _default;
 /*! exports provided: stage, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/gentlemen.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}}]},"content":{"service":[{"label":"Wash, cut & style","price":"€ 42,00"},{"label":"Color refresh","details":"(special for him)","price":"€ 25,00"},{"label":"Perfect trim","details":"for your beard","price":"€ 15,00"},{"label":"Classic shave","details":"with the good old razor","price":"€ 37,00"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/gentlemen_00.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_01.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_02.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_03.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}}]},"content":{"service":[{"label":"Wash, cut & style","price":"€ 42,00"},{"label":"Color refresh","details":"(special for him)","price":"€ 25,00"},{"label":"Perfect trim","details":"for your beard","price":"€ 15,00"},{"label":"Classic shave","details":"with the good old razor","price":"€ 37,00"}]}};
 
 /***/ }),
 
@@ -35484,29 +35649,22 @@ var _reactSpring = __webpack_require__(/*! react-spring */ "./node_modules/react
 
 var _content = _interopRequireDefault(__webpack_require__(/*! ../components/content */ "./src/components/content.js"));
 
-var _stage = _interopRequireWildcard(__webpack_require__(/*! ../components/stage */ "./src/components/stage.js"));
+var _stage = __webpack_require__(/*! ../components/stage */ "./src/components/stage.js");
 
 var _scroll = __webpack_require__(/*! ../components/scroll */ "./src/components/scroll.js");
 
 var _table = __webpack_require__(/*! ../components/table */ "./src/components/table.js");
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Page = function Page(props) {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_stage.default, null, props.stage.slides.map(function (slide, i) {
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_stage.Slideshow, null, props.stage.slides.map(function (slide, i) {
     return _react.default.createElement(_stage.StageImage, {
       key: i,
       src: slide.image,
       alt: slide.text,
       style: slide.style
     });
-  }), _react.default.createElement(_stage.ScrollHelper, {
-    to: "Content",
-    href: "#Content",
-    smooth: true,
-    duration: window.innerHeight / 2
   })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement(_table.Table, {
     headers: ["Service", "Price"]
   }, props.content.service.map(function (item, index) {
