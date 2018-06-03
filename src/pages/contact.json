@@ -12,7 +12,8 @@
 				"image": "/assets/contact_01.jpg",
 				"text": "Contact",
 				"style": {
-					"objectPosition": "50% 50%"
+					"objectPosition": "50% 50%",
+					"objectFit": "contain"
 				}
 			},
 			{

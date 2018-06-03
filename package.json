@@ -3,24 +3,19 @@
 	"version": "1.0.0",
 	"description": "Homepage of Fatih Sahanoglu",
 	"main": "index.js",
-	"repository":
-		"git@github.com:fatih-sahanoglu/fatih-sahanoglu.github.io.git",
+	"repository": "git@github.com:fatih-sahanoglu/fatih-sahanoglu.github.io.git",
 	"author": "Gregor Adams <greg@pixelass.com>",
 	"license": "MIT",
 	"scripts": {
 		"start": "webpack-dev-server --hot",
-		"build": "webpack",
+		"build": "cross-env NODE_ENV=production webpack",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
-		"format:json":
-			"prettier *.json .*rc 'src/**/*.json' --parser json --write",
-		"format:js":
-			"prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
+		"format:json": "prettier *.json .*rc 'src/**/*.json' --parser json --write",
+		"format:js": "prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write"
 	},
 	"dependencies": {
 		"flubber": "^0.4.2",
-		"paraglider": "^3.0.0",
-		"parallazy": "^3.2.0",
 		"prop-types": "^15.6.1",
 		"react": "^16.4.0",
 		"react-dom": "^16.4.0",
@@ -28,8 +23,7 @@
 		"react-router-dom": "^4.2.2",
 		"react-scroll": "^1.7.9",
 		"react-spring": "^5.3.3",
-		"styled-components": "^3.3.0",
-		"titleize": "^1.0.1"
+		"styled-components": "^3.3.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.0.0-beta.49",
@@ -38,16 +32,13 @@
 		"@babel/preset-react": "^7.0.0-beta.49",
 		"@babel/preset-stage-2": "^7.0.0-beta.49",
 		"babel-loader": "^8.0.0-beta.3",
+		"babel-minify-webpack-plugin": "^0.3.1",
 		"babel-plugin-styled-components": "^1.5.1",
-		"copy": "^0.3.2",
 		"cross-env": "^5.1.6",
 		"favicons-webpack-plugin": "^0.0.9",
 		"file-loader": "^1.1.11",
 		"html-webpack-harddisk-plugin": "^0.2.0",
 		"html-webpack-plugin": "^3.2.0",
-		"json-loader": "^0.5.7",
-		"markdown-to-json": "^0.5.1",
-		"mkdirp": "^0.5.1",
 		"pug": "^2.0.3",
 		"pug-loader": "^2.4.0",
 		"webpack": "^4.9.1",

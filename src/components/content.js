@@ -7,9 +7,6 @@ const Content = styled.main.attrs({
 	max-width: 60rem;
 	margin: 1rem auto 0;
 	min-height: calc(100vh - 1rem);
-	@media (max-width: 50rem) {
-		padding-left: 3rem;
-	}
 `;
 
 export default Content;

@@ -17,6 +17,8 @@ import Seminars from "./pages/seminars";
 import About from "./pages/about";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
+import Photographic from "./pages/photographic";
+import Soulmate from "./pages/my-soulmate";
 import {colors, marker} from "./design-system";
 
 const hiddenPages = ["404", "home"];
@@ -58,20 +60,6 @@ injectGlobal`
 
 const NotFound = () => {
 	return <Content>404</Content>;
-};
-
-const content = {
-	men: Men,
-	women: Women,
-	kids: Kids,
-	about: About,
-	beauty: Beauty,
-	products: Products,
-	impressum: Impressum,
-	seminars: Seminars,
-	contact: Contact,
-	home: Home,
-	"404": NotFound
 };
 
 const zIndex = {
@@ -129,7 +117,10 @@ const StyledLink = styled(NavLink)`
 	line-height: 2em;
 	color: currentColor;
 	text-decoration: none;
-
+	white-space: nowrap;
+	@media (max-width: 60rem) {
+		border-left: 0.5rem solid;
+	}
 	&::before {
 		content: "";
 		position: absolute;
@@ -159,7 +150,7 @@ const StyledLink = styled(NavLink)`
 	&.selected {
 		@media (max-width: 60rem) {
 			background: rgba(0, 0, 0, 0.2);
-			padding-left: 2rem;
+			border-left: 1rem solid;
 		}
 	}
 
@@ -277,6 +268,22 @@ const Logo = () => {
 			<Img src="/assets/logo.png" alt="logo" />
 		</HomeLink>
 	);
+};
+
+const content = {
+	men: Men,
+	women: Women,
+	kids: Kids,
+	about: About,
+	beauty: Beauty,
+	products: Products,
+	impressum: Impressum,
+	seminars: Seminars,
+	photographic: Photographic,
+	contact: Contact,
+	home: Home,
+	soulmate: Soulmate,
+	"404": NotFound
 };
 
 class App extends React.Component {

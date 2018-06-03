@@ -1,19 +1,18 @@
 import React from "react";
 import Content from "../components/content";
 import {Block, Fat, Huge, Bigger} from "../components/text";
-import{Shade} from "../components/stage";
-import {ScrollToTop} from '../components/scroll'
+import {Shade} from "../components/stage";
+import {ScrollToTop} from "../components/scroll";
 const About = () => {
 	return (
 		<Content>
-			<Shade/>
-			<ScrollToTop/>
+			<Shade />
+			<ScrollToTop />
 			<Block>
 				<Fat>
 					Fatih was born on April 30th 1986 in{" "}
-					<Huge>Munich, Germany</Huge>.{" "}
-					Son of a family that has been living in Germany for 3
-					generations.{" "}
+					<Huge>Munich, Germany</Huge>. Son of a family that has been
+					living in Germany for 3 generations.{" "}
 				</Fat>
 				<Fat>
 					In his two year career as an actor, one of the make-up
@@ -43,7 +42,7 @@ const About = () => {
 					<Bigger>master in 2007</Bigger> in the Oberpfalz in Bavaria.
 					After one year of apprenticeship he started giving{" "}
 					<Bigger>cutting seminars.</Bigger> In the same time he spent
-					a lot of time with <Bigger>photography.{" "}</Bigger>
+					a lot of time with <Bigger>photography. </Bigger>
 				</Fat>
 				<Fat>
 					In 2008 he met the <Huge>photographer, Bert</Huge>. Fatih

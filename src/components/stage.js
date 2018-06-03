@@ -5,7 +5,7 @@ import {Stroke} from "./svg";
 import {colors} from "../design-system";
 
 const Stage = styled.div`
-	height: 100vh;
+	height: calc(100vh - 3rem);
 	width: 100vw;
 	position: relative;
 	overflow: hidden;
@@ -180,7 +180,7 @@ export const Shade = styled.div`
 	height: 3rem;
 	background: ${props => props.shade || colors.shade};
 	@media (max-width: 60rem) {
-		display: none;
+		margin: -4rem -1rem 0;
 	}
 `;
 

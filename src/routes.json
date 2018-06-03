@@ -31,6 +31,14 @@
 		"label": "Seminars",
 		"path": "seminars"
 	},
+	"photographic": {
+		"label": "Photographic",
+		"path": "photographic"
+	},
+	"soulmate": {
+		"label": "My soulmate",
+		"path": "my-soulmate"
+	},
 	"contact": {
 		"label": "Contact",
 		"path": "contact"
