@@ -34633,6 +34633,8 @@ var _about = _interopRequireDefault(__webpack_require__(/*! ./pages/about */ "./
 
 var _home = _interopRequireDefault(__webpack_require__(/*! ./pages/home */ "./src/pages/home.js"));
 
+var _contact = _interopRequireDefault(__webpack_require__(/*! ./pages/contact */ "./src/pages/contact.js"));
+
 var _designSystem = __webpack_require__(/*! ./design-system */ "./src/design-system.js");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
@@ -34711,6 +34713,7 @@ var content = {
   products: _products.default,
   impressum: _impressum.default,
   seminars: _seminars.default,
+  contact: _contact.default,
   home: _home.default,
   "404": NotFound
 };
@@ -35586,6 +35589,52 @@ module.exports = {"stage":{"slides":[{"image":"/assets/beauty_00.jpg","text":"Be
 
 /***/ }),
 
+/***/ "./src/pages/contact.js":
+/*!******************************!*\
+  !*** ./src/pages/contact.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _page = _interopRequireDefault(__webpack_require__(/*! ./page */ "./src/pages/page.js"));
+
+var _contact = _interopRequireDefault(__webpack_require__(/*! ./contact.json */ "./src/pages/contact.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = function Home() {
+  return _react.default.createElement(_page.default, {
+    stage: _contact.default.stage,
+    shade: _contact.default.shade
+  }, _react.default.createElement("p", null, "Scharschmidthstr. 32"), _react.default.createElement("p", null, "80995 Munich"), _react.default.createElement("p", null, "+49 176 20 977 087"), _react.default.createElement("p", null, _react.default.createElement("strong", null, "Appointments should be arranged over the telephone")), _react.default.createElement("p", null, "fatih@fatih-sahanoglu.com"), _react.default.createElement("p", null, "Mo. - Sa. 9:00 AM - open end"));
+};
+
+var _default = Home;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./src/pages/contact.json":
+/*!********************************!*\
+  !*** ./src/pages/contact.json ***!
+  \********************************/
+/*! exports provided: stage, default */
+/***/ (function(module) {
+
+module.exports = {"stage":{"slides":[{"image":"/assets/contact_00.jpg","text":"Contact","style":{"objectPosition":"50% 100%"}},{"image":"/assets/contact_01.jpg","text":"Contact","style":{"objectPosition":"50% 50%"}},{"image":"/assets/contact_02.jpg","text":"Contact","style":{"objectPosition":"50% 50%"}},{"image":"/assets/contact_03.jpg","text":"Contact","style":{"objectPosition":"10% 100%"}}]}};
+
+/***/ }),
+
 /***/ "./src/pages/home.js":
 /*!***************************!*\
   !*** ./src/pages/home.js ***!
@@ -36010,10 +36059,10 @@ module.exports = {"stage":{"slides":[{"image":"/assets/ladies_00.jpg","text":"La
 /*!*************************!*\
   !*** ./src/routes.json ***!
   \*************************/
-/*! exports provided: 404, home, about, men, women, kids, beauty, products, seminars, impressum, default */
+/*! exports provided: 404, home, about, men, women, kids, beauty, products, seminars, contact, impressum, default */
 /***/ (function(module) {
 
-module.exports = {"404":{"label":"Page not found","path":"404"},"home":{"label":"Home","path":""},"about":{"label":"About","path":"about"},"men":{"label":"Gentlemen","path":"gentlemen"},"women":{"label":"Ladies","path":"ladies"},"kids":{"label":"Youngsters","path":"youngsters"},"beauty":{"label":"Beauty","path":"beauty"},"products":{"label":"Care","path":"care"},"seminars":{"label":"Seminars","path":"seminars"},"impressum":{"label":"Impressum","path":"impressum"}};
+module.exports = {"404":{"label":"Page not found","path":"404"},"home":{"label":"Home","path":""},"about":{"label":"About","path":"about"},"men":{"label":"Gentlemen","path":"gentlemen"},"women":{"label":"Ladies","path":"ladies"},"kids":{"label":"Youngsters","path":"youngsters"},"beauty":{"label":"Beauty","path":"beauty"},"products":{"label":"Care","path":"care"},"seminars":{"label":"Seminars","path":"seminars"},"contact":{"label":"Contact","path":"contact"},"impressum":{"label":"Impressum","path":"impressum"}};
 
 /***/ })
 

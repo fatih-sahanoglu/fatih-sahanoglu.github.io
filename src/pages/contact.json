@@ -1,0 +1,34 @@
+{
+	"stage": {
+		"slides": [
+			{
+				"image": "/assets/contact_00.jpg",
+				"text": "Contact",
+				"style": {
+					"objectPosition": "50% 100%"
+				}
+			},
+			{
+				"image": "/assets/contact_01.jpg",
+				"text": "Contact",
+				"style": {
+					"objectPosition": "50% 50%"
+				}
+			},
+			{
+				"image": "/assets/contact_02.jpg",
+				"text": "Contact",
+				"style": {
+					"objectPosition": "50% 50%"
+				}
+			},
+			{
+				"image": "/assets/contact_03.jpg",
+				"text": "Contact",
+				"style": {
+					"objectPosition": "10% 100%"
+				}
+			}
+		]
+	}
+}

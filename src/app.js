@@ -16,6 +16,7 @@ import Impressum from "./pages/impressum";
 import Seminars from "./pages/seminars";
 import About from "./pages/about";
 import Home from "./pages/home";
+import Contact from "./pages/contact";
 import {colors, marker} from "./design-system";
 
 const hiddenPages = ["404", "home"];
@@ -68,6 +69,7 @@ const content = {
 	products: Products,
 	impressum: Impressum,
 	seminars: Seminars,
+	contact: Contact,
 	home: Home,
 	"404": NotFound
 };

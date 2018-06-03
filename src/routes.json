@@ -31,6 +31,10 @@
 		"label": "Seminars",
 		"path": "seminars"
 	},
+	"contact": {
+		"label": "Contact",
+		"path": "contact"
+	},
 	"impressum": {
 		"label": "Impressum",
 		"path": "impressum"
