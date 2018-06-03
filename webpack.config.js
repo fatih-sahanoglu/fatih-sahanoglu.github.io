@@ -11,9 +11,7 @@ const prod = NODE_ENV === "production";
 const ROOT = __dirname;
 const OUT_DIR = path.resolve(ROOT, "");
 
-const routes = Object.entries(require("./src/routes.json")).map(
-	([, v]) => v
-);
+const routes = Object.entries(require("./src/routes.json")).map(([, v]) => v);
 
 module.exports = {
 	entry: {
@@ -105,8 +103,8 @@ module.exports = {
 							}
 						),
 						new CompressionPlugin({
-							algorithm: 'gzip'
-						}),
+							algorithm: "gzip"
+						})
 						//new BundleAnalyzerPlugin()
 				  ]
 				: [])(prod),
