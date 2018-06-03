@@ -28,7 +28,10 @@ export const Block = styled.p`
 	font-size: 3rem;
 	hyphens: auto;
 	@media (max-width: 50rem) {
+		font-size: 1.5rem;
+	}
+	@media print {
 		line-height: 1.3;
-		font-size: 1rem;
+		font-size: 1em;
 	}
 `;

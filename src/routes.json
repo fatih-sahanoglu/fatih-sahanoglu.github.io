@@ -7,13 +7,13 @@
 		"label": "About",
 		"path": "about"
 	},
-	"men": {
-		"label": "Gentlemen",
-		"path": "gentlemen"
-	},
 	"women": {
 		"label": "Ladies",
 		"path": "ladies"
+	},
+	"men": {
+		"label": "Gentlemen",
+		"path": "gentlemen"
 	},
 	"kids": {
 		"label": "Youngsters",

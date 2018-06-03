@@ -54,7 +54,7 @@ module.exports = {
 		...routes.map(
 			route =>
 				new HtmlWebpackPlugin({
-					filename: route ? `${route}/index.html` : "index.html",
+					filename: route ? `${route}.html` : "index.html",
 					template: "views/index.pug",
 					alwaysWriteToDisk: true
 				})
