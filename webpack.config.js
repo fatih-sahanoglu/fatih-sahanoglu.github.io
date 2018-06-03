@@ -1,10 +1,8 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const CompressionPlugin = require("compression-webpack-plugin");
@@ -72,7 +70,7 @@ module.exports = {
 					{
 						loader: "file-loader",
 						options: {
-							name: "[sha512:hash:base64:7].[ext]",
+							name: "[hash].[ext]",
 							outputPath: "images/",
 							publicPath: "images/"
 						}
@@ -127,40 +125,28 @@ module.exports = {
 								optimizationLevel: 9
 							}
 						})
-						//new BundleAnalyzerPlugin()
 				  ]
 				: [])(prod),
 		new FaviconsWebpackPlugin({
-			// Your source logo
 			logo: "./src/assets/favicon.png",
-			// The prefix for all image files (might be a folder or a name)
 			prefix: "icons/",
-			// Emit all stats of the generated icons
 			emitStats: false,
-			// The name of the json containing all favicon information
 			statsFilename: "iconstats.json",
-			// Generate a cache file with control hashes and
-			// don't rebuild the favicons until those hashes change
 			persistentCache: true,
-			// Inject the html into the html-webpack-plugin
 			inject: true,
-			// favicon background color (see https://github.com/haydenbleasel/favicons#usage)
 			background: "#333",
-			// favicon app title (see https://github.com/haydenbleasel/favicons#usage)
 			title: "Fatih Sahanoglu",
-
-			// which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
 			icons: {
 				android: true,
 				appleIcon: true,
 				appleStartup: true,
-				coast: false,
+				coast: true,
 				favicons: true,
 				firefox: true,
-				opengraph: false,
-				twitter: false,
-				yandex: false,
-				windows: false
+				opengraph: true,
+				twitter: true,
+				yandex: true,
+				windows: true
 			}
 		})
 	]
