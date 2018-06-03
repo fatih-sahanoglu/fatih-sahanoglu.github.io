@@ -2,7 +2,35 @@
 	"stage": {
 		"slides": [
 			{
-				"image": "/assets/youngsters.jpg",
+				"image": "/assets/youngsters_00.jpg",
+				"text": "Youngsters",
+				"style": {
+					"objectPosition": "40% 30%"
+				}
+			},
+			{
+				"image": "/assets/youngsters_01.jpg",
+				"text": "Youngsters",
+				"style": {
+					"objectPosition": "50% 50%"
+				}
+			},
+			{
+				"image": "/assets/youngsters_02.jpg",
+				"text": "Youngsters",
+				"style": {
+					"objectPosition": "30% 50%"
+				}
+			},
+			{
+				"image": "/assets/youngsters_03.jpg",
+				"text": "Youngsters",
+				"style": {
+					"objectPosition": "40% 50%"
+				}
+			},
+			{
+				"image": "/assets/youngsters_04.jpg",
 				"text": "Youngsters",
 				"style": {
 					"objectPosition": "70% 0%"
@@ -10,6 +38,7 @@
 			}
 		]
 	},
+	"shade": "#aa3",
 	"content": {
 		"service": [
 			{

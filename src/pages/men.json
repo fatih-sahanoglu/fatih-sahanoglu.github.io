@@ -12,25 +12,26 @@
 				"image": "/assets/gentlemen_01.jpg",
 				"text": "Gentlemen",
 				"style": {
-					"objectPosition": "70% 30%"
+					"objectPosition": "50% 70%"
 				}
 			},
 			{
 				"image": "/assets/gentlemen_02.jpg",
 				"text": "Gentlemen",
 				"style": {
-					"objectPosition": "70% 30%"
+					"objectPosition": "55% 80%"
 				}
 			},
 			{
 				"image": "/assets/gentlemen_03.jpg",
 				"text": "Gentlemen",
 				"style": {
-					"objectPosition": "70% 30%"
+					"objectPosition": "30% 50%"
 				}
 			}
 		]
 	},
+	"shade": "#33a",
 	"content": {
 		"service": [
 			{

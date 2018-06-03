@@ -29,7 +29,7 @@ const Page = props => {
 				})}
 			</Slideshow>
 			<Content>
-				<Shade/>
+				<Shade shade={props.shade} />
 				<ScrollToTop />
 				<Table headers={["Service", "Price"]}>
 					{props.content.service.map((item, index) => {
@@ -38,21 +38,15 @@ const Page = props => {
 								<Cell textAlign="left">
 									<Label>{item.label}</Label>
 									{item.details ? (
-										<Details>
-											{item.details}
-										</Details>
+										<Details>{item.details}</Details>
 									) : null}
 									{item.info ? (
 										<InfoWrapper>
-											{item.info.map(
-												(item, i) => {
-													return (
-														<Info key={i}>
-															{item}
-														</Info>
-													);
-												}
-											)}
+											{item.info.map((item, i) => {
+												return (
+													<Info key={i}>{item}</Info>
+												);
+											})}
 										</InfoWrapper>
 									) : null}
 								</Cell>

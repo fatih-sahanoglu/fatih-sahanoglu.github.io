@@ -34607,6 +34607,8 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 var _styledComponents = _interopRequireWildcard(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.es.js"));
 
+var _reactSpring = __webpack_require__(/*! react-spring */ "./node_modules/react-spring/dist/web.js");
+
 var _routes = _interopRequireDefault(__webpack_require__(/*! ./routes.json */ "./src/routes.json"));
 
 var _svg = __webpack_require__(/*! ./components/svg */ "./src/components/svg.js");
@@ -34627,7 +34629,11 @@ var _impressum = _interopRequireDefault(__webpack_require__(/*! ./pages/impressu
 
 var _seminars = _interopRequireDefault(__webpack_require__(/*! ./pages/seminars */ "./src/pages/seminars.js"));
 
+var _about = _interopRequireDefault(__webpack_require__(/*! ./pages/about */ "./src/pages/about.js"));
+
 var _home = _interopRequireDefault(__webpack_require__(/*! ./pages/home */ "./src/pages/home.js"));
+
+var _designSystem = __webpack_require__(/*! ./design-system */ "./src/design-system.js");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -34652,7 +34658,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t:root {\n\t\t--header-height: 3rem;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tfont-family: 'Source Sans Pro', sans-serif;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\t#app {\n\t\tmin-height: 100vh;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t}\n\t*,\n\t*::before,\n\t*::after {\n\t\tbox-sizing: border-box;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\t:root {\n\t\t--header-height: 3rem;\n\t}\n\tbody {\n\t\tmargin: 0;\n\t\tfont-family: 'BenchNine', sans-serif;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t\t@media print {\n\t\t\tbackground: #fff;\n\t\t\tcolor: #000;\n\t\t\tfont-family: serif;\n\t\t}\n\t}\n\t#app {\n\t\tmin-height: 100vh;\n\t\tbackground: ", ";\n\t\tcolor: ", ";\n\t\t@media print {\n\t\t\tbackground: #fff;\n\t\t\tcolor: #000;\n\t\t\tfont-family: serif;\n\t\t}\n\t}\n\t*,\n\t*::before,\n\t*::after {\n\t\tbox-sizing: border-box;\n\t}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -34690,16 +34696,7 @@ var routes = Object.entries(_routes.default).filter(function (_ref) {
     key: key
   }, v);
 });
-var colors = {
-  focus: "#3af",
-  background: "#333",
-  color: "#fff"
-};
-(0, _styledComponents.injectGlobal)(_templateObject(), colors.background, colors.color, colors.background, colors.color);
-
-var About = function About() {
-  return _react.default.createElement(_content.default, null, "About");
-};
+(0, _styledComponents.injectGlobal)(_templateObject(), _designSystem.colors.background, _designSystem.colors.color, _designSystem.colors.background, _designSystem.colors.color);
 
 var NotFound = function NotFound() {
   return _react.default.createElement(_content.default, null, "404");
@@ -34709,7 +34706,7 @@ var content = {
   men: _men.default,
   women: _women.default,
   kids: _kids.default,
-  about: About,
+  about: _about.default,
   beauty: _beauty.default,
   products: _products.default,
   impressum: _impressum.default,
@@ -34718,18 +34715,13 @@ var content = {
   "404": NotFound
 };
 var zIndex = {
-  header: 10
+  header: 10,
+  footer: 9
 };
 
 var Header = _styledComponents.default.header.withConfig({
   displayName: "app__Header"
-})(["position:fixed;display:flex;align-items:flex-start;align-content:flex-start;z-index:", ";top:0;left:0;right:0;height:3rem;overflow:visible;color:#fff;@media (max-width:60rem){height:auto;width:20rem;right:auto;bottom:0;left:-20rem;overflow:auto;transform:translate3d(", ",0,0);background:#222;color:#fff;transition:transform 0.3s ease-in-out;}"], zIndex.header, function (props) {
-  return props.isOpen ? "100%" : 0;
-});
-
-var Background = _styledComponents.default.div.withConfig({
-  displayName: "app__Background"
-})(["position:absolute;z-index:0;top:0;left:0;right:0;bottom:-3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0));pointer-events:none;@media (max-width:60rem){display:none;}"]);
+})(["position:fixed;display:flex;align-items:flex-start;align-content:flex-start;z-index:", ";top:0;left:0;right:0;height:3rem;overflow:visible;background:", ";color:", ";@media print{display:none;}@media (max-width:60rem){height:auto;width:20rem;right:auto;bottom:0;left:-20rem;overflow:auto;transform:translate3d(var(--x),0,0);background:", ";color:", ";}"], zIndex.header, _designSystem.colors.header.background, _designSystem.colors.header.color, _designSystem.colors.sidebar.background, _designSystem.colors.sidebar.color);
 
 var Menu = _styledComponents.default.nav.withConfig({
   displayName: "app__Menu"
@@ -34737,29 +34729,26 @@ var Menu = _styledComponents.default.nav.withConfig({
 
 var StyledLink = (0, _styledComponents.default)(_reactRouterDom.NavLink).withConfig({
   displayName: "app__StyledLink"
-})(["position:relative;display:inline-flex;flex:1 1 3em;padding:0.5em 1em;line-height:2em;color:currentColor;text-decoration:none;&:focus{outline:0;@media (max-width:60rem){background:rgba(0,0,0,0.5);}}&:hover{@media (max-width:60rem){background:rgba(0,0,0,0.3);}}&.selected{@media (max-width:60rem){background:rgba(0,0,0,0.2);}}&:hover::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:currentColor;opacity:0.25;@media (max-width:60rem){display:none;}}&:focus::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:", ";opacity:0.75;@media (max-width:60rem){display:none;}}&.selected::before{content:\"\";position:absolute;bottom:0.5rem;left:0;right:0;height:2px;background:currentColor;@media (max-width:60rem){display:none;}}"], colors.focus);
+})(["position:relative;display:inline-flex;flex:1 1 3em;padding:0.5em 1em;line-height:2em;color:currentColor;text-decoration:none;&::before{content:\"\";position:absolute;bottom:0;left:0;right:0;height:", ";background:none;opacity:0.25;@media (max-width:60rem){display:none;}}&:focus{outline:0;background:", ";@media (max-width:60rem){background:rgba(0,0,0,0.5);}}&:hover{@media (max-width:60rem){background:rgba(0,0,0,0.3);}}&.selected{@media (max-width:60rem){background:rgba(0,0,0,0.2);padding-left:2rem;}}&:hover::before{background:currentColor;opacity:0.25;}&:active::before{background:currentColor;opacity:0.5;}&.selected::before{background:currentColor;opacity:1;}"], _designSystem.marker.height, _designSystem.colors.header.focus);
 
 var Button = _styledComponents.default.button.withConfig({
   displayName: "app__Button"
-})(["position:fixed;z-index:", ";top:0;left:0;margin:0.25rem;height:2.5rem;width:2.5rem;padding:0.5rem;border:0;display:none;color:#fff;background:#000;opacity:0.7;transform:translate3d(", ",0,0);transition:transform 0.3s ease-in-out;@media (max-width:60rem){display:flex;}"], zIndex.header, function (props) {
-  return props.isOpen ? "20rem" : 0;
-});
+})(["position:fixed;z-index:", ";top:0;left:0;margin:0;height:1.5em;width:1.5em;padding:0.25em 0.75em 0.75em 0.25em;font-size:2rem;border:0;display:none;align-items:center;align-content:center;justify-content:center;background:", ";color:", ";clip-path:polygon(0 0,0 100%,100% 0,0 0);&:focus{outline:0;background:", ";}@media (max-width:60rem){display:flex;transform:translate3d(var(--x),0,0);}@media print{display:none;}"], zIndex.header, _designSystem.colors.elements.background, _designSystem.colors.elements.color, _designSystem.colors.elements.focus);
 
 var MenuButton = function MenuButton(props) {
   return _react.default.createElement(Button, props, _react.default.createElement(_svg.Icon, {
     viewBox: "0 0 100 100"
-  }, _react.default.createElement(_svg.Stroke, {
-    d: "M10,20 L90,20"
-  }), _react.default.createElement(_svg.Stroke, {
-    d: "M10,50 L90,50"
-  }), _react.default.createElement(_svg.Stroke, {
-    d: "M10,80 L90,80"
+  }, props.morph.map(function (x, i) {
+    return _react.default.createElement(_svg.Stroke, {
+      key: i,
+      d: x
+    });
   })));
 };
 
 var StyledMarker = _styledComponents.default.span.withConfig({
   displayName: "app__StyledMarker"
-})(["position:absolute;bottom:0.5rem;left:0;height:2px;width:1000px;background:currentColor;transition:transform 0.2s ease-in-out;transform-origin:0 50%;@media (max-width:60rem){display:none;}"]);
+})(["position:absolute;bottom:0;left:0;height:", ";width:1000px;background:currentColor;transition:transform 0.2s ease-in-out;transform-origin:0 50%;@media (max-width:60rem){display:none;}"], _designSystem.marker.height);
 
 var Marker = function Marker(props) {
   var style = {
@@ -34768,6 +34757,27 @@ var Marker = function Marker(props) {
   return _react.default.createElement(StyledMarker, {
     style: style
   });
+};
+
+var Footer = _styledComponents.default.footer.withConfig({
+  displayName: "app__Footer"
+})(["position:fixed;z-index:", ";right:0;top:0;height:3rem;padding:0.25rem;display:flex;visibility:hidden;@media (max-width:60rem){z-index:", ";}"], zIndex.header, zIndex.footer);
+
+var Img = _styledComponents.default.img.withConfig({
+  displayName: "app__Img"
+})(["height:100%;width:auto;"]);
+
+var HomeLink = (0, _styledComponents.default)(_reactRouterDom.NavLink).withConfig({
+  displayName: "app__HomeLink"
+})(["display:block;height:100%;text-decoration:none;color:currentColor;visibility:visible;"]);
+
+var Logo = function Logo() {
+  return _react.default.createElement(HomeLink, {
+    to: "/"
+  }, _react.default.createElement(Img, {
+    src: "/assets/logo.png",
+    alt: "logo"
+  }));
 };
 
 var App =
@@ -34838,26 +34848,56 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "morph",
+    value: function morph(t) {
+      var d1 = ["M10,20 L90,20" //"M10,50 L90,50",
+      //"M10,80 L90,80"
+      ];
+      var d2 = ["M10,10 L90,90" //"M50,50 L50,50",
+      //"M10,90 L90,10"
+      ];
+      var a = "M10,".concat(20 - t * 10, " L90,").concat(20 + t * 70);
+      var b = "M".concat(10 + t * 40, ",50 L").concat(90 - t * 40, ",50");
+      var c = "M10,".concat(80 + t * 10, " L90,").concat(80 - t * 70);
+      return [a, b, c];
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(MenuButton, {
-        onClick: this.toggleMenu,
-        isOpen: this.state.menuOpen
-      }), _react.default.createElement(Header, {
-        isOpen: this.state.menuOpen
-      }, _react.default.createElement(Background, null), _react.default.createElement(Menu, null, routes.map(function (route, i) {
-        return _react.default.createElement(StyledLink, {
-          key: route.key,
-          to: "/".concat(route.path),
-          onClick: _this2.handleLink,
-          activeClassName: "selected"
-        }, route.label);
-      }), _react.default.createElement(Marker, {
-        position: this.state.markerPosition,
-        width: this.state.markerWidth
-      }))), routes.map(function (route, i) {
+      return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactSpring.Spring, {
+        from: {
+          t: this.state.menuOpen ? 0 : 1
+        },
+        to: {
+          t: this.state.menuOpen ? 1 : 0
+        }
+      }, function (_ref5) {
+        var t = _ref5.t;
+        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(MenuButton, {
+          onClick: _this2.toggleMenu,
+          isOpen: _this2.state.menuOpen,
+          morph: _this2.morph(t),
+          style: {
+            "--x": "".concat(t * 20, "rem")
+          }
+        }), _react.default.createElement(Header, {
+          style: {
+            "--x": "".concat(t * 20, "rem")
+          }
+        }, _react.default.createElement(Menu, null, routes.map(function (route, i) {
+          return _react.default.createElement(StyledLink, {
+            key: route.key,
+            to: "/".concat(route.path),
+            onClick: _this2.handleLink,
+            activeClassName: "selected"
+          }, route.label);
+        }), _react.default.createElement(Marker, {
+          position: _this2.state.markerPosition,
+          width: _this2.state.markerWidth
+        }))));
+      }), routes.map(function (route, i) {
         return _react.default.createElement(_reactRouterDom.Route, {
           key: route.key,
           path: "/".concat(route.path),
@@ -34867,7 +34907,7 @@ function (_React$Component) {
         path: "/",
         component: _home.default,
         exact: true
-      })));
+      }), _react.default.createElement(Footer, null, _react.default.createElement(Logo, null))));
     }
   }]);
 
@@ -34903,7 +34943,7 @@ var Content = _styledComponents.default.main.attrs({
   id: "Content"
 }).withConfig({
   displayName: "content__Content"
-})(["padding:3rem 1em 1rem;max-width:60rem;margin:1rem auto 0;min-height:calc(100vh - 4rem);background:inherit;@media (max-width:50rem){padding-left:3rem;min-height:calc(100vh - 1rem);}"]);
+})(["padding:3rem 1em 1rem;max-width:60rem;margin:1rem auto 0;min-height:calc(100vh - 1rem);@media (max-width:50rem){padding-left:3rem;}"]);
 
 var _default = Content;
 exports.default = _default;
@@ -35004,11 +35044,17 @@ var _reactScroll = __webpack_require__(/*! react-scroll */ "./node_modules/react
 
 var _svg = __webpack_require__(/*! ./svg */ "./src/components/svg.js");
 
+var _designSystem = __webpack_require__(/*! ../design-system */ "./src/design-system.js");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -35027,7 +35073,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\tright: 0;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tright: 0;\n\tclip-path: polygon(100% 0, 0 50%, 100% 100%, 100% 0);\n\tpadding-left: 0.75em;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -35037,7 +35083,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tleft: 0;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tleft: 0;\n\tpadding-right: 0.75em;\n\tclip-path: polygon(0 0, 100% 50%, 0 100%, 0 0);\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -35052,7 +35098,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 var Stage = _styledComponents.default.div.withConfig({
   displayName: "stage__Stage"
-})(["height:calc(100vh - 3rem);width:100vw;position:relative;&::after{pointer-events:none;content:\"\";position:absolute;bottom:0;left:0;right:0;height:6rem;z-index:2;background-image:linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0));}"]);
+})(["height:100vh;width:100vw;position:relative;overflow:hidden;@media print{display:none;}"]);
 
 var Wrapper = _styledComponents.default.div.withConfig({
   displayName: "stage__Wrapper"
@@ -35066,11 +35112,9 @@ var Arrows = _styledComponents.default.div.withConfig({
 
 exports.Arrows = Arrows;
 
-var NavArrow = _styledComponents.default.a.attrs({
-  href: "#"
-}).withConfig({
+var NavArrow = _styledComponents.default.button.withConfig({
   displayName: "stage__NavArrow"
-})(["visibility:visible;position:absolute;z-index:2;top:50%;height:3em;margin:0.5rem;width:1.5em;margin-top:-1.5em;font-size:2rem;color:currentColor;"]);
+})(["visibility:visible;position:absolute;display:flex;align-items:center;align-content:center;justify-content:center;z-index:2;top:50%;height:3em;width:1.5em;margin:-1.5em 0 0;padding:0.25em;text-decoration:none;font-size:2rem;border:0;background:", ";color:", ";&:focus{outline:0;background:", ";}"], _designSystem.colors.elements.background, _designSystem.colors.elements.color, _designSystem.colors.elements.focus);
 
 exports.NavArrow = NavArrow;
 
@@ -35092,10 +35136,10 @@ var RightArrow = function RightArrow(props) {
 
 var StyledLeftArrow = (0, _styledComponents.default)(LeftArrow).withConfig({
   displayName: "stage__StyledLeftArrow"
-})(["height:100%;width:100%;"]);
+})(["height:50%;width:50%;"]);
 var StyledRightArrow = (0, _styledComponents.default)(RightArrow).withConfig({
   displayName: "stage__StyledRightArrow"
-})(["height:100%;width:100%;"]);
+})(["height:50%;width:50%;"]);
 var Left = NavArrow.extend(_templateObject());
 exports.Left = Left;
 var Right = NavArrow.extend(_templateObject2());
@@ -35168,7 +35212,7 @@ function (_React$Component) {
           transform: transform
         };
         return _react.default.cloneElement(slide, {
-          style: style
+          style: _objectSpread({}, slide.props.style, style)
         });
       });
     }
@@ -35187,19 +35231,21 @@ var Arrow = function Arrow(props) {
   }));
 };
 
+var jump = (0, _styledComponents.keyframes)(["from{transform:translate3d(0,-0.5rem,0);}to{transform:translate3d(0,0.5rem,0);}"]);
 var StyledArrow = (0, _styledComponents.default)(Arrow).withConfig({
   displayName: "stage__StyledArrow"
-})(["height:100%;width:100%;"]);
-var jump = (0, _styledComponents.keyframes)(["from{transform:translate3d(0,-0.5rem,0);}to{transform:translate3d(0,0.5rem,0);}"]);
+})(["height:50%;width:50%;animation:", " 0.5s ease-in-out infinite alternate;"], jump);
 
 var Shade = _styledComponents.default.div.withConfig({
   displayName: "stage__Shade"
-})(["position:sticky;z-index:2;top:0;margin:-4rem calc((50vw - 29rem) * -1) 0;right:0;height:3rem;background:inherit;@media (max-width:60rem){display:none;}"]);
+})(["position:sticky;z-index:2;top:0;margin:-4rem calc((50vw - 29rem) * -1) 0;right:0;height:3rem;background:", ";@media (max-width:60rem){display:none;}"], function (props) {
+  return props.shade || _designSystem.colors.shade;
+});
 
 exports.Shade = Shade;
 var ScrollArrow = (0, _styledComponents.default)(_reactScroll.Link).withConfig({
   displayName: "stage__ScrollArrow"
-})(["position:absolute;display:flex;z-index:2;bottom:2rem;left:50%;height:0.5em;width:1em;margin:0 -0.5em 1rem;color:#fff;text-decoration:none;animation:", " 1s ease-in-out infinite alternate;font-size:10rem;mix-blend-mode:screen;@media (max-width:50rem){font-size:5rem;}"], jump);
+})(["visibility:visible;position:absolute;display:flex;align-items:center;align-content:center;justify-content:center;z-index:2;bottom:0;left:50%;height:1.5em;width:3em;margin:0 0 0 -1.5em;padding:0.75em 0.25em 0.25em;font-size:2rem;background:", ";color:", ";text-decoration:none;clip-path:polygon(0 100%,50% 0,100% 100%,0 100%);&:focus{outline:0;background:", ";}"], _designSystem.colors.elements.background, _designSystem.colors.elements.color, _designSystem.colors.elements.focus);
 
 var ScrollHelper = function ScrollHelper(props) {
   return _react.default.createElement(ScrollArrow, props, _react.default.createElement(StyledArrow, null));
@@ -35230,7 +35276,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Icon = exports.Stroke = void 0;
+exports.SmallIcon = exports.Icon = exports.Stroke = void 0;
 
 var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.es.js"));
 
@@ -35247,6 +35293,12 @@ var Icon = _styledComponents.default.svg.withConfig({
 })(["height:100%;width:100%;"]);
 
 exports.Icon = Icon;
+
+var SmallIcon = _styledComponents.default.svg.withConfig({
+  displayName: "svg__SmallIcon"
+})(["height:50%;width:50%;"]);
+
+exports.SmallIcon = SmallIcon;
 
 /***/ }),
 
@@ -35269,6 +35321,8 @@ var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_mod
 
 var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.es.js"));
 
+var _designSystem = __webpack_require__(/*! ../design-system */ "./src/design-system.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
@@ -35283,11 +35337,11 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var shade = "rgba(255, 255, 255, 0.2)";
+var shade = _designSystem.colors.fade;
 
 var StyledTable = _styledComponents.default.article.withConfig({
   displayName: "table__StyledTable"
-})(["width:100%;max-width:50rem;display:flex;flex-direction:column;margin:1em auto;border-collapse:collapse;border:0;"]);
+})(["width:100%;max-width:50rem;display:flex;flex-direction:column;margin:1em auto;border-collapse:collapse;border:0;font-size:1.5rem;@media (max-width:50rem){font-size:1.25rem;}"]);
 
 exports.StyledTable = StyledTable;
 
@@ -35311,7 +35365,7 @@ exports.Tfoot = Tfoot;
 
 var Cell = _styledComponents.default.li.withConfig({
   displayName: "table__Cell"
-})(["border:0;text-align:", ";width:50%;list-style:none;margin:0;padding:0.5em 1em;line-height:2em;vertical-align:top;@media (max-width:50rem){width:100%;}"], function (_ref) {
+})(["border:0;text-align:", ";list-style:none;margin:0;padding:0.5em 1em;line-height:2em;vertical-align:top;&:first-child{width:70%;}&:nth-child(2){width:30%;}@media (max-width:50rem){width:100%;&:first-child{width:100%;}&:nth-child(2){width:100%;}}"], function (_ref) {
   var textAlign = _ref.textAlign;
   return textAlign || "center";
 });
@@ -35346,7 +35400,7 @@ exports.InfoWrapper = InfoWrapper;
 
 var Info = _styledComponents.default.li.withConfig({
   displayName: "table__Info"
-})(["list-style:none;margin:0;padding:0 0 0 1em;position:relative;&::before{position:absolute;top:0.25em;left:-1em;content:\"\";height:0.5em;width:0.5em;margin:0.5em;background:none;border:1px solid ", ";border-radius:50%;display:inline-block;vertical-align:middle;}"], shade);
+})(["list-style:none;margin:0;padding:0 0 0 1em;position:relative;&::before{position:absolute;top:0.25em;left:-1em;content:\"\";height:0.5em;width:0.5em;margin:0.5em;background:none;border:2px solid ", ";border-radius:50%;display:inline-block;vertical-align:middle;}"], shade);
 
 exports.Info = Info;
 
@@ -35359,6 +35413,130 @@ var Table = function Table(props) {
 };
 
 exports.Table = Table;
+
+/***/ }),
+
+/***/ "./src/components/text.js":
+/*!********************************!*\
+  !*** ./src/components/text.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Block = exports.Bigger = exports.Huge = exports.Fat = void 0;
+
+var _styledComponents = _interopRequireDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.es.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Fat = _styledComponents.default.span.withConfig({
+  displayName: "text__Fat"
+})(["font-family:\"Bowlby One SC\",sans-serif;@media print{font-family:serif;}"]);
+
+exports.Fat = Fat;
+
+var Huge = _styledComponents.default.span.withConfig({
+  displayName: "text__Huge"
+})(["font-size:1.7em;@media print{font-size:1em;}"]);
+
+exports.Huge = Huge;
+
+var Bigger = _styledComponents.default.span.withConfig({
+  displayName: "text__Bigger"
+})(["font-size:1.4em;@media print{font-size:1em;}"]);
+
+exports.Bigger = Bigger;
+
+var Block = _styledComponents.default.p.withConfig({
+  displayName: "text__Block"
+})(["margin:2rem 0;line-height:0.75;text-align:justify;font-size:3rem;hyphens:auto;@media (max-width:50rem){line-height:1.3;font-size:1rem;}"]);
+
+exports.Block = Block;
+
+/***/ }),
+
+/***/ "./src/design-system.js":
+/*!******************************!*\
+  !*** ./src/design-system.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.marker = exports.colors = void 0;
+var colors = {
+  focus: "hsla(220, 30%, 30%, 1)",
+  background: "hsla(180, 30%, 10%, 1)",
+  color: "#fff",
+  shade: "hsla(180, 10%, 20%, 1)",
+  fade: "rgba(0, 0, 0, 0.2)",
+  elements: {
+    focus: "hsla(220, 30%, 30%, 1)",
+    background: "hsla(180, 30%, 10%, 0.75)",
+    color: "#fff"
+  },
+  header: {
+    focus: "hsla(220, 30%, 30%, 1)",
+    background: "hsla(180, 30%, 10%, 0.75)",
+    color: "#fff"
+  },
+  sidebar: {
+    background: "hsla(180, 30%, 10%, 0.75)",
+    color: "#fff"
+  }
+};
+exports.colors = colors;
+var marker = {
+  height: "0.25rem"
+};
+exports.marker = marker;
+
+/***/ }),
+
+/***/ "./src/pages/about.js":
+/*!****************************!*\
+  !*** ./src/pages/about.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _content = _interopRequireDefault(__webpack_require__(/*! ../components/content */ "./src/components/content.js"));
+
+var _text = __webpack_require__(/*! ../components/text */ "./src/components/text.js");
+
+var _stage = __webpack_require__(/*! ../components/stage */ "./src/components/stage.js");
+
+var _scroll = __webpack_require__(/*! ../components/scroll */ "./src/components/scroll.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var About = function About() {
+  return _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement(_text.Block, null, _react.default.createElement(_text.Fat, null, "Fatih was born on April 30th 1986 in", " ", _react.default.createElement(_text.Huge, null, "Munich, Germany"), ".", " ", "Son of a family that has been living in Germany for 3 generations.", " "), _react.default.createElement(_text.Fat, null, "In his two year career as an actor, one of the make-up artists noticed his ", _react.default.createElement(_text.Huge, null, "flair and sense for art"), ". It didn't take too long that he chose to try something new."), _react.default.createElement(_text.Fat, null, _react.default.createElement(_text.Bigger, null, "In 2002 he finally started his apprenticeship as a hairdresser,", " "), "which he finished in 2005.", " "), _react.default.createElement(_text.Fat, null, "He always knew that this was ", _react.default.createElement(_text.Huge, null, "only the beginning"), ". He never wanted to accept the existence as a", " ", _react.default.createElement(_text.Huge, null, "hairdresser. ")), _react.default.createElement(_text.Fat, null, _react.default.createElement(_text.Huge, null, "Life has so much more to give than just the mainstream,"), " ", "you can see on the streets today.", " "), _react.default.createElement(_text.Fat, null, "After two years as a journeyman he finally made his", " ", _react.default.createElement(_text.Bigger, null, "master in 2007"), " in the Oberpfalz in Bavaria. After one year of apprenticeship he started giving", " ", _react.default.createElement(_text.Bigger, null, "cutting seminars."), " In the same time he spent a lot of time with ", _react.default.createElement(_text.Bigger, null, "photography.", " ")), _react.default.createElement(_text.Fat, null, "In 2008 he met the ", _react.default.createElement(_text.Huge, null, "photographer, Bert"), ". Fatih and Bert are inflamed. With huge lust for photography,", " "), _react.default.createElement(_text.Fat, null, "and retreated to absolute isolation.", " ", _react.default.createElement(_text.Huge, null, "Bert supplemented Fatih, as he did Bert. ")), _react.default.createElement(_text.Fat, null, "In January 2010 the time had come. After two years of building time, ", _react.default.createElement(_text.Bigger, null, "his own inspiration"), " and", " ", _react.default.createElement(_text.Bigger, null, "manual work,"), " his artwork was", _react.default.createElement(_text.Bigger, null, "finally opened to all his friends with a big welcome."))));
+};
+
+var _default = About;
+exports.default = _default;
 
 /***/ }),
 
@@ -35388,7 +35566,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default() {
   return _react.default.createElement(_pricelist.default, {
     stage: _beauty.default.stage,
-    content: _beauty.default.content
+    content: _beauty.default.content,
+    shade: _beauty.default.shade
   });
 };
 
@@ -35400,10 +35579,10 @@ exports.default = _default;
 /*!*******************************!*\
   !*** ./src/pages/beauty.json ***!
   \*******************************/
-/*! exports provided: stage, content, default */
+/*! exports provided: stage, shade, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/beauty.jpg","text":"Beauty","style":{"objectPosition":"10% 0%"}}]},"content":{"service":[{"label":"Intense care","price":"€ 6,00 / 11,00"},{"label":"Intense hand massage","details":"(regenerate & strengthen)","price":"€ 11,00"},{"label":"Eyebrows","details":"(color)","price":"€ 9,00"},{"label":"Eyebrows","details":"(shape)","price":"€ 10,00"},{"label":"Eyelashes","details":"(color)","price":"€ 14,00"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/beauty_00.jpg","text":"Beauty","style":{"objectPosition":"10% 0%"}},{"image":"/assets/beauty_01.jpg","text":"Beauty","style":{"objectPosition":"60% 0%"}},{"image":"/assets/beauty_02.jpg","text":"Beauty","style":{"objectPosition":"70% 50%"}}]},"shade":"#a33","content":{"service":[{"label":"Intense care","price":"€ 6,00 / 11,00"},{"label":"Intense hand massage","details":"(regenerate & strengthen)","price":"€ 11,00"},{"label":"Eyebrows","details":"(color)","price":"€ 9,00"},{"label":"Eyebrows","details":"(shape)","price":"€ 10,00"},{"label":"Eyelashes","details":"(color)","price":"€ 14,00"}]}};
 
 /***/ }),
 
@@ -35424,18 +35603,19 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _reactSpring = __webpack_require__(/*! react-spring */ "./node_modules/react-spring/dist/web.js");
-
 var _page = _interopRequireDefault(__webpack_require__(/*! ./page */ "./src/pages/page.js"));
 
 var _home = _interopRequireDefault(__webpack_require__(/*! ./home.json */ "./src/pages/home.json"));
+
+var _text = __webpack_require__(/*! ../components/text */ "./src/components/text.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
   return _react.default.createElement(_page.default, {
-    stage: _home.default.stage
-  }, "Home");
+    stage: _home.default.stage,
+    shade: _home.default.shade
+  }, _react.default.createElement(_text.Block, null, _react.default.createElement(_text.Fat, null, "Standard... "), _react.default.createElement(_text.Fat, null, "I can't live with that. "), _react.default.createElement(_text.Fat, null, "I live my own individual lifestyle.", " ", _react.default.createElement(_text.Bigger, null, "and rather listen to my friends and customers,", " ")), _react.default.createElement(_text.Fat, null, "than wear expensive clothing and play big or talk as if I was."), _react.default.createElement(_text.Fat, null, "I try to find the perfect match with a well planned, direct,", " ", _react.default.createElement(_text.Huge, null, "unforced chat and empathy. ")), _react.default.createElement(_text.Fat, null, "Lean back and enjoy. "), _react.default.createElement(_text.Fat, null, "Together we have enough time to find what fits you best.", " ", _react.default.createElement(_text.Bigger, null, "Dive into the underground and forget everything around you.", " "))));
 };
 
 var _default = Home;
@@ -35450,7 +35630,7 @@ exports.default = _default;
 /*! exports provided: stage, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/home.jpg","text":"Home","style":{"objectPosition":"30% 0%"}}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/home_00.jpg","text":"Home","style":{"objectPosition":"30% 0%"}},{"image":"/assets/home_01.jpg","text":"Home","style":{"objectPosition":"80% 100%"}},{"image":"/assets/home_02.jpg","text":"Home","style":{"objectPosition":"30% 0%"}},{"image":"/assets/home_03.jpg","text":"Home","style":{"objectPosition":"100% 50%"}},{"image":"/assets/home_04.jpg","text":"Home","style":{"objectPosition":"80% 50%"}},{"image":"/assets/home_05.jpg","text":"Home","style":{"objectPosition":"15% 0%"}},{"image":"/assets/home_06.jpg","text":"Home","style":{"objectPosition":"20% 0%"}},{"image":"/assets/home_07.jpg","text":"Home","style":{"objectPosition":"50% 30%"}},{"image":"/assets/home_08.jpg","text":"Home","style":{"objectPosition":"50% 50%"}},{"image":"/assets/home_09.jpg","text":"Home","style":{"objectPosition":"100% 100%"}}]}};
 
 /***/ }),
 
@@ -35514,7 +35694,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default() {
   return _react.default.createElement(_pricelist.default, {
     stage: _kids.default.stage,
-    content: _kids.default.content
+    content: _kids.default.content,
+    shade: _kids.default.shade
   });
 };
 
@@ -35526,10 +35707,10 @@ exports.default = _default;
 /*!*****************************!*\
   !*** ./src/pages/kids.json ***!
   \*****************************/
-/*! exports provided: stage, content, default */
+/*! exports provided: stage, shade, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/youngsters.jpg","text":"Youngsters","style":{"objectPosition":"70% 0%"}}]},"content":{"service":[{"label":"Toddlers","details":"two & younger","price":"€ 17,00"},{"label":"Kids","details":"ten & younger","price":"€ 27,00"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/youngsters_00.jpg","text":"Youngsters","style":{"objectPosition":"40% 30%"}},{"image":"/assets/youngsters_01.jpg","text":"Youngsters","style":{"objectPosition":"50% 50%"}},{"image":"/assets/youngsters_02.jpg","text":"Youngsters","style":{"objectPosition":"30% 50%"}},{"image":"/assets/youngsters_03.jpg","text":"Youngsters","style":{"objectPosition":"40% 50%"}},{"image":"/assets/youngsters_04.jpg","text":"Youngsters","style":{"objectPosition":"70% 0%"}}]},"shade":"#aa3","content":{"service":[{"label":"Toddlers","details":"two & younger","price":"€ 17,00"},{"label":"Kids","details":"ten & younger","price":"€ 27,00"}]}};
 
 /***/ }),
 
@@ -35559,7 +35740,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default() {
   return _react.default.createElement(_pricelist.default, {
     stage: _men.default.stage,
-    content: _men.default.content
+    content: _men.default.content,
+    shade: _men.default.shade
   });
 };
 
@@ -35571,10 +35753,10 @@ exports.default = _default;
 /*!****************************!*\
   !*** ./src/pages/men.json ***!
   \****************************/
-/*! exports provided: stage, content, default */
+/*! exports provided: stage, shade, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/gentlemen_00.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_01.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_02.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_03.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}}]},"content":{"service":[{"label":"Wash, cut & style","price":"€ 42,00"},{"label":"Color refresh","details":"(special for him)","price":"€ 25,00"},{"label":"Perfect trim","details":"for your beard","price":"€ 15,00"},{"label":"Classic shave","details":"with the good old razor","price":"€ 37,00"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/gentlemen_00.jpg","text":"Gentlemen","style":{"objectPosition":"70% 30%"}},{"image":"/assets/gentlemen_01.jpg","text":"Gentlemen","style":{"objectPosition":"50% 70%"}},{"image":"/assets/gentlemen_02.jpg","text":"Gentlemen","style":{"objectPosition":"55% 80%"}},{"image":"/assets/gentlemen_03.jpg","text":"Gentlemen","style":{"objectPosition":"30% 50%"}}]},"shade":"#33a","content":{"service":[{"label":"Wash, cut & style","price":"€ 42,00"},{"label":"Color refresh","details":"(special for him)","price":"€ 25,00"},{"label":"Perfect trim","details":"for your beard","price":"€ 15,00"},{"label":"Classic shave","details":"with the good old razor","price":"€ 37,00"}]}};
 
 /***/ }),
 
@@ -35608,19 +35790,16 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Page = function Page(props) {
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_stage.default, null, props.stage.slides.map(function (slide, i) {
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_stage.Slideshow, null, props.stage.slides.map(function (slide, i) {
     return _react.default.createElement(_stage.StageImage, {
       key: i,
       src: slide.image,
       alt: slide.text,
       style: slide.style
     });
-  }), _react.default.createElement(_stage.ScrollHelper, {
-    to: "Content",
-    href: "#Content",
-    smooth: true,
-    duration: window.innerHeight / 2
-  })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), props.children));
+  })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, {
+    shade: props.shade
+  }), _react.default.createElement(_scroll.ScrollToTop, null), props.children));
 };
 
 var _default = Page;
@@ -35665,7 +35844,9 @@ var Page = function Page(props) {
       alt: slide.text,
       style: slide.style
     });
-  })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, null), _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement(_table.Table, {
+  })), _react.default.createElement(_content.default, null, _react.default.createElement(_stage.Shade, {
+    shade: props.shade
+  }), _react.default.createElement(_scroll.ScrollToTop, null), _react.default.createElement(_table.Table, {
     headers: ["Service", "Price"]
   }, props.content.service.map(function (item, index) {
     return _react.default.createElement(_table.Row, {
@@ -35713,7 +35894,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default() {
   return _react.default.createElement(_pricelist.default, {
     stage: _products.default.stage,
-    content: _products.default.content
+    content: _products.default.content,
+    shade: _products.default.shade
   });
 };
 
@@ -35725,10 +35907,10 @@ exports.default = _default;
 /*!*********************************!*\
   !*** ./src/pages/products.json ***!
   \*********************************/
-/*! exports provided: stage, content, default */
+/*! exports provided: stage, shade, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/care.jpg","text":"Care","style":{"objectPosition":"40% 50%"}}]},"content":{"service":[{"label":"Personal Haircare","details":"mixed especially for your needs","price":"ask on your next visit"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/care_00.jpg","text":"Care","style":{"objectPosition":"40% 50%"}},{"image":"/assets/care_01.jpg","text":"Care","style":{"objectPosition":"60% 50%"}},{"image":"/assets/care_02.jpg","text":"Care","style":{"objectPosition":"85% 50%"}},{"image":"/assets/care_03.jpg","text":"Care","style":{"objectPosition":"70% 50%"}}]},"shade":"#3a3","content":{"service":[{"label":"Personal Haircare","details":"mixed especially for your needs","price":"ask on your next visit"}]}};
 
 /***/ }),
 
@@ -35758,7 +35940,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default() {
   return _react.default.createElement(_pricelist.default, {
     stage: _seminars.default.stage,
-    content: _seminars.default.content
+    content: _seminars.default.content,
+    shade: _seminars.default.shade
   });
 };
 
@@ -35770,10 +35953,10 @@ exports.default = _default;
 /*!*********************************!*\
   !*** ./src/pages/seminars.json ***!
   \*********************************/
-/*! exports provided: stage, content, default */
+/*! exports provided: stage, shade, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/seminars.jpg","text":"Seminars","style":{"objectPosition":"30% 0%"}}]},"content":{"service":[{"label":"Styling","details":"for everyone","info":["half day / seminar","max. four people","Bring your tools: Scissors, brushes, straightener, dryer","The seminar will be personalized for every participant"],"price":"€ 79,00"},{"label":"Basic","details":"long / short (team leaders,  top stylists, young stylists)","info":["two days / seminar","max. three people","Bring your tools: Scissors, brushes, straightener, dryer","the seminar will be personalized for each participant"],"price":"€ 425,00"},{"label":"Advanced","details":"men / women (team leaders,  top stylists, young stylists)","info":["two days / seminar","max. three people","Bring your tools: Scissors, brushes, straightener, dryer","the seminar will be personalized for each participant"],"price":"€ 425,00"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/seminars_00.jpg","text":"Seminars","style":{"objectPosition":"30% 0%"}},{"image":"/assets/seminars_01.jpg","text":"Seminars","style":{"objectPosition":"60% 0%"}},{"image":"/assets/seminars_02.jpg","text":"Seminars","style":{"objectPosition":"60% 0%"}}]},"shade":"#3aa","content":{"service":[{"label":"Styling","details":"for everyone","info":["half day / seminar","max. four people","Bring your tools: Scissors, brushes, straightener, dryer","The seminar will be personalized for every participant"],"price":"€ 79,00"},{"label":"Basic","details":"long / short (team leaders,  top stylists, young stylists)","info":["two days / seminar","max. three people","Bring your tools: Scissors, brushes, straightener, dryer","the seminar will be personalized for each participant"],"price":"€ 425,00"},{"label":"Advanced","details":"men / women (team leaders,  top stylists, young stylists)","info":["two days / seminar","max. three people","Bring your tools: Scissors, brushes, straightener, dryer","the seminar will be personalized for each participant"],"price":"€ 425,00"}]}};
 
 /***/ }),
 
@@ -35803,7 +35986,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = function _default() {
   return _react.default.createElement(_pricelist.default, {
     stage: _women.default.stage,
-    content: _women.default.content
+    content: _women.default.content,
+    shade: _women.default.shade
   });
 };
 
@@ -35815,10 +35999,10 @@ exports.default = _default;
 /*!******************************!*\
   !*** ./src/pages/women.json ***!
   \******************************/
-/*! exports provided: stage, content, default */
+/*! exports provided: stage, shade, content, default */
 /***/ (function(module) {
 
-module.exports = {"stage":{"slides":[{"image":"/assets/ladies.jpg","text":"Ladies","style":{"objectPosition":"100% 0%"}}]},"content":{"service":[{"label":"Haircut","details":"incl. advice, blowdry styling","price":"€ 55,00"},{"label":"Blowdry","details":"(incl. wash)","price":"€ 33,00"},{"label":"Coloring","details":"Roots","price":"€ 43,00"},{"label":"Coloring","details":"complete","price":"€ 49,00"},{"label":"Méche / Slices","details":"half head","price":"€ 76,00"},{"label":"Méche / Slices","details":"full head","price":"€ 89,00"},{"label":"Méche","details":"creative","price":"€ 56,00"},{"label":"Méche","details":"artistic","price":"€ 110,00"}]}};
+module.exports = {"stage":{"slides":[{"image":"/assets/ladies_00.jpg","text":"Ladies","style":{"objectPosition":"50% 90%"}},{"image":"/assets/ladies_01.jpg","text":"Ladies","style":{"objectPosition":"85% 90%"}},{"image":"/assets/ladies_02.jpg","text":"Ladies","style":{"objectPosition":"60% 50%"}},{"image":"/assets/ladies_03.jpg","text":"Ladies","style":{"objectPosition":"100% 0%"}}]},"shade":"#a3a","content":{"service":[{"label":"Haircut","details":"incl. advice, blowdry styling","price":"€ 55,00"},{"label":"Blowdry","details":"(incl. wash)","price":"€ 33,00"},{"label":"Coloring","details":"Roots","price":"€ 43,00"},{"label":"Coloring","details":"complete","price":"€ 49,00"},{"label":"Méche / Slices","details":"half head","price":"€ 76,00"},{"label":"Méche / Slices","details":"full head","price":"€ 89,00"},{"label":"Méche","details":"creative","price":"€ 56,00"},{"label":"Méche","details":"artistic","price":"€ 110,00"}]}};
 
 /***/ }),
 

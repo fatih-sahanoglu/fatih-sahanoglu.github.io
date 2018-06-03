@@ -3,15 +3,18 @@
 	"version": "1.0.0",
 	"description": "Homepage of Fatih Sahanoglu",
 	"main": "index.js",
-	"repository": "git@github.com:fatih-sahanoglu/fatih-sahanoglu.github.io.git",
+	"repository":
+		"git@github.com:fatih-sahanoglu/fatih-sahanoglu.github.io.git",
 	"author": "Gregor Adams <greg@pixelass.com>",
 	"license": "MIT",
 	"scripts": {
 		"start": "webpack-dev-server --hot",
 		"build": "webpack",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
-		"format:json": "prettier *.json .*rc 'src/**/*.json' --parser json --write",
-		"format:js": "prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
+		"format:json":
+			"prettier *.json .*rc 'src/**/*.json' --parser json --write",
+		"format:js":
+			"prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write"
 	},
 	"dependencies": {

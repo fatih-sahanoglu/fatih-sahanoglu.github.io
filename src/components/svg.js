@@ -11,3 +11,8 @@ export const Icon = styled.svg`
 	height: 100%;
 	width: 100%;
 `;
+
+export const SmallIcon = styled.svg`
+	height: 50%;
+	width: 50%;
+`;

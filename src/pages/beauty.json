@@ -2,14 +2,29 @@
 	"stage": {
 		"slides": [
 			{
-				"image": "/assets/beauty.jpg",
+				"image": "/assets/beauty_00.jpg",
 				"text": "Beauty",
 				"style": {
 					"objectPosition": "10% 0%"
 				}
+			},
+			{
+				"image": "/assets/beauty_01.jpg",
+				"text": "Beauty",
+				"style": {
+					"objectPosition": "60% 0%"
+				}
+			},
+			{
+				"image": "/assets/beauty_02.jpg",
+				"text": "Beauty",
+				"style": {
+					"objectPosition": "70% 50%"
+				}
 			}
 		]
 	},
+	"shade": "#a33",
 	"content": {
 		"service": [
 			{

@@ -2,23 +2,15 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import {Link} from "react-scroll";
 import {Stroke} from "./svg";
+import {colors} from "../design-system";
 
 const Stage = styled.div`
-	height: calc(100vh - 3rem);
+	height: 100vh;
 	width: 100vw;
 	position: relative;
-	
-	&::after {
-		pointer-events: none;
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 6rem;
-		z-index: 2;
-		background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
-	
+	overflow: hidden;
+	@media print {
+		display: none;
 	}
 `;
 
@@ -30,19 +22,29 @@ export const Arrows = styled.div`
 	visibility: hidden;
 `;
 
-export const NavArrow = styled.a.attrs({
-	href: "#"
-})`
+export const NavArrow = styled.button`
 	visibility: visible;
 	position: absolute;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
 	z-index: 2;
 	top: 50%;
 	height: 3em;
-	margin: 0.5rem;
 	width: 1.5em;
-	margin-top: -1.5em;
+	margin: -1.5em 0 0;
+	padding: 0.25em;
+	text-decoration: none;
 	font-size: 2rem;
-	color: currentColor;
+	border: 0;
+	background: ${colors.elements.background};
+	color: ${colors.elements.color};
+
+	&:focus {
+		outline: 0;
+		background: ${colors.elements.focus};
+	}
 `;
 
 const LeftArrow = props => {
@@ -62,21 +64,25 @@ const RightArrow = props => {
 };
 
 const StyledLeftArrow = styled(LeftArrow)`
-	height: 100%;
-	width: 100%;
+	height: 50%;
+	width: 50%;
 `;
 
 const StyledRightArrow = styled(RightArrow)`
-	height: 100%;
-	width: 100%;
+	height: 50%;
+	width: 50%;
 `;
 
 export const Left = NavArrow.extend`
 	left: 0;
+	padding-right: 0.75em;
+	clip-path: polygon(0 0, 100% 50%, 0 100%, 0 0);
 `;
 
 export const Right = NavArrow.extend`
 	right: 0;
+	clip-path: polygon(100% 0, 0 50%, 100% 100%, 100% 0);
+	padding-left: 0.75em;
 `;
 
 export class Slideshow extends React.Component {
@@ -84,35 +90,39 @@ export class Slideshow extends React.Component {
 		super(props);
 		this.state = {
 			activeSlide: 0
-		}
-		this.toPrev = this.toPrev.bind(this)
-		this.toNext = this.toNext.bind(this)
+		};
+		this.toPrev = this.toPrev.bind(this);
+		this.toNext = this.toNext.bind(this);
 	}
 	get slides() {
 		const {activeSlide} = this.state;
 		return React.Children.toArray(this.props.children).map((slide, i) => {
-			const transform = `translate3d(${i < activeSlide ? -100 : i > activeSlide ? 100 : 0}%, 0, 0)`
+			const transform = `translate3d(${
+				i < activeSlide ? -100 : i > activeSlide ? 100 : 0
+			}%, 0, 0)`;
 			const style = {
 				transform
-			}
+			};
 			return React.cloneElement(slide, {
-				style
-			})
+				style: {...slide.props.style, ...style}
+			});
 		});
 	}
 
 	toPrev(e) {
 		e.preventDefault();
 		this.setState(prevState => ({
-			activeSlide: (prevState.activeSlide - 1 + this.slides.length) % this.slides.length
-		}))
+			activeSlide:
+				(prevState.activeSlide - 1 + this.slides.length) %
+				this.slides.length
+		}));
 	}
 
 	toNext(e) {
 		e.preventDefault();
 		this.setState(prevState => ({
 			activeSlide: (prevState.activeSlide + 1) % this.slides.length
-		}))
+		}));
 	}
 
 	render() {
@@ -121,10 +131,10 @@ export class Slideshow extends React.Component {
 				<Stage>{this.slides}</Stage>
 				<Arrows>
 					<Left onClick={this.toPrev}>
-						<StyledLeftArrow/>
+						<StyledLeftArrow />
 					</Left>
 					<Right onClick={this.toNext}>
-						<StyledRightArrow/>
+						<StyledRightArrow />
 					</Right>
 				</Arrows>
 				<ScrollHelper
@@ -134,7 +144,7 @@ export class Slideshow extends React.Component {
 					duration={window.innerHeight / 2}
 				/>
 			</Wrapper>
-		)
+		);
 	}
 }
 
@@ -146,11 +156,6 @@ const Arrow = props => {
 	);
 };
 
-const StyledArrow = styled(Arrow)`
-	height: 100%;
-	width: 100%;
-`;
-
 const jump = keyframes`
     from {
         transform: translate3d(0, -0.5rem, 0);
@@ -160,6 +165,11 @@ const jump = keyframes`
     }
 `;
 
+const StyledArrow = styled(Arrow)`
+	height: 50%;
+	width: 50%;
+	animation: ${jump} 0.5s ease-in-out infinite alternate;
+`;
 
 export const Shade = styled.div`
 	position: sticky;
@@ -168,29 +178,34 @@ export const Shade = styled.div`
 	margin: -4rem calc((50vw - 29rem) * -1) 0;
 	right: 0;
 	height: 3rem;
-	background: inherit;
+	background: ${props => props.shade || colors.shade};
 	@media (max-width: 60rem) {
 		display: none;
 	}
-`
+`;
 
 const ScrollArrow = styled(Link)`
+	visibility: visible;
 	position: absolute;
 	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
 	z-index: 2;
-	bottom: 2rem;
+	bottom: 0;
 	left: 50%;
-	height: 0.5em;
-	width: 1em;
-	margin: 0 -0.5em 1rem;
-	color: #fff;
+	height: 1.5em;
+	width: 3em;
+	margin: 0 0 0 -1.5em;
+	padding: 0.75em 0.25em 0.25em;
+	font-size: 2rem;
+	background: ${colors.elements.background};
+	color: ${colors.elements.color};
 	text-decoration: none;
-	animation: ${jump} 1s ease-in-out infinite alternate;
-	font-size: 10rem;
-	mix-blend-mode: screen;
-
-	@media (max-width: 50rem) {
-		font-size: 5rem;
+	clip-path: polygon(0 100%, 50% 0, 100% 100%, 0 100%);
+	&:focus {
+		outline: 0;
+		background: ${colors.elements.focus};
 	}
 `;
 

@@ -2,14 +2,36 @@
 	"stage": {
 		"slides": [
 			{
-				"image": "/assets/care.jpg",
+				"image": "/assets/care_00.jpg",
 				"text": "Care",
 				"style": {
 					"objectPosition": "40% 50%"
 				}
+			},
+			{
+				"image": "/assets/care_01.jpg",
+				"text": "Care",
+				"style": {
+					"objectPosition": "60% 50%"
+				}
+			},
+			{
+				"image": "/assets/care_02.jpg",
+				"text": "Care",
+				"style": {
+					"objectPosition": "85% 50%"
+				}
+			},
+			{
+				"image": "/assets/care_03.jpg",
+				"text": "Care",
+				"style": {
+					"objectPosition": "70% 50%"
+				}
 			}
 		]
 	},
+	"shade": "#3a3",
 	"content": {
 		"service": [
 			{

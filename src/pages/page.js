@@ -1,13 +1,18 @@
 import React from "react";
 import {Transition} from "react-spring";
 import Content from "../components/content";
-import Stage, {StageImage, ScrollHelper, Shade} from "../components/stage";
+import Stage, {
+	StageImage,
+	ScrollHelper,
+	Shade,
+	Slideshow
+} from "../components/stage";
 import {ScrollToTop} from "../components/scroll";
 
 const Page = props => {
 	return (
 		<React.Fragment>
-			<Stage>
+			<Slideshow>
 				{props.stage.slides.map((slide, i) => {
 					return (
 						<StageImage
@@ -18,15 +23,9 @@ const Page = props => {
 						/>
 					);
 				})}
-				<ScrollHelper
-					to="Content"
-					href={"#Content"}
-					smooth={true}
-					duration={window.innerHeight / 2}
-				/>
-			</Stage>
-			<Content >
-				<Shade/>
+			</Slideshow>
+			<Content>
+				<Shade shade={props.shade} />
 				<ScrollToTop />
 				{props.children}
 			</Content>

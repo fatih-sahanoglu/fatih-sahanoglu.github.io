@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-const shade = "rgba(255, 255, 255, 0.2)";
+import {colors} from "../design-system";
 
+const shade = colors.fade;
 export const StyledTable = styled.article`
 	width: 100%;
 	max-width: 50rem;
@@ -10,6 +11,11 @@ export const StyledTable = styled.article`
 	margin: 1em auto;
 	border-collapse: collapse;
 	border: 0;
+	font-size: 1.5rem;
+
+	@media (max-width: 50rem) {
+		font-size: 1.25rem;
+	}
 `;
 
 export const Tbody = styled.section`
@@ -33,14 +39,25 @@ export const Tfoot = styled.footer`
 export const Cell = styled.li`
 	border: 0;
 	text-align: ${({textAlign}) => textAlign || "center"};
-	width: 50%;
 	list-style: none;
 	margin: 0;
 	padding: 0.5em 1em;
 	line-height: 2em;
 	vertical-align: top;
+	&:first-child {
+		width: 70%;
+	}
+	&:nth-child(2) {
+		width: 30%;
+	}
 	@media (max-width: 50rem) {
 		width: 100%;
+		&:first-child {
+			width: 100%;
+		}
+		&:nth-child(2) {
+			width: 100%;
+		}
 	}
 `;
 
@@ -94,7 +111,7 @@ export const Info = styled.li`
 		width: 0.5em;
 		margin: 0.5em;
 		background: none;
-		border: 1px solid ${shade};
+		border: 2px solid ${shade};
 		border-radius: 50%;
 		display: inline-block;
 		vertical-align: middle;

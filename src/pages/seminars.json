@@ -2,14 +2,29 @@
 	"stage": {
 		"slides": [
 			{
-				"image": "/assets/seminars.jpg",
+				"image": "/assets/seminars_00.jpg",
 				"text": "Seminars",
 				"style": {
 					"objectPosition": "30% 0%"
 				}
+			},
+			{
+				"image": "/assets/seminars_01.jpg",
+				"text": "Seminars",
+				"style": {
+					"objectPosition": "60% 0%"
+				}
+			},
+			{
+				"image": "/assets/seminars_02.jpg",
+				"text": "Seminars",
+				"style": {
+					"objectPosition": "60% 0%"
+				}
 			}
 		]
 	},
+	"shade": "#3aa",
 	"content": {
 		"service": [
 			{

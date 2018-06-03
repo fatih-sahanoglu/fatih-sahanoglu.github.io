@@ -2,7 +2,28 @@
 	"stage": {
 		"slides": [
 			{
-				"image": "/assets/ladies.jpg",
+				"image": "/assets/ladies_00.jpg",
+				"text": "Ladies",
+				"style": {
+					"objectPosition": "50% 90%"
+				}
+			},
+			{
+				"image": "/assets/ladies_01.jpg",
+				"text": "Ladies",
+				"style": {
+					"objectPosition": "85% 90%"
+				}
+			},
+			{
+				"image": "/assets/ladies_02.jpg",
+				"text": "Ladies",
+				"style": {
+					"objectPosition": "60% 50%"
+				}
+			},
+			{
+				"image": "/assets/ladies_03.jpg",
 				"text": "Ladies",
 				"style": {
 					"objectPosition": "100% 0%"
@@ -10,6 +31,7 @@
 			}
 		]
 	},
+	"shade": "#a3a",
 	"content": {
 		"service": [
 			{
