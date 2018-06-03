@@ -5,7 +5,7 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const imageminMozjpeg = require("imagemin-mozjpeg");
-const CompressionPlugin = require("compression-webpack-plugin");
+// const CompressionPlugin = require("compression-webpack-plugin");
 const {NODE_ENV} = process.env;
 const prod = NODE_ENV === "production";
 const ROOT = __dirname;
@@ -22,7 +22,8 @@ module.exports = {
 			"react-router-dom",
 			"react-scroll",
 			"react-spring",
-			"styled-components"
+			"styled-components",
+			"markdown-react-js"
 		]
 	},
 	output: {
@@ -63,6 +64,10 @@ module.exports = {
 			{
 				test: /\.pug?$/,
 				loader: "pug-loader"
+			},
+			{
+				test: /\.md?$/,
+				loader: "raw-loader"
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
@@ -107,11 +112,11 @@ module.exports = {
 								sourceMap: false
 							}
 						),
-						new CompressionPlugin({
-							algorithm: "gzip"
-						}),
+						//new CompressionPlugin({
+						//    algorithm: "gzip"
+						//}),
 						new ImageminPlugin({
-							test: "**/*.jpg",
+							test: "src/**/*.jpg",
 							plugins: [
 								imageminMozjpeg({
 									quality: 75,
@@ -120,7 +125,7 @@ module.exports = {
 							]
 						}),
 						new ImageminPlugin({
-							test: "**/*.png",
+							test: "src/**/*.png",
 							optipng: {
 								optimizationLevel: 9
 							}

@@ -21,7 +21,7 @@ export const Bigger = styled.span`
 	}
 `;
 
-export const Block = styled.p`
+export const Block = styled.article`
 	margin: 2rem 0;
 	line-height: 0.75;
 	text-align: justify;
