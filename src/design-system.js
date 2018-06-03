@@ -23,3 +23,8 @@ export const colors = {
 export const marker = {
 	height: "0.25rem"
 };
+
+export const zIndex = {
+	header: 10,
+	footer: 9
+};

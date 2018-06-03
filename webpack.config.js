@@ -113,12 +113,19 @@ module.exports = {
 							algorithm: "gzip"
 						}),
 						new ImageminPlugin({
+							test: "**/*.jpg",
 							plugins: [
 								imageminMozjpeg({
 									quality: 75,
 									progressive: true
 								})
 							]
+						}),
+						new ImageminPlugin({
+							test: "**/*.png",
+							optipng: {
+								optimizationLevel: 9
+							}
 						})
 						//new BundleAnalyzerPlugin()
 				  ]

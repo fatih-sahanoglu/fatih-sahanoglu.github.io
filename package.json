@@ -16,7 +16,7 @@
 		"format:json":
 			"prettier *.json .*rc 'src/**/*.json' --parser json --write",
 		"format:js":
-			"prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
+			"prettier webpack.config.js !.prettierrc.js 'src/**/*.{js}' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write",
 		"start": "webpack-dev-server --hot",
 		"prebuild": "yarn clean"
@@ -54,6 +54,7 @@
 		"file-loader": "^1.1.11",
 		"html-webpack-harddisk-plugin": "^0.2.0",
 		"html-webpack-plugin": "^3.2.0",
+		"image-loader": "^0.0.1",
 		"imagemin-mozjpeg": "^7.0.0",
 		"imagemin-webpack-plugin": "^2.1.5",
 		"pug": "^2.0.3",
