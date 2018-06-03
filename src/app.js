@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
+import {Route, NavLink, Switch} from "react-router-dom";
 import styled, {injectGlobal} from "styled-components";
 import {Spring} from "react-spring";
 import routing from "./routes.json";
@@ -351,44 +350,41 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router>
-				<React.Fragment>
-					<Spring
-						from={{t: this.state.menuOpen ? 0 : 1}}
-						to={{t: this.state.menuOpen ? 1 : 0}}>
-						{({t}) => {
-							return (
-								<React.Fragment>
-									<MenuButton
-										onClick={this.toggleMenu}
-										isOpen={this.state.menuOpen}
-										morph={this.morph(t)}
-										style={{"--x": `${t * 20}rem`}}
-									/>
-									<Header style={{"--x": `${t * 20}rem`}}>
-										<Menu>
-											{routes.map((route, i) => (
-												<StyledLink
-													key={route.key}
-													to={`/${route.path}.html`}
-													onClick={this.handleLink}
-													activeClassName="selected">
-													{route.label}
-												</StyledLink>
-											))}
-											<Marker
-												position={
-													this.state.markerPosition
-												}
-												width={this.state.markerWidth}
-											/>
-										</Menu>
-									</Header>
-								</React.Fragment>
-							);
-						}}
-					</Spring>
-
+			<React.Fragment>
+				<Spring
+					from={{t: this.state.menuOpen ? 0 : 1}}
+					to={{t: this.state.menuOpen ? 1 : 0}}>
+					{({t}) => {
+						return (
+							<React.Fragment>
+								<MenuButton
+									onClick={this.toggleMenu}
+									isOpen={this.state.menuOpen}
+									morph={this.morph(t)}
+									style={{"--x": `${t * 20}rem`}}
+								/>
+								<Header style={{"--x": `${t * 20}rem`}}>
+									<Menu>
+										{routes.map((route, i) => (
+											<StyledLink
+												key={route.key}
+												to={`/${route.path}.html`}
+												onClick={this.handleLink}
+												activeClassName="selected">
+												{route.label}
+											</StyledLink>
+										))}
+										<Marker
+											position={this.state.markerPosition}
+											width={this.state.markerWidth}
+										/>
+									</Menu>
+								</Header>
+							</React.Fragment>
+						);
+					}}
+				</Spring>
+				<Switch>
 					{routes.map((route, i) => (
 						<Route
 							key={route.key}
@@ -397,13 +393,14 @@ class App extends React.Component {
 						/>
 					))}
 					<Route path="/" component={Home} exact={true} />
-					<Footer>
-						<Logo />
-					</Footer>
-				</React.Fragment>
-			</Router>
+					<Route path="/*" component={NotFound} />
+				</Switch>
+				<Footer>
+					<Logo />
+				</Footer>
+			</React.Fragment>
 		);
 	}
 }
-const app = document.getElementById("app");
-ReactDOM.render(<App />, app);
+
+export default App;
