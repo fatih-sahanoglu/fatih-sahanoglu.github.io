@@ -5,8 +5,8 @@
 > didn’t take too long that he chose to try something new.
 > _In 2002 he finally started his apprenticeship as a hairdresser,_
 > which he finished in 2005.
-> He always knew that this was **only the beginning\*.
-> He never wanted to accept the existence as a **hairdresser.\*\*
+> He always knew that this was _only the beginning_.
+> He never wanted to accept the existence as a **hairdresser.**
 
 > _Life has so much more to give than just the mainstream,_
 > you can see on the streets today.

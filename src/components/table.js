@@ -16,6 +16,10 @@ export const StyledTable = styled.article`
 	@media (max-width: 50rem) {
 		font-size: 1.25rem;
 	}
+	@media print {
+		font-size: 1rem;
+		max-width: 90%;
+	}
 `;
 
 export const Tbody = styled.section`
@@ -28,6 +32,9 @@ export const Thead = styled.header`
 	flex-direction: column;
 	@media (max-width: 50rem) {
 		display: none;
+	}
+	@media print {
+		display: flex;
 	}
 `;
 
@@ -59,6 +66,17 @@ export const Cell = styled.li`
 			width: 100%;
 		}
 	}
+	@media print {
+		padding: 0.25em 0.5em;
+		line-height: 1.2;
+		&:first-child {
+			border-right: 1px solid;
+			width: 70%;
+		}
+		&:nth-child(2) {
+			width: 30%;
+		}
+	}
 `;
 
 export const Heading = Cell.extend`
@@ -80,6 +98,11 @@ export const Row = styled.ul`
 		1;
 	@media (max-width: 50rem) {
 		flex-direction: column;
+	}
+	@media print {
+		border-image: none;
+		border-bottom: 1px solid;
+		flex-direction: row;
 	}
 `;
 
