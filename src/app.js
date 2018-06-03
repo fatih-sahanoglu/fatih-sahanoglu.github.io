@@ -5,7 +5,7 @@ import {Spring} from "react-spring";
 import routing from "./routes.json";
 
 import {Stroke, Icon} from "./components/svg";
-import Content from "./components/content";
+import Stage, {StageImage} from "./components/stage";
 import Men from "./pages/men";
 import Women from "./pages/women";
 import Kids from "./pages/kids";
@@ -58,7 +58,18 @@ injectGlobal`
 `;
 
 const NotFound = () => {
-	return <Content>404</Content>;
+	const style = {
+		objectPosition: "10% 100%"
+	};
+	return (
+		<Stage>
+			<StageImage
+				src={require("./assets/404.jpg")}
+				alt="page not found"
+				style={style}
+			/>
+		</Stage>
+	);
 };
 
 const zIndex = {
