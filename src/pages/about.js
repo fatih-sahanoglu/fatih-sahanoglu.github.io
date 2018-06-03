@@ -17,7 +17,7 @@ const About = () => {
 				<Fat>
 					In his two year career as an actor, one of the make-up
 					artists noticed his <Huge>flair and sense for art</Huge>. It
-					didn't take too long that he chose to try something new.
+					didn't take too long that he chose to try something new.{" "}
 				</Fat>
 				<Fat>
 					<Bigger>
@@ -42,7 +42,7 @@ const About = () => {
 					<Bigger>master in 2007</Bigger> in the Oberpfalz in Bavaria.
 					After one year of apprenticeship he started giving{" "}
 					<Bigger>cutting seminars.</Bigger> In the same time he spent
-					a lot of time with <Bigger>photography. </Bigger>
+					a lot of time with <Bigger>photography.</Bigger>{" "}
 				</Fat>
 				<Fat>
 					In 2008 he met the <Huge>photographer, Bert</Huge>. Fatih
@@ -50,12 +50,12 @@ const About = () => {
 				</Fat>
 				<Fat>
 					and retreated to absolute isolation.{" "}
-					<Huge>Bert supplemented Fatih, as he did Bert. </Huge>
+					<Huge>Bert supplemented Fatih, as he did Bert.</Huge>{" "}
 				</Fat>
 				<Fat>
 					In January 2010 the time had come. After two years of
 					building time, <Bigger>his own inspiration</Bigger> and{" "}
-					<Bigger>manual work,</Bigger> his artwork was
+					<Bigger>manual work,</Bigger> his artwork was{" "}
 					<Bigger>
 						finally opened to all his friends with a big welcome.
 					</Bigger>

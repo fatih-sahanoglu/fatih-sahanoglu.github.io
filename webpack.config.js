@@ -12,7 +12,7 @@ const ROOT = __dirname;
 const OUT_DIR = path.resolve(ROOT, "");
 
 const routes = Object.entries(require("./src/routes.json")).map(
-	([, v]) => v.path
+	([, v]) => v
 );
 
 module.exports = {
@@ -86,8 +86,9 @@ module.exports = {
 		...routes.map(
 			route =>
 				new HtmlWebpackPlugin({
-					filename: route ? `${route}.html` : "index.html",
+					filename: route.path ? `${route.path}.html` : "index.html",
 					template: "views/index.pug",
+					title: "Fatih Sahanoglu | Standard, I cant live with that",
 					alwaysWriteToDisk: true
 				})
 		),
@@ -106,7 +107,7 @@ module.exports = {
 						new CompressionPlugin({
 							algorithm: 'gzip'
 						}),
-						new BundleAnalyzerPlugin()
+						//new BundleAnalyzerPlugin()
 				  ]
 				: [])(prod),
 		new FaviconsWebpackPlugin({
@@ -126,7 +127,7 @@ module.exports = {
 			// favicon background color (see https://github.com/haydenbleasel/favicons#usage)
 			background: "#333",
 			// favicon app title (see https://github.com/haydenbleasel/favicons#usage)
-			title: "Fathi Sahanoglu",
+			title: "Fatih Sahanoglu",
 
 			// which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
 			icons: {

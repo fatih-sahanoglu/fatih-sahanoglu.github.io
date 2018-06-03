@@ -12,18 +12,18 @@ const Home = () => {
 				<Fat>
 					I live my own individual lifestyle.{" "}
 					<Bigger>
-						and rather listen to my friends and customers,{" "}
-					</Bigger>
+						and rather listen to my friends and customers,
+					</Bigger>{" "}
 				</Fat>
 				<Fat>
 					than wear expensive clothing and play big or talk as if I
-					was.
+					was.{" "}
 				</Fat>
 				<Fat>
 					I try to find the perfect match with a well planned, direct,{" "}
-					<Huge>unforced chat and empathy. </Huge>
+					<Huge>unforced chat and empathy.</Huge>{" "}
 				</Fat>
-				<Fat>Lean back and enjoy. </Fat>
+				<Fat>Lean back and enjoy.</Fat>{" "}
 				<Fat>
 					Together we have enough time to find what fits you best.{" "}
 					<Bigger>
