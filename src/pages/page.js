@@ -8,7 +8,6 @@ import Stage, {
 	Slideshow
 } from "../components/stage";
 import {ScrollToTop} from "../components/scroll";
-
 const Page = props => {
 	return (
 		<React.Fragment>

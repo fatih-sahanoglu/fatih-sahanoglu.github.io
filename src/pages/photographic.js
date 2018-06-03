@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./photographic.json";
+import data from "./photographic-data";
 import Page from "./pricelist";
 
 export default () => (

@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "./page";
-import data from "./home.json";
+import data from "./home-data";
 import {Block, Fat, Huge, Bigger} from "../components/text";
 
 const Home = () => {

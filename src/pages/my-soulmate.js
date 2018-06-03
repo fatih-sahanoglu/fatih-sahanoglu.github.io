@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "./page";
-import data from "./my-soulmate.json";
+import data from "./my-soulmate-data";
 import {Block, Fat, Huge, Bigger} from "../components/text";
 
 const Home = () => {
@@ -8,8 +8,8 @@ const Home = () => {
 		<Page stage={data.stage} shade={data.shade}>
 			<Block>
 				<Fat>
-					At sweet rebells, the  <Bigger>"My Soulmate"</Bigger>{" "}
-					are the <Huge>masterminds </Huge>
+					At sweet rebells, the  <Bigger>"My Soulmate"</Bigger> are
+					the <Huge>masterminds </Huge>
 					behind the collections. From idea creation,{" "}
 					<Bigger>pattern making</Bigger> and{" "}
 					<Huge>collaborations</Huge>, they are the brains behind the{" "}

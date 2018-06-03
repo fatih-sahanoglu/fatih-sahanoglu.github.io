@@ -10,13 +10,16 @@
 	"scripts": {
 		"babel": "babel src --out-dir lib",
 		"build": "cross-env NODE_ENV=production webpack",
+		"clean":
+			"del icons iconstats.json iconstats.json.gz images '*.html' '*.html.gz' '*.js' '*.js.gz' '!webpack.config.js'  '!.prettierrc.js'",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
 		"format:json":
 			"prettier *.json .*rc 'src/**/*.json' --parser json --write",
 		"format:js":
 			"prettier *.js .*.js 'src/**/*.{js,jsx}' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write",
-		"start": "webpack-dev-server --hot"
+		"start": "webpack-dev-server --hot",
+		"prebuild": "yarn clean"
 	},
 	"browserslist": [
 		"last 2 chrome versions",
@@ -46,10 +49,13 @@
 		"babel-plugin-styled-components": "^1.5.1",
 		"compression-webpack-plugin": "^1.1.11",
 		"cross-env": "^5.1.6",
+		"del-cli": "^1.1.0",
 		"favicons-webpack-plugin": "^0.0.9",
 		"file-loader": "^1.1.11",
 		"html-webpack-harddisk-plugin": "^0.2.0",
 		"html-webpack-plugin": "^3.2.0",
+		"imagemin-mozjpeg": "^7.0.0",
+		"imagemin-webpack-plugin": "^2.1.5",
 		"pug": "^2.0.3",
 		"pug-loader": "^2.4.0",
 		"webpack": "^4.9.1",

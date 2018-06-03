@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "./page";
-import data from "./contact.json";
+import data from "./contact-data";
 import {Block, Fat, Huge, Bigger} from "../components/text";
 
 const Home = () => {

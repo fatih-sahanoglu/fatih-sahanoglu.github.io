@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./kids.json";
+import data from "./kids-data";
 import Page from "./pricelist";
 
 export default () => (

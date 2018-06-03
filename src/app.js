@@ -264,7 +264,7 @@ const HomeLink = styled(NavLink)`
 const Logo = () => {
 	return (
 		<HomeLink to="/">
-			<Img src="/assets/logo.png" alt="logo" />
+			<Img src={require("./assets/logo.png")} alt="logo" />
 		</HomeLink>
 	);
 };

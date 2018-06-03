@@ -5,6 +5,8 @@ const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
+const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const imageminMozjpeg = require("imagemin-mozjpeg");
 const CompressionPlugin = require("compression-webpack-plugin");
 const {NODE_ENV} = process.env;
 const prod = NODE_ENV === "production";
@@ -68,7 +70,12 @@ module.exports = {
 				test: /\.(png|jpg|gif)$/,
 				use: [
 					{
-						loader: "file-loader"
+						loader: "file-loader",
+						options: {
+							name: "[sha512:hash:base64:7].[ext]",
+							outputPath: "images/",
+							publicPath: "images/"
+						}
 					}
 				]
 			}
@@ -85,7 +92,7 @@ module.exports = {
 			route =>
 				new HtmlWebpackPlugin({
 					filename: route.path ? `${route.path}.html` : "index.html",
-					template: "views/index.pug",
+					template: "./src/views/index.pug",
 					title: "Fatih Sahanoglu | Standard, I cant live with that",
 					alwaysWriteToDisk: true
 				})
@@ -104,13 +111,21 @@ module.exports = {
 						),
 						new CompressionPlugin({
 							algorithm: "gzip"
+						}),
+						new ImageminPlugin({
+							plugins: [
+								imageminMozjpeg({
+									quality: 75,
+									progressive: true
+								})
+							]
 						})
 						//new BundleAnalyzerPlugin()
 				  ]
 				: [])(prod),
 		new FaviconsWebpackPlugin({
 			// Your source logo
-			logo: "./assets/favicon.png",
+			logo: "./src/assets/favicon.png",
 			// The prefix for all image files (might be a folder or a name)
 			prefix: "icons/",
 			// Emit all stats of the generated icons

@@ -1,67 +1,67 @@
-{
-	"stage": {
-		"slides": [
+export default {
+	stage: {
+		slides: [
 			{
-				"image": "/assets/seminars_00.jpg",
-				"text": "Seminars",
-				"style": {
-					"objectPosition": "30% 0%"
+				image: require("./../assets/seminars_00.jpg"),
+				text: "Seminars",
+				style: {
+					objectPosition: "30% 0%"
 				}
 			},
 			{
-				"image": "/assets/seminars_01.jpg",
-				"text": "Seminars",
-				"style": {
-					"objectPosition": "60% 0%"
+				image: require("./../assets/seminars_01.jpg"),
+				text: "Seminars",
+				style: {
+					objectPosition: "60% 0%"
 				}
 			},
 			{
-				"image": "/assets/seminars_02.jpg",
-				"text": "Seminars",
-				"style": {
-					"objectPosition": "60% 0%"
+				image: require("./../assets/seminars_02.jpg"),
+				text: "Seminars",
+				style: {
+					objectPosition: "60% 0%"
 				}
 			}
 		]
 	},
-	"shade": "#3aa",
-	"content": {
-		"service": [
+	shade: "#3aa",
+	content: {
+		service: [
 			{
-				"label": "Styling",
-				"details": "for everyone",
-				"info": [
+				label: "Styling",
+				details: "for everyone",
+				info: [
 					"half day / seminar",
 					"max. four people",
 					"Bring your tools: Scissors, brushes, straightener, dryer",
 					"The seminar will be personalized for every participant"
 				],
-				"price": "€ 79,00"
+				price: "€ 79,00"
 			},
 			{
-				"label": "Basic",
-				"details":
+				label: "Basic",
+				details:
 					"long / short (team leaders,  top stylists, young stylists)",
-				"info": [
+				info: [
 					"two days / seminar",
 					"max. three people",
 					"Bring your tools: Scissors, brushes, straightener, dryer",
 					"the seminar will be personalized for each participant"
 				],
-				"price": "€ 425,00"
+				price: "€ 425,00"
 			},
 			{
-				"label": "Advanced",
-				"details":
+				label: "Advanced",
+				details:
 					"men / women (team leaders,  top stylists, young stylists)",
-				"info": [
+				info: [
 					"two days / seminar",
 					"max. three people",
 					"Bring your tools: Scissors, brushes, straightener, dryer",
 					"the seminar will be personalized for each participant"
 				],
-				"price": "€ 425,00"
+				price: "€ 425,00"
 			}
 		]
 	}
-}
+};

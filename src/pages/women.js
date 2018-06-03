@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./women.json";
+import data from "./women-data";
 import Page from "./pricelist";
 
 export default () => (
