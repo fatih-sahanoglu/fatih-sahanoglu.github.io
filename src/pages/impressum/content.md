@@ -1,17 +1,17 @@
 # Impressum
 
-Angaben gemäß § 5 TMG:
+Angaben gemäß § 5 TMG:  
 Fatih Sahanoglu  
 Friseur/Stylist/Fotograf  
-Schaarschmidtstr. 32
+Schaarschmidtstr. 32  
 80995 München
 
 ### Kontakt:
 
-Telefon: +49 176 20 977 087
+Telefon: +49 176 20 977 087  
 Email: fatih@fatih-sahanoglu.com
 
-Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
+Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:  
 146/181/81295
 
 ### Haftungsausschluss:
