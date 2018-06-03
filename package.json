@@ -9,15 +9,14 @@
 	"scripts": {
 		"babel": "babel src --out-dir lib",
 		"build": "cross-env NODE_ENV=production webpack",
-		"clean":
-			"del icons iconstats.json iconstats.json.gz images '*.html' '*.html.gz' '*.js' '*.js.gz' '!webpack.config.js'  '!.prettierrc.js'",
+		"clean": "del icons iconstats.json iconstats.json.gz images '*.html' '*.html.gz' '*.js' '*.js.gz' '!webpack.config.js'  '!.prettierrc.js'",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
 		"format:json": "prettier *.json .*rc 'src/**/*.json' --parser json --write",
-		"format:js":
-			"prettier webpack.config.js .prettierrc.js 'src/**/*.{js}' --parser babylon --write",
+		"format:js": "prettier webpack.config.js .prettierrc.js 'src/**/*.{js}' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write",
+		"prebuild": "yarn clean",
 		"start": "webpack-dev-server --hot",
-		"prebuild": "yarn clean"
+		"test": "ava"
 	},
 	"browserslist": [
 		"last 2 chrome versions",
@@ -43,6 +42,7 @@
 		"@babel/preset-env": "^7.0.0-beta.49",
 		"@babel/preset-react": "^7.0.0-beta.49",
 		"@babel/preset-stage-2": "^7.0.0-beta.49",
+		"ava": "^0.25.0",
 		"babel-loader": "^8.0.0-beta.3",
 		"babel-minify-webpack-plugin": "^0.3.1",
 		"babel-plugin-styled-components": "^1.5.1",
