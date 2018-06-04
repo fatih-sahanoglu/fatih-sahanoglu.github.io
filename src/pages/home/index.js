@@ -7,7 +7,7 @@ import content from "./content.md";
 const Index = () => {
 	return (
 		<Page stage={data.stage} shade={data.shade}>
-			<BlockText text={content}/>
+			<BlockText text={content} />
 		</Page>
 	);
 };

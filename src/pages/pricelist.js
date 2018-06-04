@@ -3,29 +3,14 @@ import {Transition} from "react-spring";
 import Content from "../components/content";
 import {Slideshow, StageImage, ScrollHelper, Shade} from "../components/stage";
 import {ScrollToTop} from "../components/scroll";
-import {
-	Table,
-	Row,
-	Cell,
-	Label,
-	Details,
-	InfoWrapper,
-	Info
-} from "../components/table";
+import {Table, Row, Cell, Label, Details, InfoWrapper, Info} from "../components/table";
 
 const Page = props => {
 	return (
 		<React.Fragment>
 			<Slideshow>
 				{props.stage.slides.map((slide, i) => {
-					return (
-						<StageImage
-							key={i}
-							src={slide.image}
-							alt={slide.text}
-							style={slide.style}
-						/>
-					);
+					return <StageImage key={i} src={slide.image} alt={slide.text} style={slide.style} />;
 				})}
 			</Slideshow>
 			<Content>
@@ -37,15 +22,11 @@ const Page = props => {
 							<Row key={index}>
 								<Cell textAlign="left">
 									<Label>{item.label}</Label>
-									{item.details ? (
-										<Details>{item.details}</Details>
-									) : null}
+									{item.details ? <Details>{item.details}</Details> : null}
 									{item.info ? (
 										<InfoWrapper>
 											{item.info.map((item, i) => {
-												return (
-													<Info key={i}>{item}</Info>
-												);
+												return <Info key={i}>{item}</Info>;
 											})}
 										</InfoWrapper>
 									) : null}

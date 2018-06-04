@@ -5,13 +5,7 @@ import {Spring} from "react-spring";
 import routing from "./routes.json";
 
 // Components
-import {
-	Header,
-	Marker,
-	StyledLink,
-	Menu,
-	MenuButton
-} from "./components/header";
+import {Header, Marker, StyledLink, Menu, MenuButton} from "./components/header";
 import {Footer} from "./components/footer";
 import Logo from "./components/logo";
 // Pages
@@ -140,9 +134,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Spring
-					from={{t: this.state.menuOpen ? 0 : 1}}
-					to={{t: this.state.menuOpen ? 1 : 0}}>
+				<Spring from={{t: this.state.menuOpen ? 0 : 1}} to={{t: this.state.menuOpen ? 1 : 0}}>
 					{({t}) => {
 						return (
 							<React.Fragment>
@@ -163,10 +155,7 @@ class App extends React.Component {
 												{route.label}
 											</StyledLink>
 										))}
-										<Marker
-											position={this.state.markerPosition}
-											width={this.state.markerWidth}
-										/>
+										<Marker position={this.state.markerPosition} width={this.state.markerWidth} />
 									</Menu>
 								</Header>
 							</React.Fragment>

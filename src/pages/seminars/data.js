@@ -2,21 +2,21 @@ export default {
 	stage: {
 		slides: [
 			{
-				image: require("./images/image_001.jpg"),
+				image: require("./images/.tmp/image_001.webp"),
 				text: "Seminars",
 				style: {
 					objectPosition: "30% 0%"
 				}
 			},
 			{
-				image: require("./images/image_002.jpg"),
+				image: require("./images/.tmp/image_002.webp"),
 				text: "Seminars",
 				style: {
 					objectPosition: "60% 0%"
 				}
 			},
 			{
-				image: require("./images/image_003.jpg"),
+				image: require("./images/.tmp/image_003.webp"),
 				text: "Seminars",
 				style: {
 					objectPosition: "60% 0%"
@@ -40,8 +40,7 @@ export default {
 			},
 			{
 				label: "Basic",
-				details:
-					"long / short (team leaders,  top stylists, young stylists)",
+				details: "long / short (team leaders,  top stylists, young stylists)",
 				info: [
 					"two days / seminar",
 					"max. three people",
@@ -52,8 +51,7 @@ export default {
 			},
 			{
 				label: "Advanced",
-				details:
-					"men / women (team leaders,  top stylists, young stylists)",
+				details: "men / women (team leaders,  top stylists, young stylists)",
 				info: [
 					"two days / seminar",
 					"max. three people",

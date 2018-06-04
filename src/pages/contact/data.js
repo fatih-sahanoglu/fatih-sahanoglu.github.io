@@ -2,14 +2,14 @@ export default {
 	stage: {
 		slides: [
 			{
-				image: require("./images/image_001.jpg"),
+				image: require("./images/.tmp/image_001.webp"),
 				text: "Contact",
 				style: {
 					objectPosition: "50% 100%"
 				}
 			},
 			{
-				image: require("./images/image_002.jpg"),
+				image: require("./images/.tmp/image_002.webp"),
 				text: "Contact",
 				style: {
 					objectPosition: "50% 50%",
@@ -17,21 +17,21 @@ export default {
 				}
 			},
 			{
-				image: require("./images/image_003.jpg"),
+				image: require("./images/.tmp/image_003.webp"),
 				text: "Contact",
 				style: {
 					objectPosition: "50% 50%"
 				}
 			},
 			{
-				image: require("./images/image_004.jpg"),
+				image: require("./images/.tmp/image_004.webp"),
 				text: "Contact",
 				style: {
 					objectPosition: "10% 100%"
 				}
 			},
 			{
-				image: require("./images/image_005.jpg"),
+				image: require("./images/.tmp/image_005.webp"),
 				text: "Contact",
 				style: {
 					objectPosition: "50% 100%"

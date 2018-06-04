@@ -97,9 +97,7 @@ export class Slideshow extends React.Component {
 	get slides() {
 		const {activeSlide} = this.state;
 		return React.Children.toArray(this.props.children).map((slide, i) => {
-			const transform = `translate3d(${
-				i < activeSlide ? -100 : i > activeSlide ? 100 : 0
-			}%, 0, 0)`;
+			const transform = `translate3d(${i < activeSlide ? -100 : i > activeSlide ? 100 : 0}%, 0, 0)`;
 			const style = {
 				transform
 			};
@@ -112,9 +110,7 @@ export class Slideshow extends React.Component {
 	toPrev(e) {
 		e.preventDefault();
 		this.setState(prevState => ({
-			activeSlide:
-				(prevState.activeSlide - 1 + this.slides.length) %
-				this.slides.length
+			activeSlide: (prevState.activeSlide - 1 + this.slides.length) % this.slides.length
 		}));
 	}
 
@@ -126,6 +122,14 @@ export class Slideshow extends React.Component {
 	}
 
 	render() {
+		const scrollhelper = this.props.noContent ? null : (
+			<ScrollHelper
+				to="Content"
+				href={"#Content"}
+				smooth={true}
+				duration={window.innerHeight / 2}
+			/>
+		);
 		return (
 			<Wrapper>
 				<Stage>{this.slides}</Stage>
@@ -137,12 +141,7 @@ export class Slideshow extends React.Component {
 						<StyledRightArrow />
 					</Right>
 				</Arrows>
-				<ScrollHelper
-					to="Content"
-					href={"#Content"}
-					smooth={true}
-					duration={window.innerHeight / 2}
-				/>
+				{scrollhelper}
 			</Wrapper>
 		);
 	}

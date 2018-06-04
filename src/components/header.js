@@ -165,9 +165,7 @@ export const StyledMarker = styled.span`
 
 export const Marker = props => {
 	const style = {
-		transform: `translate3d(${
-			props.position
-		}px, 0, 0) scale3d(${props.width * 0.001},1,1)`
+		transform: `translate3d(${props.position}px, 0, 0) scale3d(${props.width * 0.001},1,1)`
 	};
 	return <StyledMarker style={style} />;
 };

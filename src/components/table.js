@@ -145,11 +145,7 @@ export const Table = props => {
 	return (
 		<StyledTable {...props}>
 			<Thead>
-				<Row>
-					{props.headers.map((header, i) => (
-						<Heading key={i}>{header}</Heading>
-					))}
-				</Row>
+				<Row>{props.headers.map((header, i) => <Heading key={i}>{header}</Heading>)}</Row>
 			</Thead>
 			<Tbody>{props.children}</Tbody>
 		</StyledTable>

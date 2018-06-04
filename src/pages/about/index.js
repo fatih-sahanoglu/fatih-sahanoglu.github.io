@@ -10,7 +10,7 @@ const Index = () => {
 		<Content>
 			<Shade />
 			<ScrollToTop />
-			<BlockText text={content}/>
+			<BlockText text={content} />
 		</Content>
 	);
 };
