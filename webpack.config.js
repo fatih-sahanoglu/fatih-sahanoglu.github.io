@@ -5,7 +5,7 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const imageminMozjpeg = require("imagemin-mozjpeg");
-const imageminWebp = require('imagemin-webp');
+const imageminWebp = require("imagemin-webp");
 // const CompressionPlugin = require("compression-webpack-plugin");
 const {NODE_ENV} = process.env;
 const prod = NODE_ENV === "production";
@@ -68,10 +68,17 @@ module.exports = {
 			},
 			{
 				test: /\.md?$/,
-				loader: "raw-loader"
+				use: [
+					{
+						loader: "json-loader"
+					},
+					{
+						loader: "yaml-frontmatter-loader"
+					}
+				]
 			},
 			{
-				test: /\.(png|jpg|gif|webp)$/,
+				test: /\.png$/,
 				use: [
 					{
 						loader: "file-loader",
@@ -79,6 +86,45 @@ module.exports = {
 							name: "[hash].[ext]",
 							outputPath: "images/",
 							publicPath: "/images/"
+						}
+					}
+				]
+			},
+			{
+				test: /\.(jpg|jpeg)$/,
+				use: [
+					{
+						loader: "sharp-loader",
+						query: {
+							name: "/images/[hash].[ext]",
+							cacheDirectory: false,
+							emitFile: true,
+							presets: {
+								default: {
+									format: ["webp"],
+									width: 2000,
+									quality: 70,
+									progressive: true
+								},
+								small: {
+									format: ["webp"],
+									width: 640,
+									quality: 35,
+									progressive: true
+								},
+								medium: {
+									format: ["webp"],
+									width: 960,
+									quality: 35,
+									progressive: true
+								},
+								large: {
+									format: ["webp"],
+									width: 1920,
+									quality: 35,
+									progressive: true
+								}
+							}
 						}
 					}
 				]
@@ -118,33 +164,28 @@ module.exports = {
 							{
 								sourceMap: false
 							}
-						),
-						//new CompressionPlugin({
-						//    algorithm: "gzip"
-						//}),
-					new ImageminPlugin({
-						test: "*.jpg",
-						plugins: [
-							imageminMozjpeg({
-								quality: 50,
-								progressive: true
-							})
-						]
-					}),
-					new ImageminPlugin({
-						test: "*.webp",
-						plugins: [
-							imageminWebp({quality: 50})
-						]
-					}),
-						new ImageminPlugin({
-							test: "*.png",
-							optipng: {
-								optimizationLevel: 9
-							}
-						})
+						)
 				  ]
 				: [])(prod),
+		new ImageminPlugin({
+			test: "*.jpg",
+			plugins: [
+				imageminMozjpeg({
+					quality: 50,
+					progressive: true
+				})
+			]
+		}),
+		new ImageminPlugin({
+			test: "*.webp",
+			plugins: [imageminWebp({quality: 50})]
+		}),
+		new ImageminPlugin({
+			test: "*.png",
+			optipng: {
+				optimizationLevel: 9
+			}
+		}),
 		new FaviconsWebpackPlugin({
 			logo: "./src/assets/favicon.png",
 			prefix: "/icons/",

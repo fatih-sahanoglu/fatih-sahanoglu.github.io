@@ -1,18 +1,19 @@
 import React from "react";
 import Content from "../../components/content";
-import {ScrollToTop} from "../../components/scroll";
 import {Shade} from "../../components/stage";
-import {Marked} from "../../components/markdown";
-import content from "./content.md";
+import {ScrollToTop} from "../../components/scroll";
+import templates from "../templates";
+import {body, attributes} from "./content.md";
+const Template = templates[attributes.template];
 
-const Page = () => {
+const Index = () => {
 	return (
 		<Content>
 			<Shade />
 			<ScrollToTop />
-			<Marked text={content} />
+			<Template text={body} />
 		</Content>
 	);
 };
 
-export default Page;
+export default Index;

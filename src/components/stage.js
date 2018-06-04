@@ -1,8 +1,10 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
+import {Spring} from "react-spring";
 import {Link} from "react-scroll";
 import {Stroke} from "./svg";
 import {colors} from "../design-system";
+import {optimized, srcset} from "../utils/images";
 
 const Stage = styled.div`
 	height: calc(100vh - 3rem);
@@ -18,7 +20,7 @@ export const Wrapper = styled.div`
 	position: relative;
 `;
 
-export const Arrows = styled.div`
+export const Arrows = styled.nav`
 	visibility: hidden;
 `;
 
@@ -85,31 +87,53 @@ export const Right = NavArrow.extend`
 	padding-left: 0.75em;
 `;
 
+const Figure = styled.figure`
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+`;
+
 export class Slideshow extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeSlide: 0
+			activeSlide: 0,
+			prevSlide: 0
 		};
 		this.toPrev = this.toPrev.bind(this);
 		this.toNext = this.toNext.bind(this);
 	}
 	get slides() {
-		const {activeSlide} = this.state;
-		return React.Children.toArray(this.props.children).map((slide, i) => {
-			const transform = `translate3d(${i < activeSlide ? -100 : i > activeSlide ? 100 : 0}%, 0, 0)`;
-			const style = {
-				transform
-			};
-			return React.cloneElement(slide, {
-				style: {...slide.props.style, ...style}
-			});
+		const {activeSlide, prevSlide} = this.state;
+		return this.props.slides.map((slide, i) => {
+			return (
+				<Spring key={i} from={{t: i - prevSlide}} to={{t: i - activeSlide}}>
+					{({t}) => {
+						const transform = `translate3d(${t * 100}%, 0, 0)`;
+						return (
+							<Figure style={{transform}}>
+								<StageImage
+									src={optimized(slide.image)}
+									srcSet={srcset(slide.image)}
+									alt={slide.text}
+									style={slide.style}
+								/>
+							</Figure>
+						);
+					}}
+				</Spring>
+			);
 		});
 	}
 
 	toPrev(e) {
 		e.preventDefault();
 		this.setState(prevState => ({
+			prevSlide: prevState,
 			activeSlide: (prevState.activeSlide - 1 + this.slides.length) % this.slides.length
 		}));
 	}
@@ -117,6 +141,7 @@ export class Slideshow extends React.Component {
 	toNext(e) {
 		e.preventDefault();
 		this.setState(prevState => ({
+			prevSlide: prevState,
 			activeSlide: (prevState.activeSlide + 1) % this.slides.length
 		}));
 	}
@@ -225,8 +250,7 @@ export const StageImage = styled.img`
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	object-position: 20% 20%;
-	transition: transform 0.3s ease-in-out;
+	object-position: 50% 50%;
 `;
 
 export default Stage;

@@ -7,7 +7,7 @@ const NotFound = () => {
 	};
 	return (
 		<Stage>
-			<StageImage src={require("./images/.tmp/image_001.webp")} alt="page not found" style={style} />
+			<StageImage src={require("./images/image_001.jpg")} alt="page not found" style={style} />
 		</Stage>
 	);
 };

@@ -9,16 +9,13 @@
 	"scripts": {
 		"babel": "babel src --out-dir lib",
 		"build": "cross-env NODE_ENV=production webpack",
-		"clean": "del '**/.tmp' 404 about care contact service impressum images icons iconstats.json '*.html' '*.js' '!webpack.config.js' '!.prettierrc.js'",
-		"create:gallery": "node scripts/create-galleries",
-		"create:webp": "node scripts/convert-images",
-		"dev": "yarn prepare && webpack-dev-server --hot",
+		"clean":
+			"del 404 about care contact service impressum images icons iconstats.json '*.html' '*.js' '!webpack.config.js' '!.prettierrc.js'",
+		"dev": "webpack-dev-server --hot",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
 		"format:json": "prettier package.json .*rc 'src/**/*.json' --parser json --write",
 		"format:js": "prettier *.config.js .*rc.js '{scripts,src}/**/*.js' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write",
-		"prepare": "yarn clean && yarn create:webp",
-		"prebuild": "yarn prepare",
 		"start": "yarn build && http-server",
 		"test": "ava"
 	},
@@ -62,14 +59,17 @@
 		"imagemin-mozjpeg": "^7.0.0",
 		"imagemin-webp": "^4.1.0",
 		"imagemin-webpack-plugin": "^2.1.5",
+		"json-loader": "^0.5.7",
 		"mkdirp": "^0.5.1",
 		"pify": "^3.0.0",
 		"pug": "^2.0.3",
 		"pug-loader": "^2.4.0",
 		"raw-loader": "^0.5.1",
 		"sharp": "^0.20.3",
+		"sharp-loader": "^1.1.0",
 		"webpack": "^4.10.2",
 		"webpack-cli": "^3.0.1",
-		"webpack-dev-server": "^3.1.4"
+		"webpack-dev-server": "^3.1.4",
+		"yaml-frontmatter-loader": "^0.1.0"
 	}
 }

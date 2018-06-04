@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 export const Fat = styled.span`
@@ -35,3 +36,9 @@ export const Block = styled.article`
 		font-size: 1em;
 	}
 `;
+
+export const FatBlock = props => (
+	<Block {...props}>
+		<Fat>{props.children}</Fat>
+	</Block>
+);

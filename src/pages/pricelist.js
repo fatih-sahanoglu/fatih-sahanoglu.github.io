@@ -1,18 +1,13 @@
 import React from "react";
-import {Transition} from "react-spring";
 import Content from "../components/content";
-import {Slideshow, StageImage, ScrollHelper, Shade} from "../components/stage";
+import {Slideshow, Shade} from "../components/stage";
 import {ScrollToTop} from "../components/scroll";
 import {Table, Row, Cell, Label, Details, InfoWrapper, Info} from "../components/table";
 
 const Page = props => {
 	return (
 		<React.Fragment>
-			<Slideshow>
-				{props.stage.slides.map((slide, i) => {
-					return <StageImage key={i} src={slide.image} alt={slide.text} style={slide.style} />;
-				})}
-			</Slideshow>
+			<Slideshow slides={props.stage.slides} />
 			<Content>
 				<Shade shade={props.shade} />
 				<ScrollToTop />

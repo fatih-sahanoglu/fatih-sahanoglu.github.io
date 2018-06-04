@@ -1,3 +1,8 @@
+---
+title: Impressum
+template: Markdown
+---
+
 # Impressum
 
 Angaben gemäß § 5 TMG:  

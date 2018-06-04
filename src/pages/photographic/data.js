@@ -2,14 +2,14 @@ export default {
 	stage: {
 		slides: [
 			{
-				image: require("./images/.tmp/image_001.webp"),
+				image: require("./images/image_001.jpg"),
 				text: "Photographic",
 				style: {
 					objectPosition: "50% 0%"
 				}
 			},
 			{
-				image: require("./images/.tmp/image_002.webp"),
+				image: require("./images/image_002.jpg"),
 				text: "Photographic",
 				style: {
 					objectPosition: "50% 50%"
