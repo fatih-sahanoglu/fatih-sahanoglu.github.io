@@ -4,7 +4,7 @@ import {Spring} from "react-spring";
 import {Link} from "react-scroll";
 import {Stroke} from "./svg";
 import {colors} from "../design-system";
-import {optimized, srcset} from "../utils/images";
+import {prefetch, srcset} from "../utils/images";
 
 const Stage = styled.div`
 	height: calc(100vh - 3rem);
@@ -117,7 +117,7 @@ export class Slideshow extends React.Component {
 						return (
 							<Figure style={{transform}}>
 								<StageImage
-									src={optimized(slide.image)}
+									src={prefetch(slide.image)}
 									srcSet={srcset(slide.image)}
 									alt={slide.text}
 									style={slide.style}

@@ -100,31 +100,64 @@ module.exports = {
 							cacheDirectory: true,
 							presets: {
 								default: {
-									format: ["webp"],
+									name: "/images/default/[hash]",
+									format: ["jpg", "webp"],
 									width: 2000,
 									quality: 70,
 									progressive: true
 								},
 								prefetch: {
-									format: ["webp"],
+									name: "/images/prefetch/[hash]",
+									format: ["jpg", "webp"],
 									width: 100,
 									quality: 30,
 									progressive: true
 								},
-								small: {
-									format: ["webp"],
+								xxs: {
+									name: "/images/xxs/[hash]",
+									format: ["jpg", "webp"],
+									width: 320,
+									quality: 35,
+									progressive: true
+								},
+								xs: {
+									name: "/images/xs/[hash]",
+									format: ["jpg", "webp"],
+									width: 480,
+									quality: 35,
+									progressive: true
+								},
+								s: {
+									name: "/images/s/[hash]",
+									format: ["jpg", "webp"],
 									width: 640,
 									quality: 35,
 									progressive: true
 								},
-								medium: {
-									format: ["webp"],
+								m: {
+									name: "/images/m/[hash]",
+									format: ["jpg", "webp"],
 									width: 960,
 									quality: 35,
 									progressive: true
 								},
-								large: {
-									format: ["webp"],
+								l: {
+									name: "/images/l/[hash]",
+									format: ["jpg", "webp"],
+									width: 1280,
+									quality: 35,
+									progressive: true
+								},
+								xl: {
+									name: "/images/xl/[hash]",
+									format: ["jpg", "webp"],
+									width: 1600,
+									quality: 35,
+									progressive: true
+								},
+								xxl: {
+									name: "/images/xxl/[hash]",
+									format: ["jpg", "webp"],
 									width: 1920,
 									quality: 35,
 									progressive: true
