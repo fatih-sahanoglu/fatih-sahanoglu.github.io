@@ -26,7 +26,7 @@ export default {
 				info: [
 					"includes 4 edited pictures",
 					"duration: approx. 3 hours",
-					"additional make-ip artist?",
+					"additional make-up artist?",
 					"indoor or outdoor shooting?",
 					"number of pictures?",
 					"amount of time?"
@@ -39,7 +39,7 @@ export default {
 				info: [
 					"includes 7 edited pictures",
 					"duration: approx. 6 hours",
-					"additional make-ip artist?",
+					"additional make-up artist?",
 					"indoor or outdoor shooting?",
 					"number of pictures?",
 					"amount of time?"
