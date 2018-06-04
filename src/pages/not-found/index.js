@@ -11,7 +11,7 @@ const NotFound = () => {
 		<Stage>
 			<StageImage
 				src={prefetch(image)}
-				srcset={srcset(image)}
+				srcSet={srcset(image)}
 				alt="page not found"
 				style={style}
 			/>
