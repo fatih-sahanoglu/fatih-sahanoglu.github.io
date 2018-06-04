@@ -17,7 +17,7 @@ globby(patterns).then(items => {
 
 		await mkdirp(outDir);
 		sharp(item)
-			.resize(2000, 1600)
+			.resize(2000, 1300)
 			.crop(sharp.strategy.entropy)
 			.toFile(outFile, (err, info) => {
 				if (err) {
