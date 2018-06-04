@@ -91,7 +91,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /pages\/*\/images\/*\.(jpg|jpeg)$/,
+				test: /\.(jpe?g)$/,
 				use: [
 					{
 						loader: "sharp-loader",

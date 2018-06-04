@@ -10,7 +10,6 @@ slideshow:
   - image: image_002.jpg
     text: Opening hours
     style:
-      objectPosition: 10% 50%
       objectFit: contain
   - image: image_003.jpg
     text: Literature
