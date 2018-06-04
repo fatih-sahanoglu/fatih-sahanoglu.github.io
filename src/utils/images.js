@@ -11,7 +11,7 @@ export const srcset = input => {
 	return Array.isArray(input)
 		? input
 				.filter(x => !excludes.includes(x.preset))
-				.map(image => `${image.name} ${image.width + 80}w`)
+				.map(image => `${image.name} ${image.width}w`)
 				.join(", ")
 		: input;
 };

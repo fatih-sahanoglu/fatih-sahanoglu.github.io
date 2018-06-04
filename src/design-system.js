@@ -1,13 +1,13 @@
 const hue = 10
-const sat = 0
-const light = 5
+const sat = 5
+const light = 10
 const alpha = 0.75
 export const colors = {
 	focus: `hsla(${hue + 180}, 30%, 30%, 1)`,
 	background: `hsla(${hue}, ${sat}%, ${light}%, 1)`,
 	color: "#fff",
 	shade: `hsla(${hue}, ${sat}%, ${light * 2}%, 1)`,
-	fade: `hsla(${hue}, ${sat}%, ${light * 3}%, 1)`,
+	fade: `hsla(${hue}, ${sat}%, 350%, ${alpha / 2})`,
 	elements: {
 		focus: `hsla(${hue + 180}, 30%, 30%, 1)`,
 		background: `hsla(0, 0%, 10%, ${alpha})`,

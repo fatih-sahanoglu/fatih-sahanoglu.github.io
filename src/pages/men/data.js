@@ -12,7 +12,7 @@ export default {
 				image: require("./images/image_002.jpg"),
 				text: "Gentlemen",
 				style: {
-					objectPosition: "50% 70%"
+					objectPosition: "50% 40%"
 				}
 			},
 			{
