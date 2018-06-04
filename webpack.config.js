@@ -91,19 +91,24 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(jpg|jpeg)$/,
+				test: /pages\/*\/images\/*\.(jpg|jpeg)$/,
 				use: [
 					{
 						loader: "sharp-loader",
 						query: {
-							name: "/images/[hash].[ext]",
-							cacheDirectory: false,
-							emitFile: true,
+							name: "/images/[hash]",
+							cacheDirectory: true,
 							presets: {
 								default: {
 									format: ["webp"],
 									width: 2000,
 									quality: 70,
+									progressive: true
+								},
+								prefetch: {
+									format: ["webp"],
+									width: 100,
+									quality: 30,
 									progressive: true
 								},
 								small: {
@@ -178,7 +183,7 @@ module.exports = {
 		}),
 		new ImageminPlugin({
 			test: "*.webp",
-			plugins: [imageminWebp({quality: 50})]
+			plugins: [imageminWebp()]
 		}),
 		new ImageminPlugin({
 			test: "*.png",

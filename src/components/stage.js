@@ -117,7 +117,7 @@ export class Slideshow extends React.Component {
 						return (
 							<Figure style={{transform}}>
 								<StageImage
-									src={optimized(slide.image)}
+									src={prefetch(slide.image)}
 									srcSet={srcset(slide.image)}
 									alt={slide.text}
 									style={slide.style}
