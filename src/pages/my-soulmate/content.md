@@ -1,6 +1,23 @@
 ---
 title: My Soulmate
-template: Fat
+path: service/my-soulmate
+slideshow:
+  - image: image_001.jpg
+    text: My soulmate
+    style:
+      objectPosition: 10% 50%
+  - image: image_002.jpg
+    text: My soulmate
+    style:
+      objectPosition: 50% 100%
+  - image: image_003.jpg
+    text: My soulmate
+    style:
+      objectPosition: 40% 50%
+  - image: image_004.jpg
+    text: My soulmate
+    style:
+      objectPosition: 50% 0%
 ---
 
 ```fat

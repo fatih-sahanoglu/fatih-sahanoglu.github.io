@@ -1,8 +1,17 @@
 import React from "react";
 import Page from "../page";
-import data from "./data";
-import {body, attributes} from "./content.md";
+import {body as fatdown, attributes} from "./content.md";
 
-export default () => {
-	return <Page slideshow={data.stage.slides} shade={data.shade} fatdown={body} />;
-};
+export default () =>
+	React.createElement(Page, {
+		fatdown,
+		shade: attributes.shade,
+		slideshow:
+			attributes.slideshow &&
+			attributes.slideshow.map(slide => {
+				return {
+					...slide,
+					image: require(`./images/${slide.image}`)
+				};
+			})
+	});

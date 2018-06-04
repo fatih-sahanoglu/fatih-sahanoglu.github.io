@@ -7,7 +7,7 @@ export const prefetch = input => {
 };
 
 export const srcset = input => {
-	const excludes = ["default", "prefetch"]
+	const excludes = ["default", "prefetch"];
 	return Array.isArray(input)
 		? input
 				.filter(x => !excludes.includes(x.preset))

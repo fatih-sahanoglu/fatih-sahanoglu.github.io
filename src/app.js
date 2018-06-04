@@ -35,15 +35,10 @@ const content = {
 	seminars: Seminars,
 	photographic: Photographic,
 	contact: Contact,
-	home: Home,
-	soulmate: Soulmate,
-	"404": NotFound
+	soulmate: Soulmate
 };
 
-const hiddenPages = ["404", "home"];
-
 const routes = Object.entries(routing)
-	.filter(([k]) => !hiddenPages.includes(k))
 	.map(([key, v]) => ({key, ...v}));
 
 const morph = t => {
@@ -164,11 +159,7 @@ class App extends React.Component {
 				</Spring>
 				<Switch>
 					{routes.map((route, i) => (
-						<Route
-							key={route.key}
-							path={`/${route.path}`}
-							component={content[route.key] || NotFound}
-						/>
+						<Route key={route.key} path={`/${route.path}`} component={content[route.key]} />
 					))}
 					<Route path="/" component={Home} exact={true} />
 					<Route path="/*" component={NotFound} />

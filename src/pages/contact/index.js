@@ -1,6 +1,7 @@
 import React from "react";
 import Page from "../page";
 import {body as fatdown, attributes} from "./content.md";
+
 export default () =>
 	React.createElement(Page, {
 		fatdown,

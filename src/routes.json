@@ -1,8 +1,4 @@
 {
-	"home": {
-		"label": "Home",
-		"path": ""
-	},
 	"about": {
 		"label": "About",
 		"path": "about/philosophy"
@@ -46,9 +42,5 @@
 	"impressum": {
 		"label": "Impressum",
 		"path": "impressum"
-	},
-	"404": {
-		"label": "Page not found",
-		"path": "404"
 	}
 }

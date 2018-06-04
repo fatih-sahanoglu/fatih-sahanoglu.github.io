@@ -1,6 +1,47 @@
 ---
 title: Home
-template: Fat
+path: /
+slideshow:
+  - image: image_001.jpg
+    text: Home
+    style:
+      objectPosition: "30% 0%"
+  - image: image_002.jpg
+    text: Home
+    style:
+      objectPosition: "80% 100%"
+  - image: image_003.jpg
+    text: Home
+    style:
+      objectPosition: "30% 0%"
+  - image: image_004.jpg
+    text: Home
+    style:
+      objectPosition: "100% 50%"
+  - image: image_005.jpg
+    text: Home
+    style:
+      objectPosition: "80% 50%"
+  - image: image_006.jpg
+    text: Home
+    style:
+      objectPosition: "15% 0%"
+  - image: image_007.jpg
+    text: Home
+    style:
+      objectPosition: "20% 0%"
+  - image: image_008.jpg
+    text: Home
+    style:
+      objectPosition: "50% 30%"
+  - image: image_009.jpg
+    text: Home
+    style:
+      objectPosition: "50% 50%"
+  - image: image_010.jpg
+    text: Home
+    style:
+      objectPosition: "100% 100%"
 ---
 
 ```fat

@@ -1,6 +1,6 @@
 ---
 title: Contact
-path: contact
+path: /contact
 shade: #3aa
 slideshow:
   - image: image_001.jpg

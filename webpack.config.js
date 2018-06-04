@@ -153,6 +153,12 @@ module.exports = {
 				})
 		),
 		new HtmlWebpackPlugin({
+			filename: "index.html",
+			template: "./src/views/index.pug",
+			title: "Fatih Sahanoglu | Standard, I cant live with that",
+			alwaysWriteToDisk: true
+		}),
+		new HtmlWebpackPlugin({
 			filename: "404.html",
 			template: "./src/views/index.pug",
 			title: "Page not found",
