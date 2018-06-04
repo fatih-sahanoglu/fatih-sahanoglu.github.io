@@ -77,7 +77,7 @@ module.exports = {
 						options: {
 							name: "[hash].[ext]",
 							outputPath: "images/",
-							publicPath: "images/"
+							publicPath: "/images/"
 						}
 					}
 				]
@@ -94,12 +94,18 @@ module.exports = {
 		...routes.map(
 			route =>
 				new HtmlWebpackPlugin({
-					filename: route.path ? `${route.path}.html` : "index.html",
+					filename: route.path ? `${route.path}/index.html` : "index.html",
 					template: "./src/views/index.pug",
 					title: "Fatih Sahanoglu | Standard, I cant live with that",
 					alwaysWriteToDisk: true
 				})
 		),
+		new HtmlWebpackPlugin({
+			filename: "404.html",
+			template: "./src/views/index.pug",
+			title: "Page not found",
+			alwaysWriteToDisk: true
+		}),
 		new HtmlWebpackHarddiskPlugin({
 			outputPath: OUT_DIR
 		}),
@@ -134,7 +140,7 @@ module.exports = {
 				: [])(prod),
 		new FaviconsWebpackPlugin({
 			logo: "./src/assets/favicon.png",
-			prefix: "icons/",
+			prefix: "/icons/",
 			emitStats: false,
 			statsFilename: "iconstats.json",
 			persistentCache: true,

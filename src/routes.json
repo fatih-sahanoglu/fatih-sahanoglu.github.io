@@ -5,39 +5,39 @@
 	},
 	"about": {
 		"label": "About",
-		"path": "about"
+		"path": "about/philosophy"
 	},
 	"women": {
 		"label": "Ladies",
-		"path": "ladies"
+		"path": "care/ladies"
 	},
 	"men": {
 		"label": "Gentlemen",
-		"path": "gentlemen"
+		"path": "care/gentlemen"
 	},
 	"kids": {
 		"label": "Youngsters",
-		"path": "youngsters"
+		"path": "care/youngsters"
 	},
 	"beauty": {
 		"label": "Beauty",
-		"path": "beauty"
+		"path": "care/beauty"
 	},
 	"products": {
-		"label": "Care",
-		"path": "care"
+		"label": "Products",
+		"path": "care/products"
 	},
 	"seminars": {
 		"label": "Seminars",
-		"path": "seminars"
+		"path": "service/seminars"
 	},
 	"photographic": {
 		"label": "Photographic",
-		"path": "photographic"
+		"path": "service/photographic"
 	},
 	"soulmate": {
 		"label": "My soulmate",
-		"path": "my-soulmate"
+		"path": "service/my-soulmate"
 	},
 	"contact": {
 		"label": "Contact",

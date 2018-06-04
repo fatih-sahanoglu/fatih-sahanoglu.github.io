@@ -9,11 +9,13 @@
 	"scripts": {
 		"babel": "babel src --out-dir lib",
 		"build": "cross-env NODE_ENV=production webpack",
-		"clean": "del icons iconstats.json iconstats.json.gz images '*.html' '*.html.gz' '*.js' '*.js.gz' '!webpack.config.js'  '!.prettierrc.js'",
+		"clean":
+			"del 404 about care contact service impressum images icons iconstats.json '*.html' '*.js' '!webpack.config.js' '!.prettierrc.js'",
 		"format": "yarn format:md; yarn format:js; yarn format:json",
-		"format:json": "prettier *.json .*rc 'src/**/*.json' --parser json --write",
-		"format:js": "prettier webpack.config.js .prettierrc.js 'src/**/*.{js}' --parser babylon --write",
+		"format:json": "prettier package.json .*rc 'src/**/*.json' --parser json --write",
+		"format:js": "prettier *.config.js .*rc.js 'src/**/*.{js}' --parser babylon --write",
 		"format:md": "prettier '*.md' 'src/**/*.md' --parser markdown --write",
+		"prestart": "yarn clean",
 		"prebuild": "yarn clean",
 		"start": "webpack-dev-server --hot",
 		"test": "ava"

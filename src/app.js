@@ -157,7 +157,7 @@ class App extends React.Component {
 										{routes.map((route, i) => (
 											<StyledLink
 												key={route.key}
-												to={`/${route.path}.html`}
+												to={`/${route.path}`}
 												onClick={this.handleLink}
 												activeClassName="selected">
 												{route.label}
@@ -177,7 +177,7 @@ class App extends React.Component {
 					{routes.map((route, i) => (
 						<Route
 							key={route.key}
-							path={`/${route.path}.html`}
+							path={`/${route.path}`}
 							component={content[route.key] || NotFound}
 						/>
 					))}
