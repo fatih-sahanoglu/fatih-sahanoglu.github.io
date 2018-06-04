@@ -24,10 +24,10 @@ export const Header = styled.header`
 
 	@media (max-width: 60rem) {
 		height: auto;
-		width: 20rem;
-		right: auto;
+		width: 17rem;
+		right: 100%;
 		bottom: 0;
-		left: -20rem;
+		left: auto;
 		overflow: auto;
 		transform: translate3d(var(--x), 0, 0);
 		background: ${colors.sidebar.background};
@@ -55,9 +55,7 @@ export const StyledLink = styled(NavLink)`
 	color: currentColor;
 	text-decoration: none;
 	white-space: nowrap;
-	@media (max-width: 60rem) {
-		border-left: 0.5rem solid;
-	}
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -77,6 +75,7 @@ export const StyledLink = styled(NavLink)`
 
 		@media (max-width: 60rem) {
 			background: rgba(0, 0, 0, 0.5);
+			border-left: 1rem solid rgba(0, 0, 0, 0.4);
 		}
 	}
 	&:hover {
@@ -87,7 +86,7 @@ export const StyledLink = styled(NavLink)`
 	&.selected {
 		@media (max-width: 60rem) {
 			background: rgba(0, 0, 0, 0.2);
-			border-left: 1rem solid;
+			border-left: 2rem solid rgba(0, 0, 0, 0.4);
 		}
 	}
 

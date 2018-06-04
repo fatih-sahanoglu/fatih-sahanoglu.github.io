@@ -137,9 +137,9 @@ class App extends React.Component {
 									onClick={this.toggleMenu}
 									isOpen={this.state.menuOpen}
 									morph={morph(t)}
-									style={{"--x": `${t * 20}rem`}}
+									style={{"--x": `${t * 17}rem`}}
 								/>
-								<Header style={{"--x": `${t * 20}rem`}}>
+								<Header style={{"--x": `${t * 17}rem`}}>
 									<Menu>
 										{routes.map((route, i) => (
 											<StyledLink

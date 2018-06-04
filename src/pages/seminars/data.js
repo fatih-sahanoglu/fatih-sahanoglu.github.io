@@ -24,7 +24,7 @@ export default {
 			}
 		]
 	},
-	shade: "#3aa",
+	shade: "#595a6f",
 	content: {
 		service: [
 			{

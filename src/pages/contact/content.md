@@ -1,7 +1,7 @@
 ---
 title: Contact
 path: /contact
-shade: #3aa
+shade: "#594b3e"
 slideshow:
   - image: image_001.jpg
     text: My Bike

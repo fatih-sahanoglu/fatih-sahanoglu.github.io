@@ -17,7 +17,7 @@ export default {
 			}
 		]
 	},
-	shade: "#333",
+	shade: "#517046",
 	content: {
 		service: [
 			{

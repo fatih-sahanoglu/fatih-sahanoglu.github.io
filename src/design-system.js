@@ -1,21 +1,28 @@
+const hue = 10
+const sat = 0
+const light = 5
+const alpha = 0.75
 export const colors = {
-	focus: "hsla(220, 30%, 30%, 1)",
-	background: "hsla(180, 10%, 10%, 1)",
-	color: "hsla(180, 0%, 80%, 1)",
-	shade: "hsla(180, 10%, 20%, 1)",
-	fade: "hsla(180, 10%, 20%, 1)",
+	focus: `hsla(${hue + 180}, 30%, 30%, 1)`,
+	background: `hsla(${hue}, ${sat}%, ${light}%, 1)`,
+	color: "#fff",
+	shade: `hsla(${hue}, ${sat}%, ${light * 2}%, 1)`,
+	fade: `hsla(${hue}, ${sat}%, ${light * 3}%, 1)`,
 	elements: {
-		focus: "hsla(220, 30%, 30%, 1)",
-		background: "hsla(180, 10%, 10%, 0.75)",
+		focus: `hsla(${hue + 180}, 30%, 30%, 1)`,
+		background: `hsla(0, 0%, 10%, ${alpha})`,
 		color: "#fff"
 	},
 	header: {
-		focus: "hsla(220, 30%, 30%, 1)",
-		background: "hsla(180, 10%, 10%, 0.5)",
+		focus: `hsla(${hue + 180}, 30%, 30%, 1)`,
+		background: `hsla(${hue}, ${sat}%, ${light}%, ${alpha / 2})`,
 		color: "#fff"
 	},
+	fat: {
+		color: `hsla(${hue}, ${sat / 2}%, ${light * 4}%, 1)`,
+	},
 	sidebar: {
-		background: "hsla(180, 10%, 10%, 0.75)",
+		background: `hsla(0, 0%, 10%, ${alpha})`,
 		color: "#fff"
 	}
 };

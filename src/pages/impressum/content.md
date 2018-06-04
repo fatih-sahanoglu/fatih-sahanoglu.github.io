@@ -1,6 +1,5 @@
 ---
 title: Impressum
-template: Markdown
 ---
 
 # Impressum

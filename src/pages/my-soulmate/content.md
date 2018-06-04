@@ -1,6 +1,7 @@
 ---
 title: My Soulmate
-path: service/my-soulmate
+path: /service/my-soulmate
+shade: "#2b1b3b"
 slideshow:
   - image: image_001.jpg
     text: My soulmate

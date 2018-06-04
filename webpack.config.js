@@ -6,7 +6,6 @@ const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminWebp = require("imagemin-webp");
-// const CompressionPlugin = require("compression-webpack-plugin");
 const {NODE_ENV} = process.env;
 const prod = NODE_ENV === "production";
 const ROOT = __dirname;
@@ -113,50 +112,29 @@ module.exports = {
 									quality: 30,
 									progressive: true
 								},
-								xxs: {
-									name: "/images/xxs/[hash]",
-									format: ["jpg", "webp"],
-									width: 320,
-									quality: 35,
-									progressive: true
-								},
-								xs: {
-									name: "/images/xs/[hash]",
-									format: ["jpg", "webp"],
-									width: 480,
-									quality: 35,
-									progressive: true
-								},
 								s: {
 									name: "/images/s/[hash]",
 									format: ["jpg", "webp"],
-									width: 640,
+									width: 320,
 									quality: 35,
 									progressive: true
 								},
 								m: {
 									name: "/images/m/[hash]",
 									format: ["jpg", "webp"],
-									width: 960,
+									width: 640,
 									quality: 35,
 									progressive: true
 								},
 								l: {
 									name: "/images/l/[hash]",
 									format: ["jpg", "webp"],
-									width: 1280,
+									width: 960,
 									quality: 35,
 									progressive: true
 								},
 								xl: {
 									name: "/images/xl/[hash]",
-									format: ["jpg", "webp"],
-									width: 1600,
-									quality: 35,
-									progressive: true
-								},
-								xxl: {
-									name: "/images/xxl/[hash]",
 									format: ["jpg", "webp"],
 									width: 1920,
 									quality: 35,

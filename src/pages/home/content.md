@@ -1,6 +1,7 @@
 ---
 title: Home
 path: /
+shade: "#5c4c33"
 slideshow:
   - image: image_001.jpg
     text: Home

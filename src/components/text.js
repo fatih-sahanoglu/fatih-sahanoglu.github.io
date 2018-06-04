@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import {colors} from '../design-system'
 
 export const Fat = styled.span`
 	font-family: "Bowlby One SC", sans-serif;
+	color: ${colors.fat.color};
 	@media print {
 		font-family: serif;
 	}
