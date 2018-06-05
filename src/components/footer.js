@@ -1,4 +1,4 @@
-import {zIndex} from "../design-system";
+import {header, zIndex} from '../design-system'
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 
@@ -7,8 +7,7 @@ export const Footer = styled.footer`
 	z-index: ${zIndex.header};
 	right: 0;
 	top: 0;
-	height: 3rem;
-	padding: 0.25rem;
+	height: ${header.height};
 	display: flex;
 	visibility: hidden;
 	@media (max-width: 60rem) {

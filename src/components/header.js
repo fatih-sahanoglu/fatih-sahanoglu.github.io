@@ -1,5 +1,5 @@
 import React from "react";
-import {colors, marker, zIndex} from "../design-system";
+import {colors, header, marker, zIndex} from '../design-system'
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 import {Icon, Stroke} from "./svg";
@@ -13,7 +13,7 @@ export const Header = styled.header`
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 3rem;
+	height: ${header.height};
 	overflow: visible;
 	background: ${colors.header.background};
 	color: ${colors.header.color};
@@ -39,23 +39,33 @@ export const Menu = styled.nav`
 	position: relative;
 	z-index: 1;
 	display: flex;
-	height: max-content;
+	height: ${header.height};
+	margin-right: calc(${header.height} * 3.3);
 	@media (max-width: 60rem) {
 		flex-direction: column;
 		width: 100%;
+		height: auto;
+		margin: 0;
 	}
 `;
 
 export const StyledLink = styled(NavLink)`
 	position: relative;
 	display: inline-flex;
-	flex: 1 1 3em;
-	padding: 0.5em 1em;
-	line-height: 2em;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex: 1 1 ${header.height};
+	height: ${header.height};
+	padding: 0.25em 0.5em;
 	color: currentColor;
 	text-decoration: none;
 	white-space: nowrap;
-
+	
+	@media (max-width: 60rem) {
+		justify-content: flex-start;
+	}
+	
 	&::before {
 		content: "";
 		position: absolute;
@@ -74,7 +84,7 @@ export const StyledLink = styled(NavLink)`
 		background: ${colors.header.focus};
 
 		@media (max-width: 60rem) {
-			background: rgba(0, 0, 0, 0.5);
+			background: ${colors.sidebar.focus};
 			border-left: 1rem solid rgba(0, 0, 0, 0.4);
 		}
 	}
@@ -112,10 +122,10 @@ export const Button = styled.button`
 	top: 0;
 	left: 0;
 	margin: 0;
-	height: 1.5em;
-	width: 1.5em;
-	padding: 0.25em 0.75em 0.75em 0.25em;
-	font-size: 2rem;
+	height: 1em;
+	width: 1em;
+	padding: 0.125em 0.5666em 0.5666em 0.125em;
+	font-size: ${header.height};
 	border: 0;
 	display: none;
 	align-items: center;

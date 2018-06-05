@@ -29,7 +29,7 @@ export default {
 		service: [
 			{
 				label: "Intense care",
-				price: "€ 6,00 / 11,00"
+				price: "€ 6,00 / 10,00"
 			},
 			{
 				label: "Intense hand massage",

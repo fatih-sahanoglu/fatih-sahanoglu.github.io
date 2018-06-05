@@ -3,11 +3,11 @@ import styled, {keyframes} from "styled-components";
 import {Spring} from "react-spring";
 import {Link} from "react-scroll";
 import {Stroke} from "./svg";
-import {colors} from "../design-system";
+import {arrow, colors, header} from '../design-system'
 import {prefetch, srcset} from "../utils/images";
 
 const Stage = styled.div`
-	height: calc(100vh - 3rem);
+	height: calc(100vh - ${header.height});
 	width: 100vw;
 	position: relative;
 	overflow: hidden;
@@ -33,12 +33,12 @@ export const NavArrow = styled.button`
 	justify-content: center;
 	z-index: 2;
 	top: 50%;
-	height: 3em;
-	width: 1.5em;
-	margin: -1.5em 0 0;
-	padding: 0.25em;
+	height: 2em;
+	width: 1em;
+	margin: -1em 0 0;
+	padding: 0.125em;
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: ${arrow.size};
 	border: 0;
 	background: ${colors.elements.background};
 	color: ${colors.elements.color};
@@ -77,14 +77,14 @@ const StyledRightArrow = styled(RightArrow)`
 
 export const Left = NavArrow.extend`
 	left: 0;
-	padding-right: 0.75em;
+	padding-right: 0.375em;
 	clip-path: polygon(0 0, 100% 50%, 0 100%, 0 0);
 `;
 
 export const Right = NavArrow.extend`
 	right: 0;
 	clip-path: polygon(100% 0, 0 50%, 100% 100%, 100% 0);
-	padding-left: 0.75em;
+	padding-left: 0.375em;
 `;
 
 const Figure = styled.figure`
@@ -182,10 +182,10 @@ const Arrow = props => {
 
 const jump = keyframes`
     from {
-        transform: translate3d(0, -0.5rem, 0);
+        transform: translate3d(0, -50%, 0);
     }
     to {
-        transform: translate3d(0, 0.5rem, 0);
+        transform: translate3d(0, 50%, 0);
     }
 `;
 
@@ -199,12 +199,12 @@ export const Shade = styled.div`
 	position: sticky;
 	z-index: 2;
 	top: 0;
-	margin: -4rem calc((50vw - 29rem) * -1) 0;
+	margin: calc(-1 * ${header.height} - 1rem) calc((50vw - 29rem) * -1) 0;
 	right: 0;
-	height: 3rem;
+	height: ${header.height};
 	background: ${props => props.shade || colors.shade};
 	@media (max-width: 60rem) {
-		margin: -4rem -1rem 0;
+		margin: calc(-1 * ${header.height} - 1rem) -1rem 0;
 	}
 `;
 
@@ -218,11 +218,11 @@ const ScrollArrow = styled(Link)`
 	z-index: 2;
 	bottom: 0;
 	left: 50%;
-	height: 1.5em;
-	width: 3em;
-	margin: 0 0 0 -1.5em;
-	padding: 0.75em 0.25em 0.25em;
-	font-size: 2rem;
+	height: 1em;
+	width: 2em;
+	margin: 0 0 0 -1em;
+	padding: 0.375em 0.125em 0.125em;
+	font-size: ${arrow.size};
 	background: ${colors.elements.background};
 	color: ${colors.elements.color};
 	text-decoration: none;
