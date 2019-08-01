@@ -49,7 +49,7 @@ export default {
 			{
 				label: "Eyelashes",
 				details: "(color)",
-				price: "€ 14,00"
+				price: "€ 15,00"
 			}
 		]
 	}
