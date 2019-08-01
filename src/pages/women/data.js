@@ -37,7 +37,7 @@ export default {
 			{
 				label: "Haircut",
 				details: "incl. advice, blowdry styling",
-				price: "€ 55,00"
+				price: "€ 58,00"
 			},
 			{
 				label: "Blowdry",
@@ -52,12 +52,17 @@ export default {
 			{
 				label: "Coloring",
 				details: "complete",
-				price: "€ 49,00"
+				price: "€ 51,00"
+			},
+			{
+				label: "Colorfresh",
+				details: "",
+				price: "€ 18,00"
 			},
 			{
 				label: "Méche / Slices",
 				details: "half head",
-				price: "€ 76,00"
+				price: "€ 79,00"
 			},
 			{
 				label: "Méche / Slices",
@@ -67,7 +72,7 @@ export default {
 			{
 				label: "Méche",
 				details: "creative",
-				price: "€ 56,00"
+				price: "€ 59,00"
 			},
 			{
 				label: "Méche",

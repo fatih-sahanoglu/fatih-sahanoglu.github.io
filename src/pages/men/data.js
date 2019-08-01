@@ -36,7 +36,7 @@ export default {
 		service: [
 			{
 				label: "Wash, cut & style",
-				price: "€ 42,00"
+				price: "€ 45,00"
 			},
 			{
 				label: "Color refresh",
@@ -51,7 +51,7 @@ export default {
 			{
 				label: "Classic shave",
 				details: "with the good old razor",
-				price: "€ 37,00"
+				price: "€ 39,00"
 			}
 		]
 	}

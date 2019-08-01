@@ -23,6 +23,7 @@ import Photographic from "./pages/photographic";
 import Soulmate from "./pages/my-soulmate";
 import NotFound from "./pages/not-found";
 import {colors} from "./design-system";
+import Example from "./pages/example";
 
 const content = {
 	men: Men,
@@ -161,7 +162,7 @@ class App extends React.Component {
 					{routes.map((route, i) => (
 						<Route key={route.key} path={`/${route.path}`} component={content[route.key]} />
 					))}
-					<Route path="/" component={Home} exact={true} />
+					<Route path="/" component={Example} exact={true} />
 					<Route path="/*" component={NotFound} />
 				</Switch>
 				<Footer>

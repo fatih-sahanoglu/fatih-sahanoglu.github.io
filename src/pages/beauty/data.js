@@ -34,12 +34,12 @@ export default {
 			{
 				label: "Intense hand massage",
 				details: "(regenerate & strengthen)",
-				price: "€ 11,00"
+				price: "€ 12,00"
 			},
 			{
 				label: "Eyebrows",
 				details: "(color)",
-				price: "€ 9,00"
+				price: "€ 10,00"
 			},
 			{
 				label: "Eyebrows",

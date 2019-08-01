@@ -44,12 +44,12 @@ export default {
 			{
 				label: "Toddlers",
 				details: "two & younger",
-				price: "€ 17,00"
+				price: "€ 18,00"
 			},
 			{
 				label: "Kids",
 				details: "ten & younger",
-				price: "€ 27,00"
+				price: "€ 28,00"
 			}
 		]
 	}
