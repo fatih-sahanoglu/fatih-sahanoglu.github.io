@@ -8251,9 +8251,9 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-sharp-loader@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/sharp-loader/-/sharp-loader-1.1.0.tgz#4427a15d05251abc3030b70dd60bf1d21353ff32"
+sharp-loader@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/sharp-loader/-/sharp-loader-1.2.0.tgz#44fec9240ef0eedd1e6a0d6aa0658fe0dcae56f3"
   dependencies:
     cacache "^11.0.1"
     cartesian-product "^2.1.2"
