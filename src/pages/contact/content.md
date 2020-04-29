@@ -26,7 +26,7 @@ slideshow:
 ---
 
 ```fat
-Scharschmidtstr. 32  
+Schaarschmidtstr. 32  
 80995 _Munich_
 
 +49 176 20 977 087  
