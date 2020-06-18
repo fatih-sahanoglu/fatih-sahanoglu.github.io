@@ -66,7 +66,7 @@
 		"sharp": "0.23.1",
 		"sharp-loader": "1.1.0",
 		"webpack": "4.41.0",
-		"webpack-cli": "3.3.9",
+		"webpack-cli": "3.3.12",
 		"webpack-dev-server": "3.8.2",
 		"yaml-frontmatter-loader": "0.1.0"
 	}
