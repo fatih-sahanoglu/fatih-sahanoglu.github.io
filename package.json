@@ -1,12 +1,9 @@
 {
-	"name": "contentful-starter-gatsby-blog",
-	"description": "Contentful Gatsby Starter Blog",
+	"name": "kellerkind",
+	"description": "Kellerkind homepage",
 	"private": true,
 	"version": "0.0.1",
-	"author": "Contentful <opensource@contentful.com>",
-	"bugs": {
-		"url": "https://github.com/contentful/starter-gatsby-blog/issues"
-	},
+	"author": "Gregor Adams <greg@pixelass.com>",
 	"dependencies": {
 		"@popmotion/easing": "^1.0.2",
 		"@types/lodash": "^4.14.150",
@@ -46,11 +43,6 @@
 		"netlify-cli": "^2.50.0",
 		"prettier": "^2.0.5"
 	},
-	"keywords": [
-		"gatsby",
-		"contentful",
-		"starter"
-	],
 	"license": "MIT",
 	"main": "n/a",
 	"scripts": {
@@ -58,7 +50,7 @@
 		"prebuild": "gatsby clean",
 		"build": "gatsby build",
 		"serve": "gatsby serve",
-		"predeploy": "gatsby build --prefix-paths",
+		"predeploy": "gatsby build",
 		"deploy": "gh-pages -d public/",
 		"setup": "node ./bin/setup.js"
 	}

@@ -26,7 +26,6 @@ module.exports = {
 	siteMetadata: {
 		title: "Kellerkind"
 	},
-	pathPrefix: "/homepage",
 	plugins: [
 		{
 			resolve: `gatsby-plugin-typescript`,
