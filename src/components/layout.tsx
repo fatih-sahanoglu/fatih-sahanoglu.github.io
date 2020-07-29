@@ -106,7 +106,7 @@ const Layout: React.FC = ({children}) => {
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<Helmet>
-				<meta name="robots" content="noimageindex, noindex, nofollow, nosnippet" />
+				<meta name="robots" content="index,follow" />
 				<link rel="stylesheet" href="https://use.typekit.net/pxo7jmy.css" />
 			</Helmet>
 			<GridProvider grid={GRID}>
