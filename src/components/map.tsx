@@ -8,7 +8,7 @@ import {Spacing} from "./spacing";
 export function mapTilerProvider(x, y, z, dpr) {
 	return `https://api.maptiler.com/maps/pastel/256/${z}/${x}/${y}${
 		dpr >= 2 ? "@2x" : ""
-	}.png?key=m6RJDhG5gIKNLqIoASkS`;
+	}.png?key=${process.env.MAPTILER_ACCESS_TOKEN}`;
 }
 
 export interface ControlsProps {
