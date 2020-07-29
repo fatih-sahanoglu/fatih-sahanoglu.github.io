@@ -2,10 +2,10 @@ name: Kellerkind Build on Push
 on:
   push:
     branches:
-      - master
+      - source
   pull_request:
     branches:
-      - master
+      - source
 
 
 jobs:
@@ -44,3 +44,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
+          publish_branch: master
