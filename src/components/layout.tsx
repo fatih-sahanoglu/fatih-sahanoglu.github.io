@@ -27,7 +27,6 @@ const GlobalStyle = createGlobalStyle`
 		font-size: 16px;
 		line-height: 1.5;
 		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-		scroll-snap-type: y proximity;
 		scroll-behavior: smooth;
 	}
 	body {

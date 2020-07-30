@@ -9,7 +9,6 @@ export const Slides: React.FC<SlidesProps> = ({children}) => <>{children}</>;
 
 export const StyledPanel = styled(Column)`
 	position: relative;
-	touch-action: pan-x;
 	user-select: none;
 	img,
 	a {
@@ -101,7 +100,6 @@ export const LazyPanel: React.FC<CarouselPanelProps & Indexed> = ({
 
 export const SlidesWrapper = styled.div<SlidesWrapperProps>`
 	display: flex;
-	touch-action: cross-slide-x;
 	${({reverse, relative, height}) => css`
 		flex-direction: ${reverse ? "row-reverse" : "row"};
 		position: ${relative ? "relative" : "initial"};

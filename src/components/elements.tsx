@@ -59,7 +59,6 @@ export const RelativeBox = styled(Box)`
 export const RelativeStage = styled(Stage)`
 	overflow: hidden;
 	position: relative;
-	scroll-snap-align: start;
 	height: 100vh;
 `;
 export const AbsoluteGrid = styled(Grid)`
