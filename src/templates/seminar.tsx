@@ -31,7 +31,7 @@ function SeminarTemplate({intl, ...props}: any) {
 
 	return (
 		<Layout>
-			<Helmet title={`${post.name} | ${props.intl.messages.seminars} | ${siteTitle}`} />
+			<Helmet title={`${post.name} | ${intl.messages.seminars} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<Spacing size="l" />
