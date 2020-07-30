@@ -15,7 +15,7 @@ import {
 	Nav,
 	Slides
 } from "../components/carousel";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import {Spacing} from "../components/spacing";
 import FluidType from "../components/fluid-type";
 import {Table, Tbody, Td, Tr} from "../components/table";
@@ -23,7 +23,7 @@ import {CenterBox, FlexStretch} from "../components/common";
 import {price} from "../utils/number";
 import {injectIntl} from "gatsby-plugin-intl";
 
-function ServicesTemplate(props) {
+function ServicesTemplate(props: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const post = get(props, "data.contentfulServices");
 	const images = get(post, "gallery.images");

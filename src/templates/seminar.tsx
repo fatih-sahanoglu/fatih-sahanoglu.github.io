@@ -15,7 +15,7 @@ import {
 	Nav,
 	Slides
 } from "../components/carousel";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import {Spacing} from "../components/spacing";
 import FluidType from "../components/fluid-type";
 import {CenterBox, FlexStretch} from "../components/common";
@@ -24,7 +24,7 @@ import {Table, Tbody, Td, Tr} from "../components/table";
 
 import {injectIntl} from "gatsby-plugin-intl";
 
-function SeminarTemplate({intl, ...props}) {
+function SeminarTemplate({intl, ...props}: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const post = get(props, "data.contentfulSeminar");
 	const images = get(post, "gallery");

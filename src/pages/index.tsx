@@ -1,14 +1,14 @@
 import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import ArticlePreview from "../components/article-preview";
 import {Column, Row} from "../components/grid";
 import {Contentful} from "../components/elements";
 
-function RootIndex(props) {
+function RootIndex(props: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const posts = get(props, "data.allContentfulBlogPost.edges");
 	const slots = get(props, "data.contentfulPage.slots");

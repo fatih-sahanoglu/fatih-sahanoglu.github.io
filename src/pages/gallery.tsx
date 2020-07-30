@@ -7,10 +7,10 @@ import {Box, Column, Row} from "../components/grid";
 import {Spacing} from "../components/spacing";
 import {Cover, GalleryImage} from "../components/cover";
 import {ParallaxBox} from "../components/parallax";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import FluidType from "../components/fluid-type";
 
-function GalleryIndex(props) {
+function GalleryIndex(props: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const posts = get(props, "data.allContentfulGallery.edges");
 	return (

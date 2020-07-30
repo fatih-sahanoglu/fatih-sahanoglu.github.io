@@ -1,7 +1,7 @@
 import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import ArticlePreview from "../components/article-preview";
@@ -10,7 +10,7 @@ import GatsbyImage from "gatsby-image";
 import {Person} from "../components/person";
 import {Avatar, ImgWrapper} from "../components/avatar";
 
-function BlogIndex(props) {
+function BlogIndex(props: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const posts = get(props, "data.allContentfulBlogPost.edges");
 	const person = get(props, "data.contentfulPerson");

@@ -2,12 +2,12 @@ import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
 import {injectIntl} from "gatsby-plugin-intl";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import Layout from "../components/layout";
 import {Column, Row} from "../components/grid";
 import {Contentful} from "../components/elements";
 
-const Location = props => {
+const Location = (props: any) => {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const slots = get(props, "data.contentfulPage.slots");
 	return (

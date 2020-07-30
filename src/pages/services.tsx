@@ -6,11 +6,11 @@ import {Box, Column, Row} from "../components/grid";
 import {Spacing} from "../components/spacing";
 import {Cover, GalleryImage} from "../components/cover";
 import {ParallaxBox} from "../components/parallax";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import FluidType from "../components/fluid-type";
 import {injectIntl} from "gatsby-plugin-intl";
 
-function ServicesIndex(props) {
+function ServicesIndex(props: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const posts = get(props, "data.allContentfulServices.edges");
 	return (

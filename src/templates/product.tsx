@@ -1,6 +1,7 @@
 import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
+import {Helmet} from "react-helmet";
 import Layout from "../components/layout";
 import {Box, Column, Row} from "../components/grid";
 import {Img} from "../components/image";
@@ -9,7 +10,6 @@ import {
 	Carousel,
 	CarouselNav,
 	CarouselPageNumbers,
-	CarouselPanel,
 	ClipSlides,
 	FadePanel,
 	Nav,
@@ -19,7 +19,7 @@ import FluidType from "../components/fluid-type";
 import {Spacing} from "../components/spacing";
 import styled from "styled-components";
 import {Stretch} from "../components/spacing/stretch";
-import Helmet from "react-helmet";
+
 import {Tab, TabBar, TabContent, useTabs} from "../components/tabs";
 import {injectIntl} from "gatsby-plugin-intl";
 

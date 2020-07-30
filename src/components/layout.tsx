@@ -6,7 +6,7 @@ import {GridOverlay} from "./grid/GridOverlay";
 import {SpacingOverlay} from "./spacing/debugger";
 import {Column, Grid, GridProvider, Row} from "./grid";
 import {withPrefix} from "gatsby";
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 import {GRID} from "../theme/grid";
 import Footer from "./footer";
 
