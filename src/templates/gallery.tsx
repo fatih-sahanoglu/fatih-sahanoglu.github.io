@@ -1,6 +1,7 @@
 import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
+import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import {Helmet} from "react-helmet";
 import {Box, Column, Row} from "../components/grid";
@@ -8,7 +9,6 @@ import {Spacing} from "../components/spacing";
 import {ParallaxBox} from "../components/parallax";
 import {Cover, GalleryImage} from "../components/cover";
 import FluidType from "../components/fluid-type";
-import {injectIntl} from "gatsby-plugin-intl";
 
 function GalleryTemplate(props: any) {
 	const siteTitle = get(props, "data.site.siteMetadata.title");

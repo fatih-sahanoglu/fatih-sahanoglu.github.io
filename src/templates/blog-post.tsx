@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 import GatsbyImage from "gatsby-image";
 import Layout from "../components/layout";
 import ReactMarkdown from "react-markdown";
+import {injectIntl} from "gatsby-plugin-intl";
 import {Spacing} from "../components/spacing";
 import styled from "styled-components";
 import {Column, GUTTER, Row} from "../components/grid";
@@ -76,7 +77,7 @@ function BlogPostTemplate(props: any) {
 	);
 }
 
-export default BlogPostTemplate;
+export default injectIntl(BlogPostTemplate);
 
 export const pageQuery = graphql`
 	query BlogPostBySlug($slug: String!, $locale: String) {
