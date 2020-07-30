@@ -109,7 +109,7 @@ export const MobileNavigation: React.FC<WithClassName & WithIntl> = ({className,
 						style={{
 							fontSize: "2em"
 						}}>
-						<Logo />
+						<KellerkindLogo />
 					</HomeLink>
 					<Stretch>
 						<Link to={`/${intl.locale}/products`}>{intl.messages.products}</Link>
