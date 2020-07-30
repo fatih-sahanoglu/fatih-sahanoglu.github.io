@@ -31,7 +31,7 @@ function BlogPostTemplate(props) {
 
 	return (
 		<Layout>
-			<Helmet title={`${post.title} | ${siteTitle}`} />
+			<Helmet title={`${post.title} | ${props.intl.messages.blog} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<Img alt={post.title} fluid={post.heroImage.fluid} />

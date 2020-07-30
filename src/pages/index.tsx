@@ -2,6 +2,7 @@ import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
 import Helmet from "react-helmet";
+import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import ArticlePreview from "../components/article-preview";
 import {Column, Row} from "../components/grid";
@@ -42,7 +43,7 @@ function RootIndex(props) {
 	);
 }
 
-export default RootIndex;
+export default injectIntl(RootIndex);
 
 export const pageQuery = graphql`
 	query HomeQuery($locale: String) {

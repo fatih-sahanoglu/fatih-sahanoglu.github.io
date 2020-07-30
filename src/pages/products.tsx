@@ -15,7 +15,7 @@ function ProductsIndex(props) {
 	const posts = get(props, "data.allContentfulProduct.edges");
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Products`} />
+			<Helmet title={`${props.intl.messages.products} | ${siteTitle}`} />
 			<Row>
 				{posts.map((post, i) => {
 					const [image] = get(post, "node.gallery.images");

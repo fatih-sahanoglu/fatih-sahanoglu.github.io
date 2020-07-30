@@ -15,7 +15,7 @@ function SeminarIndex({intl, ...props}) {
 	const posts = get(props, "data.allContentfulSeminar.edges");
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Seminars`} />
+			<Helmet title={`${props.intl.messages.seminars} | ${siteTitle}`} />
 			<Row>
 				{posts.map((post, i) => {
 					const [image] = get(post, "node.gallery");

@@ -35,7 +35,7 @@ const FlexStretch = styled(Stretch)`
 	display: flex;
 `;
 
-const ProductTemplate: React.FC = props => {
+const ProductTemplate: React.FC<any> = props => {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const post = get(props, "data.contentfulProduct");
 	const images = get(post, "gallery.images");
@@ -50,7 +50,7 @@ const ProductTemplate: React.FC = props => {
 
 	return (
 		<Layout>
-			<Helmet title={`${post.name} | ${siteTitle}`} />
+			<Helmet title={`${post.name} | ${props.intl.messages.products} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<Spacing size="l" />

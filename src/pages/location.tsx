@@ -1,6 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
+import {injectIntl} from "gatsby-plugin-intl";
 import Helmet from "react-helmet";
 import Layout from "../components/layout";
 import {Column, Row} from "../components/grid";
@@ -11,7 +12,7 @@ const Location = props => {
 	const slots = get(props, "data.contentfulPage.slots");
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Location`} />
+			<Helmet title={`${props.intl.messages.location} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<h1>Location</h1>
@@ -28,7 +29,7 @@ const Location = props => {
 	);
 };
 
-export default Location;
+export default injectIntl(Location);
 
 export const pageQuery = graphql`
 	query LocatioQuery {

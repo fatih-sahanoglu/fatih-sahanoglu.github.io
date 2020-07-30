@@ -2,6 +2,7 @@ import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
 import Helmet from "react-helmet";
+import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import ArticlePreview from "../components/article-preview";
 import {Column, Row} from "../components/grid";
@@ -16,7 +17,7 @@ function BlogIndex(props) {
 
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Blog`} />
+			<Helmet title={`${props.intl.messages.blog} | ${siteTitle}`} />
 			<Row>
 				<Column s={1} m={2}>
 					<Person>
@@ -43,7 +44,7 @@ function BlogIndex(props) {
 	);
 }
 
-export default BlogIndex;
+export default injectIntl(BlogIndex);
 
 export const pageQuery = graphql`
 	query BlogIndexQuery($locale: String) {

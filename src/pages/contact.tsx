@@ -2,19 +2,21 @@ import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
 import Helmet from "react-helmet";
+import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import {Column, Row} from "../components/grid";
 import {Contentful} from "../components/elements";
 import ContactForm from "../components/contact-form";
 import ReactMarkdown from "react-markdown";
 import {toPhone} from "../utils/number";
+
 const ContactPage = props => {
 	const siteTitle = get(props, "data.site.siteMetadata.title");
 	const slots = get(props, "data.contentfulPage.slots");
 	const location = get(props, "data.contentfulLocation");
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Contact`} />
+			<Helmet title={`${props.intl.messages.contact} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<h1>Contact</h1>
@@ -40,7 +42,7 @@ const ContactPage = props => {
 	);
 };
 
-export default ContactPage;
+export default injectIntl(ContactPage);
 
 export const pageQuery = graphql`
 	query ContactQuery {

@@ -30,7 +30,7 @@ function ServicesTemplate(props) {
 	const autoplay = get(post, "autoplay");
 	return (
 		<Layout>
-			<Helmet title={`${post.name} | ${siteTitle}`} />
+			<Helmet title={`${post.name} | ${props.intl.messages.services} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<Spacing size="l" />

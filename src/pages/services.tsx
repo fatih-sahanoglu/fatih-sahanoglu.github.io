@@ -3,7 +3,6 @@ import {graphql, Link} from "gatsby";
 import get from "lodash/get";
 import Layout from "../components/layout";
 import {Box, Column, Row} from "../components/grid";
-import {Title} from "../components/title";
 import {Spacing} from "../components/spacing";
 import {Cover, GalleryImage} from "../components/cover";
 import {ParallaxBox} from "../components/parallax";
@@ -16,7 +15,7 @@ function ServicesIndex(props) {
 	const posts = get(props, "data.allContentfulServices.edges");
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Services`} />
+			<Helmet title={`${props.intl.messages.services} | ${siteTitle}`} />
 			<Row>
 				{posts.map((post, i) => {
 					const [image] = get(post, "node.gallery.images");

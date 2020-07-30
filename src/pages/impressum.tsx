@@ -2,6 +2,7 @@ import React from "react";
 import {graphql} from "gatsby";
 import get from "lodash/get";
 import Helmet from "react-helmet";
+import {injectIntl} from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import {Column, Row} from "../components/grid";
 import {Contentful} from "../components/elements";
@@ -11,7 +12,7 @@ const Impressum = props => {
 	const slots = get(props, "data.contentfulPage.slots");
 	return (
 		<Layout>
-			<Helmet title={`${siteTitle} | Impressum`} />
+			<Helmet title={`${props.intl.messages.imprint} | ${siteTitle}`} />
 			<Row>
 				<Column raw>
 					<h1>Impressum</h1>
@@ -28,7 +29,7 @@ const Impressum = props => {
 	);
 };
 
-export default Impressum;
+export default injectIntl(Impressum);
 
 export const pageQuery = graphql`
 	query ImprintQuery {
