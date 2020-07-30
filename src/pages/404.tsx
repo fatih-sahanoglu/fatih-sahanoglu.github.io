@@ -9,7 +9,7 @@ function NotFound(props: any) {
 	const siteTitle = get(this, "props.data.site.siteMetadata.title");
 	return (
 		<Layout>
-			<Helmet title={`${props.intl.messages.notfound.title} | ${siteTitle}`} />
+			<Helmet title={`${props.intl.messages.notfound.header} | ${siteTitle}`} />
 			<h2>{props.intl.messages.notfound.description}</h2>
 		</Layout>
 	);
