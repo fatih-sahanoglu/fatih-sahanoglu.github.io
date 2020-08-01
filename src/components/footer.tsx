@@ -8,7 +8,7 @@ import ReactMarkdown from "react-markdown";
 import {toPhone} from "../utils/number";
 import {DE} from "./flags/de";
 import {US} from "./flags/us";
-import {KellerkindLogo} from "./logo";
+import {KellerkindLogo, PngLogo} from "./logo";
 import Kellerkind from "./kellerkind";
 
 const Nav = styled.nav`
@@ -184,14 +184,16 @@ const Footer: React.FC<WithIntl> = ({intl}) => {
 							<h3>
 								{intl.messages.address} & {intl.messages.more}
 							</h3>
+							<Kellerkind />
+							<ReactMarkdown
+								source={location.address.childMarkdownRemark.rawMarkdownBody}
+							/>
 							<div>
 								<a href={`tel:${toPhone(location.telephone)}`}>
 									{location.telephone}
 								</a>
 							</div>
-							<ReactMarkdown
-								source={location.address.childMarkdownRemark.rawMarkdownBody}
-							/>
+							<Spacing size="xs" />
 							<div>
 								<Social
 									href="https://www.facebook.com/Fatih-Sahanoglucom-234829333300330"
@@ -215,7 +217,7 @@ const Footer: React.FC<WithIntl> = ({intl}) => {
 							<h3>
 								<Language intl={intl} />
 							</h3>
-							<KellerkindLogo style={{fontSize: "10em"}} />
+							<PngLogo style={{fontSize: "7em"}} />
 						</Column>
 					</Row>
 				</Grid>

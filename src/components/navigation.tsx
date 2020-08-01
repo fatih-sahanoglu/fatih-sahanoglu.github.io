@@ -8,9 +8,7 @@ import {minMax} from "../utils/number";
 import {useTheme} from "../theme/theme";
 import {injectIntl} from "gatsby-plugin-intl";
 
-const Nav = styled.nav`
-	background: linear-gradient(to top, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0.9));
-	color: black;
+const Nav = styled.nav<{sticky?: boolean}>`
 	position: sticky;
 	width: 100%;
 	top: 0;
@@ -20,6 +18,14 @@ const Nav = styled.nav`
 	align-content: center;
 	align-items: center;
 	overflow: hidden;
+	background: linear-gradient(to top, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255, 0.5));
+	color: black;
+	${({sticky}) =>
+		sticky &&
+		css`
+			box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.01), 0 0 10px 0 rgba(0, 0, 0, 0.03);
+			backdrop-filter: saturate(400%) blur(10px);
+		`};
 `;
 
 const Stretch = styled.div<{justify?: string}>`
@@ -109,7 +115,7 @@ export const MobileNavigation: React.FC<WithClassName & WithIntl> = ({className,
 						style={{
 							fontSize: "2em"
 						}}>
-						<KellerkindLogo />
+						<Logo />
 					</HomeLink>
 					<Stretch>
 						<Link to={`/${intl.locale}/products`}>{intl.messages.products}</Link>
@@ -128,7 +134,10 @@ export const MainNavigation: React.FC<WithClassName & WithIntl> = ({className, i
 	const scrollY = useScrollY();
 	const minSizeDiff = header.height - header.minHeight;
 	const offset = header.height - minMax(0, minSizeDiff, scrollY);
+	const sizeDiff = header.height - offset;
 	const scale = offset / header.height;
+	const sticky = offset === header.minHeight;
+	const rotation = (sizeDiff / minSizeDiff) * 180 + 180;
 	return (
 		<Stage className={className}>
 			<Header>
@@ -136,7 +145,8 @@ export const MainNavigation: React.FC<WithClassName & WithIntl> = ({className, i
 					role="navigation"
 					style={{
 						height: offset
-					}}>
+					}}
+					sticky={sticky}>
 					<Stretch justify="flex-end">
 						<Link to={`/${intl.locale}/services`}>{intl.messages.services}</Link>
 						<Link to={`/${intl.locale}/location`}>{intl.messages.location}</Link>
@@ -145,9 +155,9 @@ export const MainNavigation: React.FC<WithClassName & WithIntl> = ({className, i
 						to="/"
 						style={{
 							fontSize: logo.size,
-							transform: `scale3d(${scale}, ${scale}, 1)`
+							transform: `scale3d(${scale}, ${scale}, 1) rotate3d(0,0,1,${rotation}deg)`
 						}}>
-						<KellerkindLogo />
+						<Logo />
 					</HomeLink>
 					<Stretch>
 						<Link to={`/${intl.locale}/products`}>{intl.messages.products}</Link>

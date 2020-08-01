@@ -14,6 +14,18 @@ export const Logo = props => (
 		<path fill="currentColor" d={tree} />
 	</Svg>
 );
+export const PngLogoWrapper = styled.div`
+	width: 1em;
+	img {
+		width: 100%;
+	}
+`;
+export const PngLogo = props => (
+	<PngLogoWrapper {...props}>
+		<img src="/images/logo_light.png" alt="logo" />
+	</PngLogoWrapper>
+);
+
 export const LogoWrapper = styled.div`
 	position: relative;
 	display: inline-flex;
