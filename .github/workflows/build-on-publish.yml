@@ -5,7 +5,7 @@ on:
     types: [publish-event]
 
 permissions:
-  contents: write  # nötig für gh-pages Push
+  contents: write
 
 concurrency:
   group: kellerkind-deploy
